@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour
@@ -20,6 +21,7 @@ public class BulletController : MonoBehaviour
         velocity = new Vector2(angle.x, angle.y).normalized;
 
         transform.position = transform.position + velocity * startingDistance;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg));
 
         Destroy(gameObject, secondsAlive);
     }
