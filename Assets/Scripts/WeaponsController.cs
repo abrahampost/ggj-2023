@@ -103,6 +103,8 @@ public class WeaponsController : MonoBehaviour
             isMeleeing = false;
             player.GetComponent<BoxCollider2D>().isTrigger = false;
         });
+
+        meleeObject.GetComponent<MeleeController>().meleeSpeed = 1/meleeTime;
     }
 
     private void InstantiateFireball()
