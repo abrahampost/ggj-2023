@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class SettingsController : MonoBehaviour
 {
+    public Texture2D cursorTexture;
+    public CursorMode cursorMode = CursorMode.Auto;
+    public Vector2 hotSpot = Vector2.zero;
     GameState gameState;
     private UIDocument doc;
     private TextField seedText;
@@ -14,9 +17,19 @@ public class SettingsController : MonoBehaviour
 
     private Button submitButton;
 
+    void OnMouseEnter()
+    {
+        UnityEngine.Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+    }
+
+    void OnMouseExit()
+    {
+        UnityEngine.Cursor.SetCursor(null, Vector2.zero, cursorMode);
+    }
     private void Awake() {
         doc = GetComponent<UIDocument>();
         gameState = GameObject.Find("GameState").GetComponent<GameState>();
+        
 
         seedText = doc.rootVisualElement.Q<TextField>("seedText");
         seedText.value = "" + gameState.settings.seed;

@@ -35,10 +35,6 @@ public class FireballController : MonoBehaviour
         Destroy(gameObject, secondsAlive);
     }
 
-    private void OnDestroy()
-    {
-    }
-
     void FixedUpdate()
     {
         rb.velocity = velocity * Time.deltaTime * 100 * speed;
