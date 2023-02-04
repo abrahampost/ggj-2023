@@ -6,6 +6,8 @@ public class MeleeController : MonoBehaviour
 {
     [HideInInspector]
     public float meleeSpeed = 1.0f;
+    [HideInInspector]
+    public float damage = 10.0f;
     private GameObject player;
 
     void Start()

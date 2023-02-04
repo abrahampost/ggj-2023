@@ -6,6 +6,10 @@ public class WindDashController : MonoBehaviour
 {
     [HideInInspector] 
     public float dashSpeed = 20.0f;
+    [HideInInspector]
+    public float damage = 10.0f;
+    [HideInInspector]
+    public float speedAffect = .5f;
     private Rigidbody2D player;
     private Vector2 dashDirection;
 
