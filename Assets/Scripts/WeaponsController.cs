@@ -6,7 +6,13 @@ public class WeaponsController : MonoBehaviour
 {
     public float globalCooldown = .5f;
     private bool isOnGlobalCooldown = false;
-    
+
+    [Header("Melee")]
+    public GameObject melee;
+    public KeyCode meleeKeyBind;
+    public float meleeCooldown = 2.0f;
+    private bool isMeleeOnCooldown = false;
+
     [Header("Fireball")]
     public GameObject fireball;
     public KeyCode fireballKeyBind;
@@ -36,7 +42,16 @@ public class WeaponsController : MonoBehaviour
     {
         if (!isOnGlobalCooldown)
         {
-            if (Input.GetKey(fireballKeyBind) && !isFireballOnCooldown)
+            if (Input.GetKey(meleeKeyBind) && !isMeleeOnCooldown)
+            {
+                Instantiate(melee, transform.position, transform.rotation);
+                isMeleeOnCooldown = true;
+                isOnGlobalCooldown = true;
+                Task.Delay(TimeSpan.FromSeconds(meleeCooldown)).ContinueWith((task) => isMeleeOnCooldown = false);
+                Task.Delay(TimeSpan.FromSeconds(globalCooldown)).ContinueWith((task) => isOnGlobalCooldown = false);
+            }
+
+            else if (Input.GetKey(fireballKeyBind) && !isFireballOnCooldown)
             {
                 Instantiate(fireball, transform.position, transform.rotation);
                 isFireballOnCooldown = true;

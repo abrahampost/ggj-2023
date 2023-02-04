@@ -517,7 +517,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -554,6 +554,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8322506543688107386, guid: ce89153746f5d76419cfbfd118e8f63f, type: 3}
     - target: {fileID: 761267621, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
+      propertyPath: melee
+      value: 
+      objectReference: {fileID: 8322506543688107386, guid: 6abb8570810d1c1428318bbf8212e6e4, type: 3}
+    - target: {fileID: 761267621, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
       propertyPath: thorns
       value: 
       objectReference: {fileID: 8322506543688107386, guid: 7c574b78f37e5a544af18735e51ff3ab, type: 3}
@@ -570,12 +574,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 761267621, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
+      propertyPath: meleeKeyBind
+      value: 323
+      objectReference: {fileID: 0}
+    - target: {fileID: 761267621, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
       propertyPath: thornsKeyBind
       value: 101
       objectReference: {fileID: 0}
     - target: {fileID: 761267621, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
       propertyPath: fireballKeyBind
-      value: 323
+      value: 113
       objectReference: {fileID: 0}
     - target: {fileID: 761267621, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
       propertyPath: coneOfColdKeyBind
