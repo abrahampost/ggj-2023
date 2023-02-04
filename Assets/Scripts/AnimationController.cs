@@ -37,8 +37,9 @@ public class AnimationController : MonoBehaviour
     }
 
     // Attack Animations
-    public void AttackAnimation()
+    public void AttackAnimation(float speed)
     {
+        animator.SetFloat("melee_speed", speed);
         animator.SetTrigger("attack");
     }
 

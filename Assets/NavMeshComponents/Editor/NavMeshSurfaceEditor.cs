@@ -1,16 +1,15 @@
 #define NAVMESHCOMPONENTS_SHOW_NAVMESHDATA_REF
 
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using UnityEditor.Experimental.SceneManagement;
 using UnityEditor.IMGUI.Controls;
-using UnityEditor.SceneManagement;
 using UnityEditorInternal;
 using UnityEngine.AI;
 using UnityEngine;
+using UnityEditor;
+using UnityEditor.AI;
+using NavMeshPlus.Components;
 
-namespace UnityEditor.AI
+namespace NavMeshPlus.Editors.Components
 {
     [CanEditMultipleObjects]
     [CustomEditor(typeof(NavMeshSurface))]
@@ -386,7 +385,7 @@ namespace UnityEditor.AI
             }
         }
 
-        [MenuItem("GameObject/AI/NavMesh Surface", false, 2000)]
+        [MenuItem("GameObject/Navigation/NavMesh Surface", false, 2000)]
         public static void CreateNavMeshSurface(MenuCommand menuCommand)
         {
             var parent = menuCommand.context as GameObject;
