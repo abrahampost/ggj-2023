@@ -10,9 +10,13 @@ public class MovementController : MonoBehaviour
     public float speed;
     private Vector2 movement;
 
+    // audio
+    private PlayerSoundController soundController;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        soundController = GetComponent<PlayerSoundController>();
     }
 
     private void FixedUpdate()
@@ -24,5 +28,8 @@ public class MovementController : MonoBehaviour
 
         // Animations
         animator.SetFloat("speed", Mathf.Abs(movement.x));
+
+        // Audio
+        soundController.PlayFootStepsIfMoving(movement);
     }
 }
