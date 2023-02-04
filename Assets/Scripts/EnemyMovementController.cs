@@ -30,7 +30,7 @@ public class EnemyMovementController : MonoBehaviour
         rb.MovePosition(rb.position + movement);
 
         // Animation
-        animationController.MovementAnimations(movement);
+        animationController.MovementAnimation(movement);
 
  		// Audio
         soundController.PlayFootStepsIfMoving(movement);

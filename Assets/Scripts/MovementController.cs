@@ -30,7 +30,7 @@ public class MovementController : MonoBehaviour
         rb.velocity = movement;
 
         // Animation
-        animationController.MovementAnimations(movement);
+        animationController.MovementAnimation(movement);
 
  		// Audio
         soundController.PlayFootStepsIfMoving(movement);
