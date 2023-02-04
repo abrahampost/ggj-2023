@@ -40,7 +40,7 @@ public class ThornsController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Destroy(gameObject);
+            //Debug.Log("Enemy Hit");
         }
     }
 
