@@ -101,6 +101,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -7434,8 +7446,8 @@ TextureImporter:
       GRASS+_110: -1709030814
       GRASS+_44: -1230797315
       GRASS+_208: -2026334575
-      GRASS+_215: 841058112
       GRASS+_235: -1702762016
+      GRASS+_215: 841058112
       GRASS+_209: -1390722352
       GRASS+_111: -1064583348
       GRASS+_163: 1627181059
@@ -7470,9 +7482,9 @@ TextureImporter:
       GRASS+_249: -1056141155
       GRASS+_64: 849635224
       GRASS+_76: 900127957
+      GRASS+_98: 2033842465
       GRASS+_119: -340602977
       GRASS+_314: 585793831
-      GRASS+_98: 2033842465
       GRASS+_310: 2104204153
       GRASS+_77: 915071162
       GRASS+_48: -234699342
@@ -7496,10 +7508,10 @@ TextureImporter:
       GRASS+_217: -1430642449
       GRASS+_102: 1937338231
       GRASS+_197: -1019499058
-      GRASS+_266: -678960920
       GRASS+_143: -1788406892
-      GRASS+_33: -314845605
+      GRASS+_266: -678960920
       GRASS+_271: 1522917161
+      GRASS+_33: -314845605
       GRASS+_328: -527599308
       GRASS+_135: 1004395846
       GRASS+_150: 1611927693
@@ -7538,8 +7550,8 @@ TextureImporter:
       GRASS+_117: 233387526
       GRASS+_192: -589343585
       GRASS+_45: -1533490910
-      GRASS+_299: 272233173
       GRASS+_248: 1445560635
+      GRASS+_299: 272233173
       GRASS+_318: 640620758
       GRASS+_202: -2104330927
       GRASS+_229: -60230941
@@ -7595,10 +7607,10 @@ TextureImporter:
       GRASS+_14: 1680283399
       GRASS+_341: 1497874546
       GRASS+_73: 1245749520
+      GRASS+_242: 118334374
       GRASS+_297: -1668233495
       GRASS+_22: 194129968
       GRASS+_260: 44034381
-      GRASS+_242: 118334374
       GRASS+_32: 525761983
       GRASS+_8: -1425088588
       GRASS+_53: -280011046
@@ -7612,15 +7624,15 @@ TextureImporter:
       GRASS+_282: 130312637
       GRASS+_340: -271621445
       GRASS+_207: 1327433228
-      GRASS+_334: -964467731
+      GRASS+_199: -1570889246
       GRASS+_18: -1821161012
       GRASS+_56: 584744815
-      GRASS+_199: -1570889246
+      GRASS+_334: -964467731
       GRASS+_245: -2047010621
       GRASS+_201: -719585264
       GRASS+_96: -1048199196
-      GRASS+_300: 199860626
       GRASS+_189: 1990605587
+      GRASS+_300: 199860626
       GRASS+_140: 426306248
       GRASS+_336: 1869359939
       GRASS+_219: 1333577865
@@ -7637,8 +7649,8 @@ TextureImporter:
       GRASS+_220: -2132349914
       GRASS+_184: -2115862754
       GRASS+_182: 1257474759
-      GRASS+_316: 1397518433
       GRASS+_240: 590859199
+      GRASS+_316: 1397518433
       GRASS+_289: 313093989
       GRASS+_137: 713049543
       GRASS+_204: -801681050
@@ -7683,9 +7695,9 @@ TextureImporter:
       GRASS+_257: -1096790326
       GRASS+_74: -960899530
       GRASS+_103: 1545186567
-      GRASS+_211: -1762780071
       GRASS+_142: -1336226221
       GRASS+_298: -337741657
+      GRASS+_211: -1762780071
       GRASS+_47: -1278152703
       GRASS+_327: -1117378600
       GRASS+_28: -1519430560

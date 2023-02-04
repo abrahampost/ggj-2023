@@ -271,7 +271,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doc: {fileID: 948511295}
-  scale: 3
 --- !u!4 &588088678
 Transform:
   m_ObjectHideFlags: 0
