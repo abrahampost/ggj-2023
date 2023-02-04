@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
+    private static bool instantiated;
     public ForestTile[][] tiles;
-
 
     public struct Settings {
         public int seed;
@@ -12,9 +12,20 @@ public class GameState : MonoBehaviour
         public int scale;
     }
 
+
+    public struct SelectedLevel {
+        public int x;
+        public int y;
+    }
+
     public Settings settings;
+    public SelectedLevel selectedLevel;
 
     void Awake() {
+        if (instantiated) {
+            Destroy(this);
+        }
+        instantiated = true;
         DontDestroyOnLoad(gameObject);
     }
 
@@ -42,8 +53,10 @@ public class GameState : MonoBehaviour
                     terrainType = ForestTile.TerrainType.RIVER;
                 } else if (noise < .4f) {
                     terrainType = ForestTile.TerrainType.SWAMP;
-                } else if (noise < .7f) {
+                } else if (noise < .6f) {
                     terrainType = ForestTile.TerrainType.PLAIN;
+                } else if (noise < .7f) {
+                    terrainType = ForestTile.TerrainType.TUNDRA;
                 } else {
                     terrainType = ForestTile.TerrainType.MOUNTAIN;
                 }

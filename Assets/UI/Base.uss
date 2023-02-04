@@ -6,7 +6,6 @@
 }
 
 .forest-button {
-    box-sizing: border-box;
     width: 48px;
     height: 48px;
     margin: 0;
@@ -24,7 +23,7 @@
 .mountain {
     -unity-background-image-tint-color: rgb(255, 255, 255);
     background-color: rgb(101, 101, 101);
-    background-image: url('project://database/Assets/sprites/tilesets/map_tiles/mountain_tile_1%20(1).png?fileID=2800000&guid=b3beec42ac1c6794fbac821d93971143&type=3#mountain_tile_1 (1)');
+    background-image: url('project://database/Assets/sprites/tilesets/map_tiles/mountain_tile_2.png?fileID=2800000&guid=0b558cbc00e8b5c4791686c731170d23&type=3#mountain_tile_2');
 }
 
 .river {
@@ -51,4 +50,14 @@
     justify-content: center;
     flex-direction: row;
     flex-shrink: 0;
+}
+
+.tree-preview {
+    background-image: url('project://database/Assets/sprites/tilesets/map_tiles/tree-preview.png?fileID=2800000&guid=5b3fed482f310e649ae7fc8eceecb5b9&type=3#tree-preview');
+    width: 32px;
+    height: 32px;
+}
+
+.tundra {
+    background-image: url('project://database/Assets/sprites/tilesets/map_tiles/tundra_tile_1.png?fileID=2800000&guid=30391d8aae4fd854db0421741454bce9&type=3#tundra_tile_1');
 }
