@@ -23,8 +23,8 @@ public class MovementController : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        movement = new Vector2(horizontal, vertical).normalized * speed * Time.deltaTime;
-        rb.MovePosition(rb.position + movement);
+        movement = new Vector2(horizontal, vertical).normalized * speed;
+        rb.velocity = movement;
 
         UpdateAnimations();
 

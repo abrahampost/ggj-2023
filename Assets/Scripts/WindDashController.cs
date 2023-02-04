@@ -11,14 +11,14 @@ public class WindDashController : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>();
-        dashDirection = new Vector2(player.transform.forward.x, player.transform.forward.y);
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        dashDirection = player.velocity.normalized;
 
         Destroy(gameObject, dashTime);
     }
 
     private void FixedUpdate()
     {
-        player.MovePosition(player.position + Vector2.left * dashSpeed * Time.deltaTime);
+        player.MovePosition(player.position + dashDirection * dashSpeed * Time.deltaTime);
     }
 }
