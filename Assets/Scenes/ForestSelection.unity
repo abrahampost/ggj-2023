@@ -274,7 +274,7 @@ MonoBehaviour:
   width: 24
   height: 16
   scale: 3
-  seed: 0
+  seed: 25
 --- !u!4 &588088678
 Transform:
   m_ObjectHideFlags: 0
