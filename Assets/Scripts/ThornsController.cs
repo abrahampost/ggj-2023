@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class ThornsController : MonoBehaviour
 {
+    [HideInInspector]
     public float secondsAlive = 1.0f;
+    [HideInInspector]
     public float minDistance = .4f;
+    [HideInInspector]
     public float maxDistance = 2f;
 
     private Rigidbody2D rb;

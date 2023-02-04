@@ -10,31 +10,42 @@ public class WeaponsController : MonoBehaviour
     [Header("Melee")]
     public GameObject melee;
     public KeyCode meleeKeyBind;
-    public float meleeCooldown = 2.0f;
+    public float meleeCooldown;
+    public float meleeTime;
     private bool isMeleeOnCooldown = false;
 
     [Header("Fireball")]
     public GameObject fireball;
     public KeyCode fireballKeyBind;
-    public float fireballCooldown = 2.0f;
+    public float fireballCooldown;
+    public float fireballSpeed;
+    public float fireballSecondsAlive;
+    public float fireballStartingDistance;
     private bool isFireballOnCooldown = false;
 
     [Header("Cone of Cold")]
     public GameObject coneOfCold;
     public KeyCode coneOfColdKeyBind;
-    public float coneOfColdCooldown = 2.0f;
+    public float coneOfColdCooldown;
+    public float coneOfColdSecondsAlive; 
+    public float coneOfColdStartingDistance;
     private bool isConeOfColdOnCooldown = false;
 
     [Header("Dash")]
     public GameObject dash;
     public KeyCode dashKeyBind;
-    public float dashCooldown = 2.0f;
+    public float dashCooldown;
+    public float dashTime;
+    public float dashSpeed;
     private bool isDashOnCooldown = false;
 
     [Header("Thorns")]
     public GameObject thorns;
     public KeyCode thornsKeyBind;
-    public float thornsCooldown = 2.0f;
+    public float thornsCooldown;
+    public float thornsSecondsAlive;
+    public float thornsMinDistance;
+    public float thornsMaxDistance;
     private bool isThornsOnCooldown = false;
 
     // Update is called once per frame
@@ -71,43 +82,55 @@ public class WeaponsController : MonoBehaviour
 
     private void InstantiateMelee()
     {
-        InstantiateObject(melee);
+        var meleeObject = InstantiateObject(melee);
         isMeleeOnCooldown = true;
         Task.Delay(TimeSpan.FromSeconds(meleeCooldown)).ContinueWith((task) => isMeleeOnCooldown = false);
+        meleeObject.GetComponent<MeleeController>().meleeTime = meleeTime;
     }
 
     private void InstantiateFireball()
     {
-        InstantiateObject(fireball);
+        var fireballObject = InstantiateObject(fireball);
         isFireballOnCooldown = true;
         Task.Delay(TimeSpan.FromSeconds(fireballCooldown)).ContinueWith((task) => isFireballOnCooldown = false);
+        fireballObject.GetComponent<FireballController>().speed = fireballSpeed;
+        fireballObject.GetComponent<FireballController>().secondsAlive = fireballSpeed;
+        fireballObject.GetComponent<FireballController>().startingDistance = fireballStartingDistance;
     }
 
     private void InstantiateConeOfCold()
     {
-        InstantiateObject(coneOfCold);
+        var coneOfColdObject = InstantiateObject(coneOfCold);
         isConeOfColdOnCooldown = true;
         Task.Delay(TimeSpan.FromSeconds(coneOfColdCooldown)).ContinueWith((task) => isConeOfColdOnCooldown = false);
+        coneOfColdObject.GetComponent<ConeOfColdController>().secondsAlive = coneOfColdSecondsAlive;
+        coneOfColdObject.GetComponent<ConeOfColdController>().startingDistance = coneOfColdStartingDistance;
     }
 
     private void InstantiateDash()
     {
-        InstantiateObject(dash);
+        var dashObject = InstantiateObject(dash);
         isDashOnCooldown = true;
         Task.Delay(TimeSpan.FromSeconds(dashCooldown)).ContinueWith((task) => isDashOnCooldown = false);
+        dashObject.GetComponent<WindDashController>().dashSpeed = dashSpeed;
+        dashObject.GetComponent<WindDashController>().dashTime = dashTime;
     }
 
     private void InstantiateThorns()
     {
-        InstantiateObject(thorns);
+        var thornsObject = InstantiateObject(thorns);
         isThornsOnCooldown = true;
         Task.Delay(TimeSpan.FromSeconds(thornsCooldown)).ContinueWith((task) => isThornsOnCooldown = false);
+        thornsObject.GetComponent<ThornsController>().secondsAlive = thornsSecondsAlive;
+        thornsObject.GetComponent<ThornsController>().minDistance = thornsMinDistance;
+        thornsObject.GetComponent<ThornsController>().maxDistance = thornsMaxDistance;
     }
 
-    private void InstantiateObject(GameObject gameObject) 
+    private GameObject InstantiateObject(GameObject gameObject) 
     {
-        Instantiate(gameObject, transform.position, transform.rotation);
+        GameObject newObject = Instantiate(gameObject, transform.position, transform.rotation);
         isOnGlobalCooldown = true;
         Task.Delay(TimeSpan.FromSeconds(globalCooldown)).ContinueWith((task) => isOnGlobalCooldown = false);
+        return newObject;
     }
 }
