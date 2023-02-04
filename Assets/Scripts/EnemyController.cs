@@ -15,8 +15,8 @@ public class EnemyController : MonoBehaviour
     private GameObject player;
 
     // stats
-    private int health = 10;
-    private int damage = 2;
+    private float health = 10f;
+    private float damage = 2f;
     
     // audio
     private PlayerSoundController soundController;
@@ -78,7 +78,7 @@ public class EnemyController : MonoBehaviour
         agent.SetDestination(new Vector2(target.x, target.y));
     }
 
-    public void decreaseHealth(int damageDelt)
+    public void decreaseHealth(float damageDelt)
     {
         health -= damageDelt;
 

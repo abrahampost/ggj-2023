@@ -11,6 +11,11 @@ public class ThornsController : MonoBehaviour
     [HideInInspector]
     public float maxDistance = 2f;
 
+    [HideInInspector]
+    public float damage = 10.0f;
+    [HideInInspector]
+    public float speedAffect = .5f;
+
     private Rigidbody2D rb;
     private Vector3 velocity;
 
