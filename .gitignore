@@ -61,6 +61,7 @@ crashlytics-build.properties
 # Unity stuff that shouldn't be on github
 UserSettings/Layouts/*
 ProjectSettings/ShaderGraphSettings.asset
+UserSettings/EditorUserSettings.asset
 
 # Vim files
 *~
