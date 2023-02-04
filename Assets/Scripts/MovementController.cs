@@ -25,20 +25,24 @@ public class MovementController : MonoBehaviour
         UpdateAnimations();
     }
 
+    // Animations
     private void UpdateAnimations() 
     {
-        // Animations
+        // Left and Right
         if (movement.x < 0) {
             transform.localScale = new Vector3(-1, 1, 1);
         } else if (movement.x > 0) {
             transform.localScale = new Vector3(1, 1, 1);
         }
 
+        // Idling for up/down motion
         if (movement.x == 0) {
             animator.SetBool("is_idle", true);
         } else {
             animator.SetBool("is_idle", false);
         }
+
+        // Running?
         animator.SetFloat("speed_x", Mathf.Abs(movement.x));
         animator.SetFloat("speed_y", movement.y);
 
