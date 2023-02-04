@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class WindDashController : MonoBehaviour
 {
+    [HideInInspector]
     public float dashTime = 1.0f;
+    [HideInInspector] 
     public float dashSpeed = 20.0f;
     private Rigidbody2D player;
     private Vector2 dashDirection;

@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class FireballController : MonoBehaviour
 {
+    [HideInInspector]
     public float speed = 5.0f;
+    [HideInInspector]
     public float secondsAlive = 5.0f;
+    [HideInInspector]
     public float startingDistance = .2f;
 
     private Rigidbody2D rb;
@@ -30,10 +33,6 @@ public class FireballController : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg));
 
         Destroy(gameObject, secondsAlive);
-    }
-
-    private void OnDestroy()
-    {
     }
 
     void FixedUpdate()
