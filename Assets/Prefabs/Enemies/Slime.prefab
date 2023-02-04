@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1295273684121254302}
   - component: {fileID: 1295273684121254303}
   - component: {fileID: 1295273684121254288}
-  - component: {fileID: 1295273684121254289}
+  - component: {fileID: 2341397680992251088}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
@@ -97,7 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8599311b0adb3afe79a8778ba7f5511a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1295273684855529728}
   gameObject: {fileID: 1295273684855529731}
 --- !u!114 &1295273684121254288
 MonoBehaviour:
@@ -113,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footstep: {fileID: 8300000, guid: 2f4aa043a56231043a5a3242ff71258a, type: 3}
   audioSource: {fileID: 1295273684699846488}
---- !u!114 &1295273684121254289
+--- !u!114 &2341397680992251088
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
