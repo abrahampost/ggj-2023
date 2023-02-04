@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ConeOfColdController : MonoBehaviour
 {
+    [HideInInspector]
     public float secondsAlive = 1.0f;
+    [HideInInspector]
     public float startingDistance = .2f;
 
     private Rigidbody2D rb;
@@ -24,7 +26,6 @@ public class ConeOfColdController : MonoBehaviour
         Debug.Log(startingDistance);
         transform.position = transform.position + velocity * startingDistance;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg - 90));
-
         Destroy(gameObject, secondsAlive);
     }
 
@@ -32,8 +33,7 @@ public class ConeOfColdController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Destroy(gameObject);
+            Debug.Log("Hit Enemy");
         }
     }
-
 }

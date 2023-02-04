@@ -1,0 +1,4 @@
+.field {
+    background-color: rgba(32, 32, 255, 1);
+    -unity-text-align: middle-center;
+}

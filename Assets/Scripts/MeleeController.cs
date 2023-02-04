@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MeleeController : MonoBehaviour
 {
+    [HideInInspector]
     public float meleeTime = .5f;
     private GameObject player;
 
@@ -11,7 +12,7 @@ public class MeleeController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         var animationController = player.GetComponent<AnimationController>();
-        animationController.AttackAnimation();
+        animationController.AttackAnimation(1.0f);
 
         Destroy(gameObject, meleeTime);
     }
