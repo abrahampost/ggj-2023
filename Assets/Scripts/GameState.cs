@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameState : MonoBehaviour
@@ -22,13 +20,13 @@ public class GameState : MonoBehaviour
 
     void Start()
     {
-
         settings = new Settings {
             height = 16,
             width = 24,
-            seed = 84,
+            seed = Random.Range(1, 10000),
             scale = 3
         };
+        Debug.Log("Seed is " + settings.seed);
     }
 
     public void GenerateTerrain() {

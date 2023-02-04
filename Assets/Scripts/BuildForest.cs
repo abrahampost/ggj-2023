@@ -18,7 +18,21 @@ public class BuildForest : MonoBehaviour
 
     void Start()
     {
-        gameState = GameObject.Find("GameState").GetComponent<GameState>();
+        GameObject go = GameObject.Find("GameState");
+        if (go == null) {
+            go = new GameObject("GameState");
+            go.AddComponent<GameState>();
+            gameState = go.GetComponent<GameState>();
+            gameState.settings = new GameState.Settings {
+                height = 16,
+                width = 24,
+                scale = 3,
+                seed = 3
+            };
+            gameState.GenerateTerrain();
+        } else {
+            gameState = go.GetComponent<GameState>();
+        }
         root = doc.rootVisualElement;
 
         main = root.Query("Grid");

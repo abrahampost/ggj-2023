@@ -10,16 +10,26 @@ public class PlayerSoundController : MonoBehaviour
     [SerializeField]
     private AudioSource audioSource;
 
+    private bool isPlaying;
+
+    private void Start()
+    {
+        audioSource.clip = footstep;
+    }
+
+    private IEnumerator playInDelayedLoop(float delay)
+    {
+        audioSource.Play();
+        yield return new WaitForSeconds(delay);
+        isPlaying = false;
+    }
+
     public void PlayFootStepsIfMoving(Vector2 velocity)
     {
-        if (velocity.magnitude > 0 && !audioSource.isPlaying)
+        if (velocity.magnitude > 0 && !isPlaying)
         {
-            audioSource.clip = footstep;
-            audioSource.Play();
-        }
-        else if (velocity.magnitude == 0 && audioSource.isPlaying)
-        {
-            audioSource.Stop();
+            isPlaying = true;
+            StartCoroutine(playInDelayedLoop(0.25f));
         }
     }
 }

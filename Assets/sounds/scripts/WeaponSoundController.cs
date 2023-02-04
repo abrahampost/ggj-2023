@@ -12,10 +12,20 @@ public class WeaponSoundController : MonoBehaviour
     [SerializeField]
     private AudioSource audioSource;
 
+    private IEnumerator coroutine;
+
+    private IEnumerator StopPlayingAfterCooldown(float cooldown)
+    {
+        yield return new WaitForSeconds(cooldown);
+        audioSource.Stop();
+    }
+
     public void PlayProjectileLaunch(float cooldown)
     {
         audioSource.clip = projectileLaunch;
         audioSource.Play();
-        Task.Delay(TimeSpan.FromSeconds(cooldown)).ContinueWith((_task) => audioSource.Stop());
+
+        coroutine = StopPlayingAfterCooldown(cooldown);
+        StartCoroutine(coroutine);
     }
 }
