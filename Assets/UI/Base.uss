@@ -7,18 +7,18 @@
 
 .forest-button {
     box-sizing: border-box;
-    width: 64px;
-    height: 64px;
+    width: 48px;
+    height: 48px;
     margin: 0;
-    border: 1px solid black;
     min-height: initial;
     min-width: initial;
     max-width: initial;
     max-height: initial;
     flex-wrap: nowrap;
-    align-items: auto;
+    align-items: center;
     cursor: initial;
     flex-shrink: 0;
+    justify-content: center;
 }
 
 .mountain {
@@ -46,8 +46,9 @@
 }
 
 .row {
-    height: 128px;
-    align-items: center;
+    height: auto;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: row;
+    flex-shrink: 0;
 }
