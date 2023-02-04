@@ -2,8 +2,8 @@
     <Style src="project://database/Assets/UI/Base.uss?fileID=7433441132597879392&amp;guid=5202744689860424da6b29a6f6d8390f&amp;type=3#Base" />
     <ui:VisualElement name="Root" style="width: auto; height: auto; flex-basis: -1px; position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
         <ui:Label text="Pick your next tree to plant:" display-tooltip-when-elided="true" name="Title" />
-        <ui:VisualElement name="Main" style="height: 90%; position: relative; padding-left: 40px; padding-right: 40px; padding-top: 40px; padding-bottom: 40px;">
-            <ui:VisualElement name="Grid" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; height: 100%; width: auto; justify-content: center; flex-direction: column; flex-wrap: nowrap; align-items: center; position: relative; background-color: rgba(132, 117, 117, 255);" />
+        <ui:VisualElement name="Main" style="height: 90%; position: relative; padding-left: 40px; padding-right: 40px; padding-top: 40px; padding-bottom: 40px; align-items: center; justify-content: center; flex-shrink: 0;">
+            <ui:VisualElement name="Grid" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; height: 90%; width: auto; justify-content: center; flex-direction: column; flex-wrap: nowrap; align-items: center; position: relative; background-color: rgb(132, 117, 117); overflow: visible; flex-shrink: 0;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

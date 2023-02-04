@@ -271,9 +271,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doc: {fileID: 948511295}
-  width: 32
-  height: 32
-  scale: 1
+  width: 24
+  height: 16
+  scale: 3
   seed: 0
 --- !u!4 &588088678
 Transform:
