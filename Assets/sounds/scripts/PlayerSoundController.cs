@@ -10,15 +10,17 @@ public class PlayerSoundController : MonoBehaviour
     [SerializeField]
     private AudioSource audioSource;
 
-    private bool isPlaying;
+    [SerializeField]
+    private AudioClip deathScream;
 
-    private void Start()
-    {
-        audioSource.clip = footstep;
-    }
+    [SerializeField]
+    private AudioClip onHitSound;
+
+    private bool isPlaying;
 
     private IEnumerator playInDelayedLoop(float delay)
     {
+        audioSource.clip = footstep;
         audioSource.Play();
         yield return new WaitForSeconds(delay);
         isPlaying = false;
@@ -31,5 +33,17 @@ public class PlayerSoundController : MonoBehaviour
             isPlaying = true;
             StartCoroutine(playInDelayedLoop(0.25f));
         }
+    }
+
+    public void playDeathScream()
+    {
+        audioSource.clip = deathScream;
+        audioSource.Play();
+    }
+
+    public void playOnHit()
+    {
+        audioSource.clip = onHitSound;
+        audioSource.Play();
     }
 }
