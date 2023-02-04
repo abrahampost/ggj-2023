@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703861934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -173,12 +173,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   globalCooldown: 0.5
+  melee: {fileID: 8322506543688107386, guid: 6abb8570810d1c1428318bbf8212e6e4, type: 3}
+  meleeKeyBind: 323
+  meleeCooldown: 2
   fireball: {fileID: 8322506543688107386, guid: 3b43fc676e676f34a82d1c8c7bfaea1f, type: 3}
-  fireballKeyBind: Fire1
+  fireballKeyBind: 113
   fireballCooldown: 1
-  coneOfCold: {fileID: 8322506543688107386, guid: ce89153746f5d76419cfbfd118e8f63f, type: 3}
-  coneOfColdKeyBind: Fire2
+  coneOfCold: {fileID: 8322506543688107386, guid: 20027462ff14792448e9a09ff18ef589, type: 3}
+  coneOfColdKeyBind: 324
   coneOfColdCooldown: 2
+  dash: {fileID: 8322506543688107386, guid: ce89153746f5d76419cfbfd118e8f63f, type: 3}
+  dashKeyBind: 304
+  dashCooldown: 1
+  thorns: {fileID: 8322506543688107386, guid: 7c574b78f37e5a544af18735e51ff3ab, type: 3}
+  thornsKeyBind: 101
+  thornsCooldown: 2
 --- !u!1 &1016048984
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +200,7 @@ GameObject:
   - component: {fileID: 1016048985}
   - component: {fileID: 1016048987}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player_sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -297,6 +306,7 @@ GameObject:
   - component: {fileID: 1890681904795696202}
   - component: {fileID: 6700237959414175789}
   - component: {fileID: 1953746417}
+  - component: {fileID: 274512421}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -334,7 +344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4387f72e3019e0498e6d2944ecb075e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1016048987}
   speed: 5
 --- !u!50 &1890681904795696202
 Rigidbody2D:
@@ -397,3 +406,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footstep: {fileID: 8300000, guid: 2f4aa043a56231043a5a3242ff71258a, type: 3}
   audioSource: {fileID: 703861935}
+--- !u!114 &274512421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4009303245177145199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8599311b0adb3afe79a8778ba7f5511a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObject: {fileID: 1016048984}
