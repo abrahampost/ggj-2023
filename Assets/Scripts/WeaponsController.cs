@@ -38,7 +38,7 @@ public class WeaponsController : MonoBehaviour
     private bool isThornsOnCooldown = false;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (!isOnGlobalCooldown)
         {

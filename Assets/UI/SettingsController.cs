@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SettingsController : MonoBehaviour
 {
+    GameState gameState;
     private UIDocument doc;
     private TextField seedText;
 
@@ -15,21 +16,22 @@ public class SettingsController : MonoBehaviour
 
     private void Awake() {
         doc = GetComponent<UIDocument>();
+        gameState = GameObject.Find("GameState").GetComponent<GameState>();
 
         seedText = doc.rootVisualElement.Q<TextField>("seedText");
+        seedText.value = "" + gameState.settings.seed;
 
         scaleText = doc.rootVisualElement.Q<TextField>("scaleText");
+        scaleText.value = "" + gameState.settings.scale;
 
         submitButton = doc.rootVisualElement.Q<Button>("submitButton");
         submitButton.clicked += submitButtonClicked;
     }
 
     private void submitButtonClicked() {
-        Debug.Log(seedText.value);
-        Debug.Log(scaleText.value);
 
-        var seedValue = float.Parse(seedText.value);
-        var scaleValue = float.Parse(scaleText.value);
+        var seedValue = int.Parse(seedText.value);
+        var scaleValue = int.Parse(scaleText.value);
 
         Debug.Log(seedValue);
         Debug.Log(scaleValue);
@@ -40,6 +42,9 @@ public class SettingsController : MonoBehaviour
         } else if (seedValue > 10000) {
             seedValue = 1;
             seedText.value = "Please set a number between 1 and 10,000";
+        } else {
+            gameState.settings.seed = seedValue;
+            SceneManager.LoadScene("MainMenu");
         }
 
         if (scaleValue <= 0) {
@@ -48,6 +53,9 @@ public class SettingsController : MonoBehaviour
         } else if (scaleValue > 5) {
             scaleValue = 1;
             scaleText.value = "Please set a number between 1 and 5";
+        } else {
+            gameState.settings.scale = scaleValue;
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }
