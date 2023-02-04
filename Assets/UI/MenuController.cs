@@ -37,7 +37,7 @@ public class MenuController : MonoBehaviour
     }
 
     private void SettingsButtonClicked() {
-        SceneManager.LoadScene("Settings");
+        SceneManager.LoadScene("SettingsPage");
     }
 
     private void QuitButtonClicked() {
