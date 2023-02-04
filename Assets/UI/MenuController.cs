@@ -13,6 +13,8 @@ public class MenuController : MonoBehaviour
     private Button settingsButton;
     private Button quitButton;
 
+    GameState gameState;
+
     private void Awake() {
         doc = GetComponent<UIDocument>();
         playButton = doc.rootVisualElement.Q<Button>("PlayButton");
@@ -25,8 +27,13 @@ public class MenuController : MonoBehaviour
         quitButton.clicked += QuitButtonClicked;
     }
 
+    void Start() {
+        gameState = GameObject.Find("GameState").GetComponent<GameState>();
+    }
+
     private void PlayButtonClicked() {
-        SceneManager.LoadScene("FirstLevel");
+        gameState.GenerateTerrain();
+        SceneManager.LoadScene("ForestSelection");
     }
 
     private void SettingsButtonClicked() {
