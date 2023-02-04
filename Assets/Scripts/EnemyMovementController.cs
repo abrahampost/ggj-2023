@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementController : MonoBehaviour
+public class EnemyMovementController : MonoBehaviour
 {
     private Rigidbody2D rb;
 
@@ -26,8 +26,8 @@ public class MovementController : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        movement = new Vector2(horizontal, vertical).normalized * speed;
-        rb.velocity = movement;
+        movement = new Vector2(horizontal, vertical).normalized * speed * Time.deltaTime;
+        rb.MovePosition(rb.position + movement);
 
         // Animation
         animationController.MovementAnimations(movement);
