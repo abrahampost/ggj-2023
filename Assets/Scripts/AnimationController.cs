@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class AnimationController : MonoBehaviour
 {
-    [SerializeField]
     private Animator animator;
 
     [SerializeField]
     private new GameObject gameObject;  // Idk what 'new' does here, but it removed a warning
 
+    private void Start()
+    {
+        animator = gameObject.GetComponent<Animator>();
+    }
+
     // Movement Animations
-    public void MovementAnimations(Vector2 movement) 
+    public void MovementAnimation(Vector2 movement) 
     {
         // Left and Right
         if (movement.x < 0) {
@@ -30,5 +34,21 @@ public class AnimationController : MonoBehaviour
         // Running?
         animator.SetFloat("speed_x", Mathf.Abs(movement.x));
         animator.SetFloat("speed_y", movement.y);
+    }
+
+    // Attack Animations
+    public void AttackAnimation()
+    {
+        animator.SetTrigger("attack");
+    }
+
+    public void HitAnimation()
+    {
+        animator.SetTrigger("gethit");
+    }
+
+    public void DeathAnimation()
+    {
+        animator.SetBool("is_dead", true);
     }
 }
