@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-    public float speed;
+    public Animator animator;
     private Rigidbody2D rb;
+
+    public float speed;
     private Vector2 movement;
 
     private void Start()
@@ -13,15 +15,14 @@ public class MovementController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         movement = new Vector2(horizontal, vertical).normalized * speed * Time.deltaTime;
-    }
-
-    private void FixedUpdate()
-    {
         rb.MovePosition(rb.position + movement);
+
+        // Animations
+        animator.SetFloat("speed", Mathf.Abs(movement.x));
     }
 }
