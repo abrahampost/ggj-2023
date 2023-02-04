@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using NavMeshPlus.Components;
 using UnityEngine;
 using UnityEngine.AI;
 // using NavMeshComponents;
@@ -24,6 +25,7 @@ public class NavMeshBaker : MonoBehaviour {
         // }    
 
         // GetComponent<NavMeshSurface>().BuildNavMesh();
+        GetComponent<NavMeshSurface>().BuildNavMesh();
     }
 
 }
