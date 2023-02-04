@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class FireballController : MonoBehaviour
 {
+    [HideInInspector]
     public float speed = 5.0f;
+    [HideInInspector]
     public float secondsAlive = 5.0f;
+    [HideInInspector]
     public float startingDistance = .2f;
 
     private Rigidbody2D rb;

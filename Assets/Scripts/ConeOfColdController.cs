@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ConeOfColdController : MonoBehaviour
 {
+    [HideInInspector]
     public float secondsAlive = 1.0f;
+    [HideInInspector]
     public float startingDistance = .2f;
 
     private Rigidbody2D rb;
