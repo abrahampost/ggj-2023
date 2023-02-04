@@ -1,20 +1,12 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 <<<<<<< HEAD:Assets/Scenes/Sandbox/Zane/NavMesh-Environment.asset.meta
-guid: d1576f9bfc871e043bd8ed5da8634a4d
+guid: 28f779acee4300f4a8227e757aa82353
 =======
-=======
-<<<<<<<< HEAD:Assets/Scenes/Sandbox/Denny.meta
-guid: f7b759c3ea4b5854ca878d964942306a
-folderAsset: yes
-DefaultImporter:
-========
->>>>>>> d046d6aeb32a5fbf1d3561946f56fcbbd62fc6bc
 guid: e344d39eb226556468dbe4a4d0252160
 >>>>>>> fe0b369307d97978ac17ed3f33d3cfeb6a261776:Assets/Scenes/Sandbox/Simon/NavMesh-Environment.asset.meta
 NativeFormatImporter:
->>>>>>>> fe0b369307d97978ac17ed3f33d3cfeb6a261776:Assets/Scenes/Sandbox/Simon/NavMesh-Environment.asset.meta
   externalObjects: {}
+  mainObjectFileID: 23800000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

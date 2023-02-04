@@ -5,19 +5,18 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    private Rigidbody2D rb;
-
     // Movement
-    public float speed;
-    private Vector2 movement;
     private Vector2 target;
     private UnityEngine.AI.NavMeshAgent agent;
     private GameObject player;
 
     // stats
-    private float health = 10f;
-    private float damage = 2f;
-    
+    private float baseSpeed = 3.5f;
+    private float health = 10;
+
+    // testing
+    private bool speedModded = false;
+
     // audio
     private PlayerSoundController soundController;
 
@@ -31,6 +30,7 @@ public class EnemyController : MonoBehaviour
         animationController = GetComponent<AnimationController>();
 
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        agent.speed = baseSpeed;
         agent.updateRotation = false;
         agent.updateUpAxis = false;
     }
@@ -40,9 +40,26 @@ public class EnemyController : MonoBehaviour
         SetTargetPosition();
         SetAgentPosition();
 
+        // player method tests
         if (Input.GetKeyDown("space"))
         {
-            decreaseHealth(2);
+            TakeDamage(2);
+        }
+
+        if (Input.GetKeyDown("p"))
+        {
+            if (speedModded)
+            {
+                Debug.Log("P PRESSED");
+                ModifySpeedByPercentage(1f);
+            }
+            else
+            {
+                Debug.Log("P PRESSED");
+                ModifySpeedByPercentage(.5f);
+            }
+
+            speedModded = !speedModded;
         }
     }
 
@@ -78,9 +95,20 @@ public class EnemyController : MonoBehaviour
         agent.SetDestination(new Vector2(target.x, target.y));
     }
 
-    public void decreaseHealth(float damageDelt)
+    // Modify Stats
+    public void TakeDamage(float value)
     {
-        health -= damageDelt;
+        ModifyHealthByValue(-value);
+    }
+
+    public void Heal(float value)
+    {
+        ModifyHealthByValue(value);
+    }
+
+    public void ModifyHealthByValue(float value)
+    {
+        health += value;
 
         if (health <= 0)
         {
@@ -94,5 +122,9 @@ public class EnemyController : MonoBehaviour
         soundController.playOnHit();
         animationController.HitAnimation();
     }
-    
+
+    public void ModifySpeedByPercentage(float percentage)
+    {
+        agent.speed = baseSpeed * percentage;
+    }
 }
