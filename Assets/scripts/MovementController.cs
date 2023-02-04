@@ -22,7 +22,25 @@ public class MovementController : MonoBehaviour
         movement = new Vector2(horizontal, vertical).normalized * speed * Time.deltaTime;
         rb.MovePosition(rb.position + movement);
 
+        UpdateAnimations();
+    }
+
+    private void UpdateAnimations() 
+    {
         // Animations
-        animator.SetFloat("speed", Mathf.Abs(movement.x));
+        if (movement.x < 0) {
+            transform.localScale = new Vector3(-1, 1, 1);
+        } else if (movement.x > 0) {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+
+        if (movement.x == 0) {
+            animator.SetBool("is_idle", true);
+        } else {
+            animator.SetBool("is_idle", false);
+        }
+        animator.SetFloat("speed_x", Mathf.Abs(movement.x));
+        animator.SetFloat("speed_y", movement.y);
+
     }
 }
