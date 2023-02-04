@@ -44,48 +44,70 @@ public class WeaponsController : MonoBehaviour
         {
             if (Input.GetKey(meleeKeyBind) && !isMeleeOnCooldown)
             {
-                Instantiate(melee, transform.position, transform.rotation);
-                isMeleeOnCooldown = true;
-                isOnGlobalCooldown = true;
-                Task.Delay(TimeSpan.FromSeconds(meleeCooldown)).ContinueWith((task) => isMeleeOnCooldown = false);
-                Task.Delay(TimeSpan.FromSeconds(globalCooldown)).ContinueWith((task) => isOnGlobalCooldown = false);
+                InstantiateMelee();
             }
 
             else if (Input.GetKey(fireballKeyBind) && !isFireballOnCooldown)
             {
-                Instantiate(fireball, transform.position, transform.rotation);
-                isFireballOnCooldown = true;
-                isOnGlobalCooldown = true;
-                Task.Delay(TimeSpan.FromSeconds(fireballCooldown)).ContinueWith((task) => isFireballOnCooldown = false);
-                Task.Delay(TimeSpan.FromSeconds(globalCooldown)).ContinueWith((task) => isOnGlobalCooldown = false);
+                InstantiateFireball();
             }
 
             else if (Input.GetKey(coneOfColdKeyBind) && !isConeOfColdOnCooldown)
             {
-                Instantiate(coneOfCold, transform.position, transform.rotation);
-                isConeOfColdOnCooldown = true;
-                isOnGlobalCooldown = true;
-                Task.Delay(TimeSpan.FromSeconds(coneOfColdCooldown)).ContinueWith((task) => isConeOfColdOnCooldown = false);
-                Task.Delay(TimeSpan.FromSeconds(globalCooldown)).ContinueWith((task) => isOnGlobalCooldown = false);
+                InstantiateConeOfCold();
             }
 
             else if (Input.GetKey(dashKeyBind) && !isDashOnCooldown)
             {
-                Instantiate(dash, transform.position, transform.rotation);
-                isDashOnCooldown = true;
-                isOnGlobalCooldown = true;
-                Task.Delay(TimeSpan.FromSeconds(dashCooldown)).ContinueWith((task) => isDashOnCooldown = false);
-                Task.Delay(TimeSpan.FromSeconds(globalCooldown)).ContinueWith((task) => isOnGlobalCooldown = false);
+                InstantiateDash();
             }
 
             else if (Input.GetKey(thornsKeyBind) && !isThornsOnCooldown)
             {
-                Instantiate(thorns, transform.position, transform.rotation);
-                isThornsOnCooldown = true;
-                isOnGlobalCooldown = true;
-                Task.Delay(TimeSpan.FromSeconds(dashCooldown)).ContinueWith((task) => isThornsOnCooldown = false);
-                Task.Delay(TimeSpan.FromSeconds(globalCooldown)).ContinueWith((task) => isOnGlobalCooldown = false);
+                InstantiateThorns();
             }
         }
+    }
+
+    private void InstantiateMelee()
+    {
+        InstantiateObject(melee);
+        isMeleeOnCooldown = true;
+        Task.Delay(TimeSpan.FromSeconds(meleeCooldown)).ContinueWith((task) => isMeleeOnCooldown = false);
+    }
+
+    private void InstantiateFireball()
+    {
+        InstantiateObject(fireball);
+        isFireballOnCooldown = true;
+        Task.Delay(TimeSpan.FromSeconds(fireballCooldown)).ContinueWith((task) => isFireballOnCooldown = false);
+    }
+
+    private void InstantiateConeOfCold()
+    {
+        InstantiateObject(coneOfCold);
+        isConeOfColdOnCooldown = true;
+        Task.Delay(TimeSpan.FromSeconds(coneOfColdCooldown)).ContinueWith((task) => isConeOfColdOnCooldown = false);
+    }
+
+    private void InstantiateDash()
+    {
+        InstantiateObject(dash);
+        isDashOnCooldown = true;
+        Task.Delay(TimeSpan.FromSeconds(dashCooldown)).ContinueWith((task) => isDashOnCooldown = false);
+    }
+
+    private void InstantiateThorns()
+    {
+        InstantiateObject(thorns);
+        isThornsOnCooldown = true;
+        Task.Delay(TimeSpan.FromSeconds(thornsCooldown)).ContinueWith((task) => isThornsOnCooldown = false);
+    }
+
+    private void InstantiateObject(GameObject gameObject) 
+    {
+        Instantiate(gameObject, transform.position, transform.rotation);
+        isOnGlobalCooldown = true;
+        Task.Delay(TimeSpan.FromSeconds(globalCooldown)).ContinueWith((task) => isOnGlobalCooldown = false);
     }
 }
