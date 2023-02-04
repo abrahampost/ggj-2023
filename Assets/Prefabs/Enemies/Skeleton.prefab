@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 8909260730028162818}
   - component: {fileID: 8909260730028162829}
   - component: {fileID: 8909260730028162828}
+  - component: {fileID: 2056007116}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Enemy
@@ -291,7 +292,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &8909260730028162819
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -343,7 +344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8599311b0adb3afe79a8778ba7f5511a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 8909260729899606120}
   gameObject: {fileID: 8909260729899606101}
 --- !u!114 &8909260730028162828
 MonoBehaviour:
@@ -359,3 +359,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footstep: {fileID: 8300000, guid: 2f4aa043a56231043a5a3242ff71258a, type: 3}
   audioSource: {fileID: 8909260729932801393}
+--- !u!195 &2056007116
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8909260730028162831}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

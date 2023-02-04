@@ -11,7 +11,7 @@ public class MeleeController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         var animationController = player.GetComponent<AnimationController>();
-        animationController.AttackAnimation();
+        animationController.AttackAnimation(1.0f);
 
         Destroy(gameObject, meleeTime);
     }
