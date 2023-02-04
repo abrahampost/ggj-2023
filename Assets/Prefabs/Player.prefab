@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1016048985}
   - component: {fileID: 1016048987}
   m_Layer: 0
-  m_Name: dumby
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,9 +25,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1016048984}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.57, y: 2.43, z: 0}
-  m_LocalScale: {x: 1.5704732, y: 1.4563758, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4009303245177145200}
@@ -117,7 +117,6 @@ GameObject:
   - component: {fileID: 8503812425035302125}
   - component: {fileID: 1890681904795696202}
   - component: {fileID: 6700237959414175789}
-  - component: {fileID: 9352055}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -201,16 +200,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
---- !u!114 &9352055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4009303245177145199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4387f72e3019e0498e6d2944ecb075e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
