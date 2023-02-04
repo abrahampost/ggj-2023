@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovementController : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     private Rigidbody2D rb;
 
