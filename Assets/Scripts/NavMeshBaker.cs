@@ -23,7 +23,7 @@ public class NavMeshBaker : MonoBehaviour {
         //     surfaces[i].BuildNavMesh();    
         // }    
 
-        GetComponent<NavMeshSurface>().BuildNavMesh();
+        // GetComponent<NavMeshSurface>().BuildNavMesh();
     }
 
 }

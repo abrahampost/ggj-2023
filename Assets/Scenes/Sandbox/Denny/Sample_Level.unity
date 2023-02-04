@@ -696,6 +696,7 @@ GameObject:
   - component: {fileID: 1123917738}
   - component: {fileID: 1123917740}
   - component: {fileID: 1123917739}
+  - component: {fileID: 1123917741}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Untagged
@@ -770,6 +771,18 @@ MonoBehaviour:
   m_BuildHeightMesh: 0
   m_HideEditorLogs: 0
   m_NavMeshData: {fileID: 23800000, guid: 29587ac047f7c61078b6aa7f0442e154, type: 2}
+--- !u!114 &1123917741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123917737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7101245becd98ae2b9e806a40d8e270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1824543198
 GameObject:
   m_ObjectHideFlags: 0
