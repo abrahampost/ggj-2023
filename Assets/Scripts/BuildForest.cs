@@ -67,7 +67,7 @@ public class BuildForest : MonoBehaviour
                     button.AddToClassList("river");
                 } else if (terrainType == ForestTile.TerrainType.SWAMP) {
                     button.AddToClassList("swamp");
-                } if (terrainType == ForestTile.TerrainType.PLAIN) {
+                } else if (terrainType == ForestTile.TerrainType.PLAIN) {
                     button.AddToClassList("plain");
                 } else {
                     button.AddToClassList("mountain"); 
