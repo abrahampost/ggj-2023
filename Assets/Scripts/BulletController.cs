@@ -22,10 +22,6 @@ public class BulletController : MonoBehaviour
 
         transform.position = transform.position + velocity * startingDistance;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg));
-        //transform.rotation.SetLookRotation(new Vector3(0, 0, Mathf.Atan2(velocity.y, velocity.x)));
-        //transform.Rotate(new Vector3(0, 0, Mathf.Atan2(velocity.y, velocity.x)));
-        //transform.rotation = Quaternion.LookRotation(Vector3.up);
-
 
         Destroy(gameObject, secondsAlive);
     }
@@ -34,9 +30,6 @@ public class BulletController : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = velocity * Time.deltaTime * 100 * speed;
-        //transform.Rotate(new Vector3(0, 0, Mathf.Atan2(velocity.y, velocity.x)));
-        //transform.rotation.SetLookRotation(new Vector3(0, 0, Mathf.Atan2(velocity.y, velocity.x)));
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
