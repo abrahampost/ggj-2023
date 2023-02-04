@@ -251,7 +251,6 @@ GameObject:
   m_Component:
   - component: {fileID: 588088678}
   - component: {fileID: 588088677}
-  - component: {fileID: 588088679}
   m_Layer: 0
   m_Name: GenerateForest
   m_TagString: Untagged
@@ -273,7 +272,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doc: {fileID: 948511295}
   cursorTexture: {fileID: 2800000, guid: a9ae0267b06e7b24d90f188a4370cce3, type: 3}
-  scale: 3
 --- !u!4 &588088678
 Transform:
   m_ObjectHideFlags: 0
@@ -289,19 +287,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &588088679
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 588088676}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &948511294
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +298,6 @@ GameObject:
   - component: {fileID: 948511296}
   - component: {fileID: 948511295}
   - component: {fileID: 948511297}
-  - component: {fileID: 948511298}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -364,17 +348,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90f699eb37dd4c42bd559ad02148476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorTexture: {fileID: 2800000, guid: a9ae0267b06e7b24d90f188a4370cce3, type: 3}
---- !u!65 &948511298
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 948511294}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
