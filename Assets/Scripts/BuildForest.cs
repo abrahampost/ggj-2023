@@ -13,8 +13,6 @@ public class BuildForest : MonoBehaviour
     private VisualElement root;
     private VisualElement main;
 
-    [SerializeField]
-    private float scale;
 
     void Start()
     {
@@ -40,14 +38,12 @@ public class BuildForest : MonoBehaviour
     }
 
 
-    void DrawGrid() {
+    private void DrawGrid() {
         for (int i = 0; i < gameState.settings.height; i++) {
             VisualElement row = new VisualElement();
             row.AddToClassList("row");
             for (int j = 0; j < gameState.settings.width; j++) {
-                Button button = new Button {
-                    tooltip = "(" + i + ", " + j + ")"
-                };
+                Button button = new Button ();
                 button.AddToClassList("forest-button");
                 ForestTile selectedTile = gameState.tiles[i][j];
                 ForestTile.TerrainType terrainType = selectedTile.terrainType;
@@ -68,16 +64,20 @@ public class BuildForest : MonoBehaviour
                     button.Add(treePreview);
                 }
                 if (selectedTile.isPlayable) {
-                    button.clicked += () => {
-                        gameState.selectedLevel.x = j;
-                        gameState.selectedLevel.y = i;
-                        SceneManager.LoadScene("ForestLevel");
-                    };
+                    button.clicked += LoadLevel(j, i);
                 }
                 row.Add(button);
             }
             main.Add(row);
         }
+    }
+
+    private System.Action LoadLevel(int x, int y) {
+        return () => {
+            gameState.selectedLevel.x = x;
+            gameState.selectedLevel.y = y;
+            SceneManager.LoadScene("ForestLevel");
+        };
     }
 
 }
