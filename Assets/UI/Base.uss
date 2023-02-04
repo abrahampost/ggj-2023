@@ -1,0 +1,53 @@
+#Title {
+    flex-shrink: 0;
+    height: 10%;
+    font-size: 48px;
+    -unity-text-align: middle-center;
+}
+
+.forest-button {
+    box-sizing: border-box;
+    width: 64px;
+    height: 64px;
+    margin: 0;
+    border: 1px solid black;
+    min-height: initial;
+    min-width: initial;
+    max-width: initial;
+    max-height: initial;
+    flex-wrap: nowrap;
+    align-items: auto;
+    cursor: initial;
+    flex-shrink: 0;
+}
+
+.mountain {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-color: rgba(101, 101, 101, 255);
+    background-image: url('project://database/Assets/sprites/objects/rock_in_water_02.png?fileID=2800000&guid=1c2378e04b8771746bdb391bf79c184c&type=3#rock_in_water_02');
+}
+
+.river {
+    -unity-background-image-tint-color: rgb(144, 144, 144);
+    background-color: rgba(0, 7, 255, 255);
+    background-image: url('project://database/Assets/sprites/tilesets/water1.png?fileID=2800000&guid=b35efa51152dbb046a5741185fbd3740&type=3#water1');
+}
+
+.swamp {
+    -unity-background-image-tint-color: rgb(84, 84, 84);
+    background-color: rgba(0, 96, 16, 255);
+    background-image: url('project://database/Assets/sprites/tilesets/grass.png?fileID=2800000&guid=254f5e91a19947044907b350f1427fe9&type=3#grass');
+}
+
+.plain {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-color: rgba(109, 226, 65, 255);
+    background-image: url('project://database/Assets/sprites/tilesets/grass.png?fileID=2800000&guid=254f5e91a19947044907b350f1427fe9&type=3#grass');
+}
+
+.row {
+    height: 128px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
