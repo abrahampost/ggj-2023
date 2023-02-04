@@ -31,13 +31,6 @@ public class WeaponsController : MonoBehaviour
     public float thornsCooldown = 2.0f;
     private bool isThornsOnCooldown = false;
 
-    private WeaponSoundController soundController;
-
-    private void Start()
-    {
-        soundController = GetComponent<WeaponSoundController>();
-    }
-
     // Update is called once per frame
     private void Update()
     {

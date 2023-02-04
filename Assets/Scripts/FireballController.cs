@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class FireballController : MonoBehaviour
@@ -10,9 +11,14 @@ public class FireballController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 velocity;
 
+    private ProjectileSoundController soundController;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        soundController = GameObject.FindFirstObjectByType<ProjectileSoundController>();
+
+        soundController.PlayProjectileLaunch();
 
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Camera.main.nearClipPlane;
@@ -26,6 +32,9 @@ public class FireballController : MonoBehaviour
         Destroy(gameObject, secondsAlive);
     }
 
+    private void OnDestroy()
+    {
+    }
 
     void FixedUpdate()
     {

@@ -1,25 +1,24 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-internal class ProjectileSoundController : MonoBehaviour
+public class ProjectileSoundController : MonoBehaviour
 {
-    [SerializeField]
-    private AudioClip melee;
-
     [SerializeField]
     private AudioClip projectileLaunch;
 
     [SerializeField]
-    private AudioClip projectileImpact;
+    private AudioSource audioSourceLaunch;
 
-    [SerializeField]
-    private AudioSource audioSource;
-
-    public void PlayProjectileImpact()
+    private void Start()
     {
-        audioSource.clip = projectileImpact;
-        audioSource.Play();
+        audioSourceLaunch.clip = projectileLaunch;
+    }
+
+    public void PlayProjectileLaunch()
+    {
+        audioSourceLaunch.Play();
     }
 }
