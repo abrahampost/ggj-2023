@@ -70,7 +70,7 @@ public class BuildForest : MonoBehaviour
                 } if (terrainType == ForestTile.TerrainType.PLAIN) {
                     button.AddToClassList("plain");
                 } else {
-                    button.AddToClassList("mountain");
+                    button.AddToClassList("mountain"); 
                 }
                 button.clicked += () => {
                     Debug.Log(string.Join(", ", button.GetClasses()));
