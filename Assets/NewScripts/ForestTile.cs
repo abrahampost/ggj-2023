@@ -6,7 +6,7 @@ public class ForestTile
 {
 
     public ForestTile(TerrainType terrainType) {
-        this.terrainType = terrainType;
+        this.terrainType = terrainType; 
     }
 
     public enum TerrainType {
