@@ -14,6 +14,7 @@ public class MovementController : MonoBehaviour
 
     // Animations
     private AnimationController animationController;
+    private string direction = "down";
 
     private void Start()
     {
@@ -31,9 +32,22 @@ public class MovementController : MonoBehaviour
 
         // Animation
         animationController.MovementAnimation(movement);
+        if (horizontal > 0) {
+            direction = "right";
+        } else if (horizontal < 0) {
+            direction = "left";
+        } else if (vertical > 0) {
+            direction = "up";
+        } else if (vertical < 0) {
+            direction = "down";
+        }
 
  		// Audio
         soundController.PlayFootStepsIfMoving(movement);
     }
 
+    public string GetDirection() 
+    {
+        return direction;
+    }
 }
