@@ -17,7 +17,6 @@ public class PlayerSoundController : MonoBehaviour
             audioSource.clip = footstep;
             audioSource.Play();
         }
-
         else if (velocity.magnitude == 0 && audioSource.isPlaying)
         {
             audioSource.Stop();

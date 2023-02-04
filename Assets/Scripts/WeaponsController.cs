@@ -12,14 +12,23 @@ public class WeaponsController : MonoBehaviour
     public float gunCooldown = 2.0f;
     private bool isGunOnCooldown = false;
 
+    private WeaponSoundController soundController;
+
+    private void Start()
+    {
+        soundController = GetComponent<WeaponSoundController>();
+    }
+
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetButtonDown(gunKeyBind) && !isGunOnCooldown)
         {
             Instantiate(bullet, transform.position, transform.rotation);
             isGunOnCooldown = true;
             Task.Delay(TimeSpan.FromSeconds(gunCooldown)).ContinueWith((task) => isGunOnCooldown = false);
+
+            soundController.PlayProjectileLaunch(gunCooldown);
         }
     }
 }
