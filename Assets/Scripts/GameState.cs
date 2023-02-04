@@ -24,6 +24,7 @@ public class GameState : MonoBehaviour
     void Awake() {
         if (instantiated) {
             Destroy(this);
+            return;
         }
         instantiated = true;
         DontDestroyOnLoad(gameObject);

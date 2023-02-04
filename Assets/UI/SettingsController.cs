@@ -30,11 +30,8 @@ public class SettingsController : MonoBehaviour
 
     private void submitButtonClicked() {
 
-        var seedValue = int.Parse(seedText.value);
-        var scaleValue = int.Parse(scaleText.value);
-
-        Debug.Log(seedValue);
-        Debug.Log(scaleValue);
+        int seedValue = (int) Mathf.Floor(float.Parse(seedText.value));
+        int scaleValue = (int) Mathf.Floor(float.Parse(scaleText.value));
 
         if (seedValue <= 0) {
             seedValue = 1;
