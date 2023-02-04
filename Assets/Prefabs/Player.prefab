@@ -176,18 +176,31 @@ MonoBehaviour:
   melee: {fileID: 8322506543688107386, guid: 6abb8570810d1c1428318bbf8212e6e4, type: 3}
   meleeKeyBind: 323
   meleeCooldown: 0.5
+  meleeTime: 0.5
+  isMeleeing: 0
   fireball: {fileID: 8322506543688107386, guid: 3b43fc676e676f34a82d1c8c7bfaea1f, type: 3}
   fireballKeyBind: 113
   fireballCooldown: 1
+  fireballSpeed: 5
+  fireballSecondsAlive: 2
+  fireballStartingDistance: 0.65
   coneOfCold: {fileID: 8322506543688107386, guid: 20027462ff14792448e9a09ff18ef589, type: 3}
   coneOfColdKeyBind: 324
   coneOfColdCooldown: 2
+  coneOfColdSecondsAlive: 2
+  coneOfColdStartingDistance: 1.2
   dash: {fileID: 8322506543688107386, guid: ce89153746f5d76419cfbfd118e8f63f, type: 3}
   dashKeyBind: 304
   dashCooldown: 1
+  dashTime: 0.1
+  dashSpeed: 10
+  isDashing: 0
   thorns: {fileID: 8322506543688107386, guid: 7c574b78f37e5a544af18735e51ff3ab, type: 3}
   thornsKeyBind: 101
   thornsCooldown: 2
+  thornsSecondsAlive: 2
+  thornsMinDistance: 0.4
+  thornsMaxDistance: 2
 --- !u!1 &1016048984
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +320,7 @@ GameObject:
   - component: {fileID: 6700237959414175789}
   - component: {fileID: 1953746417}
   - component: {fileID: 274512421}
+  - component: {fileID: 747885683}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -419,3 +433,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObject: {fileID: 1016048984}
+--- !u!114 &747885683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4009303245177145199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9321cf5488a9eae4ab60823b2e904637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
