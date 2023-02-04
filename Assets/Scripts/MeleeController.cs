@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MeleeController : MonoBehaviour
 {
+    [HideInInspector]
     public float meleeTime = .5f;
     private GameObject player;
 
