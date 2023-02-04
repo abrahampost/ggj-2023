@@ -10,6 +10,7 @@
     transition-duration: 0.2s;
     -unity-text-align: middle-center;
     -unity-text-outline-color: rgba(255, 255, 255, 255);
+    -unity-font-definition: url('project://database/Assets/UI/RockSalt-Regular%20SDF.asset?fileID=11400000&guid=15b3635888661e547a16ee2aa1c14aee&type=2#RockSalt-Regular SDF');
 }
 
 .menu-button:hover {
