@@ -1,68 +1,55 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class BuildForest : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    GameState gameState;
+
     [SerializeField]
     private UIDocument doc;
-    [SerializeField]
-    private int width;
-    [SerializeField]
-    private int height;
+
     private VisualElement root;
     private VisualElement main;
 
-    private ForestTile[][] tiles;
 
     [SerializeField]
     private float scale;
-    [SerializeField]
-    private float seed;
+
     void Start()
     {
+        GameObject go = GameObject.Find("GameState");
+        if (go == null) {
+            go = new GameObject("GameState");
+            go.AddComponent<GameState>();
+            gameState = go.GetComponent<GameState>();
+            gameState.settings = new GameState.Settings {
+                height = 16,
+                width = 24,
+                scale = 3,
+                seed = 3
+            };
+            gameState.GenerateTerrain();
+        } else {
+            gameState = go.GetComponent<GameState>();
+        }
         root = doc.rootVisualElement;
 
         main = root.Query("Grid");
-        tiles = new ForestTile[height][];
-        GenerateTerrain();
         DrawGrid();
     }
 
-    void GenerateTerrain() {
-        for (int i = 0; i < height; i++) {
-            tiles[i] = new ForestTile[width];
-            for (int j = 0; j < width; j++) {
-                float sampleX = ((1f * j) / width) * scale + seed;
-                float sampleY = ((1f * i) / height) * scale + seed;
-                float noise = Mathf.PerlinNoise(sampleX, sampleY);
-                ForestTile.TerrainType terrainType;
-                if (noise < .25f) {
-                    terrainType = ForestTile.TerrainType.RIVER;
-                } else if (noise < .4f) {
-                    terrainType = ForestTile.TerrainType.SWAMP;
-                } else if (noise < .7f) {
-                    terrainType = ForestTile.TerrainType.PLAIN;
-                } else {
-                    terrainType = ForestTile.TerrainType.MOUNTAIN;
-                }
-                tiles[i][j] = new ForestTile(terrainType);
-            }
-        }
-    }
 
     void DrawGrid() {
-        for (int i = 0; i < height; i++) {
+        for (int i = 0; i < gameState.settings.height; i++) {
             VisualElement row = new VisualElement();
             row.AddToClassList("row");
-            for (int j = 0; j < width; j++) {
+            for (int j = 0; j < gameState.settings.width; j++) {
                 Button button = new Button {
                     tooltip = "(" + i + ", " + j + ")"
                 };
                 button.AddToClassList("forest-button");
-                ForestTile.TerrainType terrainType = tiles[i][j].terrainType;
+                ForestTile.TerrainType terrainType = gameState.tiles[i][j].terrainType;
                 if (terrainType == ForestTile.TerrainType.RIVER) {
                     button.AddToClassList("river");
                 } else if (terrainType == ForestTile.TerrainType.SWAMP) {

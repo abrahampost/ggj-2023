@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class BulletController : MonoBehaviour
+public class FireballController : MonoBehaviour
 {
     public float speed = 5.0f;
     public float secondsAlive = 5.0f;

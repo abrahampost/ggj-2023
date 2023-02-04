@@ -172,9 +172,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09a2ba6d92e8be34f9a9a77664741017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 8322506543688107386, guid: 3b43fc676e676f34a82d1c8c7bfaea1f, type: 3}
-  gunKeyBind: Fire1
-  gunCooldown: 1
+  globalCooldown: 0.5
+  fireball: {fileID: 8322506543688107386, guid: 3b43fc676e676f34a82d1c8c7bfaea1f, type: 3}
+  fireballKeyBind: Fire1
+  fireballCooldown: 1
+  coneOfCold: {fileID: 8322506543688107386, guid: ce89153746f5d76419cfbfd118e8f63f, type: 3}
+  coneOfColdKeyBind: Fire2
+  coneOfColdCooldown: 2
 --- !u!1 &1016048984
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,19 +344,19 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4009303245177145199}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6700237959414175789
 BoxCollider2D:
   m_ObjectHideFlags: 0

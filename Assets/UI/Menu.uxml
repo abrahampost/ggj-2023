@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/UI/MenuStyles.uss?fileID=7433441132597879392&amp;guid=524d2848cae461d4683570d9f13e3b77&amp;type=3#MenuStyles" />
     <ui:VisualElement style="background-image: url(&apos;project://database/Assets/sprites/tilesets/grass.png?fileID=2800000&amp;guid=254f5e91a19947044907b350f1427fe9&amp;type=3#grass&apos;); width: 100%; height: 100%; scale: 100 100; transform-origin: right bottom; opacity: 1; position: relative;" />
     <ui:VisualElement name="MenuSection" style="background-color: rgba(0, 0, 0, 0.53); width: 45%; height: 100%; margin-left: 50px; align-items: center; position: absolute; color: rgb(212, 212, 212);">
-        <ui:VisualElement name="Logo" style="background-image: url(&apos;project://database/Assets/UI/Take-Root-1.jpg?fileID=2800000&amp;guid=24ace7b04100cfe4cbae1bb0b31801c3&amp;type=3#Take-Root-1&apos;); height: 35%; width: 100%;" />
+        <ui:VisualElement name="Logo" style="background-image: url(&apos;project://database/Assets/UI/Take-Root-2.jpg?fileID=2800000&amp;guid=12aacfa5fcf9ace40a073b63b4f713e8&amp;type=3#Take-Root-2&apos;); height: 35%; width: 100%;" />
         <ui:VisualElement name="Buttons" style="width: 50%; align-items: center; flex-grow: 1; justify-content: center; margin-bottom: 10%; -unity-font-style: normal; font-size: 40px;">
             <ui:Button text="Play" display-tooltip-when-elided="true" name="PlayButton" class="menu-button" style="width: 90%; font-size: 65px;" />
             <ui:Button text="Settings" display-tooltip-when-elided="true" name="SettingsButton" class="menu-button" style="width: 90%; font-size: 65px;" />
