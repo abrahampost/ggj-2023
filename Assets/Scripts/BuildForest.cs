@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class BuildForest : MonoBehaviour
 {
@@ -11,7 +12,6 @@ public class BuildForest : MonoBehaviour
 
     private VisualElement root;
     private VisualElement main;
-
 
     [SerializeField]
     private float scale;
@@ -49,19 +49,31 @@ public class BuildForest : MonoBehaviour
                     tooltip = "(" + i + ", " + j + ")"
                 };
                 button.AddToClassList("forest-button");
-                ForestTile.TerrainType terrainType = gameState.tiles[i][j].terrainType;
+                ForestTile selectedTile = gameState.tiles[i][j];
+                ForestTile.TerrainType terrainType = selectedTile.terrainType;
                 if (terrainType == ForestTile.TerrainType.RIVER) {
                     button.AddToClassList("river");
                 } else if (terrainType == ForestTile.TerrainType.SWAMP) {
                     button.AddToClassList("swamp");
                 } else if (terrainType == ForestTile.TerrainType.PLAIN) {
                     button.AddToClassList("plain");
+                } else if (terrainType == ForestTile.TerrainType.TUNDRA) {
+                    button.AddToClassList("tundra"); 
                 } else {
                     button.AddToClassList("mountain"); 
                 }
-                button.clicked += () => {
-                    Debug.Log(string.Join(", ", button.GetClasses()));
-                };
+                if (selectedTile.completed) {
+                    VisualElement treePreview = new VisualElement();
+                    treePreview.AddToClassList("tree-preview");
+                    button.Add(treePreview);
+                }
+                if (selectedTile.isPlayable) {
+                    button.clicked += () => {
+                        gameState.selectedLevel.x = j;
+                        gameState.selectedLevel.y = i;
+                        SceneManager.LoadScene("ForestLevel");
+                    };
+                }
                 row.Add(button);
             }
             main.Add(row);

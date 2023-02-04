@@ -13,8 +13,18 @@ public class ForestTile
         RIVER,
         MOUNTAIN,
         PLAIN,
-        SWAMP
+        SWAMP,
+        TUNDRA
     }
 
     public TerrainType terrainType;
+    public bool completed;
+
+    public bool isPlayable {
+        get {
+            return terrainType == TerrainType.PLAIN
+                || terrainType == TerrainType.SWAMP
+                || terrainType == TerrainType.TUNDRA;
+        }
+    }
 }
