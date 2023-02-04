@@ -38,7 +38,6 @@ public class BuildForest : MonoBehaviour
                 float sampleX = ((1f * j) / width) * scale + seed;
                 float sampleY = ((1f * i) / height) * scale + seed;
                 float noise = Mathf.PerlinNoise(sampleX, sampleY);
-                Debug.Log(string.Format("({0}, {1}) - {2}", sampleX, sampleY, noise));
                 ForestTile.TerrainType terrainType;
                 if (noise < .25f) {
                     terrainType = ForestTile.TerrainType.RIVER;
@@ -60,7 +59,7 @@ public class BuildForest : MonoBehaviour
             row.AddToClassList("row");
             for (int j = 0; j < width; j++) {
                 Button button = new Button {
-                    text = "(" + i + ", " + j + ")"
+                    tooltip = "(" + i + ", " + j + ")"
                 };
                 button.AddToClassList("forest-button");
                 ForestTile.TerrainType terrainType = tiles[i][j].terrainType;
