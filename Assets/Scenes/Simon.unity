@@ -413,7 +413,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 2038757773}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 1
+  m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -542,6 +542,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 761267621, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
+      propertyPath: gunKeyBind
+      value: Fire1
+      objectReference: {fileID: 0}
+    - target: {fileID: 761267621, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
+      propertyPath: gunCoolDown
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 761267621, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
+      propertyPath: gunCooldown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4009303245177145199, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
       propertyPath: m_Name
       value: Player

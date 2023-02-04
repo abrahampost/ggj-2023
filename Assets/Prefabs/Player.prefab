@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 8322506543688107386, guid: 3b43fc676e676f34a82d1c8c7bfaea1f, type: 3}
-  launchVelocity: 5
-  keyBind: Fire1
+  gunKeyBind: Fire1
+  gunCooldown: 1
 --- !u!1 &1016048984
 GameObject:
   m_ObjectHideFlags: 0
