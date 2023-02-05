@@ -61,7 +61,7 @@ public class GameLoseController : MonoBehaviour
     }
 
     private void mainMenuButtonClicked() {
-        Debug.Log("MAIN MENU PUSHED");
+        gameState.InitializeGameState();
         SceneManager.LoadScene("MainMenu");
     }
 }
