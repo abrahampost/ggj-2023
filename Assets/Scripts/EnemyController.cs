@@ -29,6 +29,12 @@ public class EnemyController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color originColor;
 
+    // Attack
+    // [SerializeField]
+    // private GameObject attack;
+    public GameObject attack;
+
+
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -54,7 +60,7 @@ public class EnemyController : MonoBehaviour
 
         // Attack if close to target
         if (DistanceToTarget() < 2) {
-            Debug.Log("ATTACK");
+            // Debug.Log("ATTACK");
             gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
             StartCoroutine(ResetMotion());
             IEnumerator ResetMotion()
@@ -206,6 +212,21 @@ public class EnemyController : MonoBehaviour
         // instantiate attack obj
         // wait and destroy
         // animation
+        // GameObject attack = EnemyAttack.Init(gameObject);
+        // EnemyAttack attack = new EnemyAttack(gameObject);
+
+        GameObject newAttack = Instantiate(attack, transform.position, transform.rotation);
+        newAttack.GetComponent<EnemyAttack>().parent = gameObject;
+
+        Destroy(newAttack, 1.0f);
+
+        // StartCoroutine(ClearAttack());
+        // IEnumerator ClearAttack()
+        // {
+        //     yield return new WaitForSecondsRealtime(1.0f);
+        //     Destroy(attack, 1.0f);
+        // }
+
         animationController.AttackAnimation(1.0f);
     }
 }
