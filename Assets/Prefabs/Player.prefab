@@ -346,6 +346,7 @@ GameObject:
   - component: {fileID: 1953746417}
   - component: {fileID: 274512421}
   - component: {fileID: 433449524}
+  - component: {fileID: -8337564980686536031}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -447,6 +448,7 @@ MonoBehaviour:
   audioSource: {fileID: 703861935}
   deathScream: {fileID: 8300000, guid: 7cac0007fd606b54bb2dc653909809a4, type: 3}
   onHitSound: {fileID: 8300000, guid: 7dcb81f419ab51144840661ea4cb8a82, type: 3}
+  volume: 0
 --- !u!114 &274512421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,6 +476,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileLaunch: {fileID: 8300000, guid: 8e28b097845bb1746b05f6fb9850bb4e, type: 3}
   audioSource: {fileID: 0}
+--- !u!81 &-8337564980686536031
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4009303245177145199}
+  m_Enabled: 1
 --- !u!1 &8422377710994779358
 GameObject:
   m_ObjectHideFlags: 0
