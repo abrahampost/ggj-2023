@@ -180,8 +180,8 @@ MonoBehaviour:
   fireballLaunch: {fileID: 8300000, guid: 8e28b097845bb1746b05f6fb9850bb4e, type: 3}
   playerMeleeAttack: {fileID: 8300000, guid: d6dfa685d272ab640a5fd26610e2f523, type: 3}
   skellyMeleeAttack: {fileID: 8300000, guid: eed997d38acdf6b49a44a53544123270, type: 3}
-  coneOfColdAtack: {fileID: 8300000, guid: 534cae42ca590c94c86b2db83ddf5929, type: 3}
-  placeThorns: {fileID: 8300000, guid: 48c264912be909b44abe10158c4b748e, type: 3}
+  coneOfColdAtack: {fileID: 8300000, guid: c8f024a7a0b5b75439e08941fb41085f, type: 3}
+  placeThorns: {fileID: 8300000, guid: 65b3e7f217bbee742adf087098a8357c, type: 3}
   fireballLaunchSource: {fileID: 7307514790681862191}
   playerMeleeAttackSource: {fileID: 2564784428136352015}
   skellyMeleeAttackSource: {fileID: 6184204274087003570}
