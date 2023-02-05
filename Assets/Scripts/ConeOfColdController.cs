@@ -15,10 +15,11 @@ public class ConeOfColdController : MonoBehaviour
 
     private Vector3 velocity;
     private HashSet<int> enemiesDamaged = new HashSet<int>();
+    Rigidbody2D rb;
 
     void Start()
     {
-        var rb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        rb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         gameObject.transform.parent.SetParent(rb.transform);
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Camera.main.nearClipPlane;
@@ -26,6 +27,17 @@ public class ConeOfColdController : MonoBehaviour
         var angle = mousePosition - GameObject.FindGameObjectWithTag("Player").transform.position;
         velocity = new Vector2(angle.x, angle.y).normalized;
         transform.parent.localScale = new Vector3(size, size, size);
+        transform.parent.position = rb.transform.position + velocity * startingDistance;
+        transform.parent.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg - 90));
+    }
+
+    private void Update()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = Camera.main.nearClipPlane;
+        var mousePosition = Camera.main.ScreenToWorldPoint(mousePos);
+        var angle = mousePosition - GameObject.FindGameObjectWithTag("Player").transform.position;
+        velocity = new Vector2(angle.x, angle.y).normalized;
         transform.parent.position = rb.transform.position + velocity * startingDistance;
         transform.parent.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg - 90));
     }

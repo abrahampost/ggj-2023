@@ -4201,6 +4201,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 761267621, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
+      propertyPath: meleeTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 761267621, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
+      propertyPath: coneOfColdSecondsAlive
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4009303245177145199, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
       propertyPath: m_Name
       value: Player
