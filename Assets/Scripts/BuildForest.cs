@@ -63,6 +63,15 @@ public class BuildForest : MonoBehaviour
                     treePreview.AddToClassList("player-start");
                     button.AddToClassList("highlighted-cell");
                     button.Add(treePreview);
+                } else if (selectedTile.isGoal) {
+                    VisualElement goalTile = new VisualElement();
+                    goalTile.AddToClassList("goal-tile");
+                    if (Mathf.Abs(x - gameState.playerPosition.x) <= 1
+                            && Mathf.Abs(y - gameState.playerPosition.y) <= 1) {
+                        button.AddToClassList("clickable-tile");
+                    }
+                    button.clicked += () => SceneManager.LoadScene("BossFight");
+                    button.Add(goalTile);
                 } else if (selectedTile.isCompleted) {
                     VisualElement treePreview = new VisualElement();
                     treePreview.AddToClassList("tree");

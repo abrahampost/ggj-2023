@@ -42,5 +42,27 @@ public class StatsController : MonoBehaviour
     public void TakeDamage(float value)
     {
         currentHealth = currentHealth - value * (10f / constitution);
+        // Debug.Log(value);
+        Debug.Log(currentHealth);
+
+        gameObject.transform.parent.GetComponent<MovementController>().Blink();
+
+        // SetColor(new Color(100, 0, 0));
+
+        // StartCoroutine(ResetColor());
+        // IEnumerator ResetColor()
+        // {
+        //     yield return new WaitForSecondsRealtime(0.2f);
+        //     SetColor(originColor);
+        // }
+
+        // if (health <= 0)
+        // {
+        //     // agent.speed = 0;
+        //     soundController.playDeathScream();
+        //     animationController.DeathAnimation();
+        //     // Destroy(gameObject, 1.0f);
+        //     return;
+        // }
     }
 }

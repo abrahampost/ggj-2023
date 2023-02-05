@@ -13,6 +13,11 @@ public class MovementController : MonoBehaviour
     // Animations
     private AnimationController animationController;
     private string direction = "down";
+    private SpriteRenderer spriteRenderer;
+    private Color originColor;
+
+    // Health
+    private float health = 100;
     private StatsController stats;
 
     private void Start()
@@ -20,6 +25,10 @@ public class MovementController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         soundController = GetComponent<PlayerSoundController>();
         animationController = GetComponent<AnimationController>();
+
+        spriteRenderer = GetComponentsInChildren<SpriteRenderer>()[0];
+        originColor = spriteRenderer.color;
+
         stats = FindObjectOfType<StatsController>();
     }
 
@@ -56,5 +65,59 @@ public class MovementController : MonoBehaviour
     public string GetDirection() 
     {
         return direction;
+    }
+
+    public float GetHealth() 
+    {
+        return health;
+    }
+
+    // Modify Stats
+    public void TakeDamage(float value)
+    {
+        ModifyHealthByValue(-value);
+    }
+
+    public void Heal(float value)
+    {
+        ModifyHealthByValue(value);
+    }
+
+    public void ModifyHealthByValue(float value)
+    {
+        health += value;
+
+        // Color on hit
+        if (value < 0) {
+        }
+
+        if (health <= 0)
+        {
+            // agent.speed = 0;
+            soundController.playDeathScream();
+            animationController.DeathAnimation();
+            // Destroy(gameObject, 1.0f);
+
+            return;
+        }
+
+        soundController.playOnHit();
+        animationController.HitAnimation();
+    }
+
+    private void SetColor(Color color) {
+        spriteRenderer.color = color;
+    }
+
+    public void Blink() 
+    {
+        SetColor(new Color(100, 0, 0));
+
+        StartCoroutine(ResetColor());
+        IEnumerator ResetColor()
+        {
+            yield return new WaitForSecondsRealtime(0.2f);
+            SetColor(originColor);
+        }
     }
 }
