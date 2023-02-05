@@ -1,3 +1,18 @@
 .health {
     max-width: 96%;
 }
+
+.agilityNumber {
+}
+
+.conNumber {
+}
+
+.healthNumber {
+}
+
+.speedNumber {
+}
+
+.strNumber {
+}
