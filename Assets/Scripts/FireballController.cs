@@ -21,9 +21,7 @@ public class FireballController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        soundController = GameObject.FindFirstObjectByType<ProjectileSoundController>();
-
-        soundController.PlayProjectileLaunch();
+        FindFirstObjectByType<ProjectileSoundController>().PlayProjectileLaunch();
 
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Camera.main.nearClipPlane;
