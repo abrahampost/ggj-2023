@@ -24,11 +24,11 @@ public class StatsController : MonoBehaviour
     {
         stats = GameObject.Find("GameState").GetComponentInChildren<PlayerStats>();
 
-        maxHealth = stats.buffedAttributes.health;
-        speed = stats.buffedAttributes.speed;
-        strength = stats.buffedAttributes.strength;
-        agility = stats.buffedAttributes.agility;
-        constitution = stats.buffedAttributes.constitution;
+        maxHealth = stats.buffedAttributes.health * 2;
+        speed = stats.buffedAttributes.speed * 2;
+        strength = stats.buffedAttributes.strength * 2;
+        agility = stats.buffedAttributes.agility * 2;
+        constitution = stats.buffedAttributes.constitution * 2;
 
 
 
