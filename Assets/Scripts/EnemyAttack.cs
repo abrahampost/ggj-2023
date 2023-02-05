@@ -12,13 +12,15 @@ public class EnemyAttack : MonoBehaviour
     public GameObject parent;
     private bool dealtDamage = false;
 
+    public float hitboxRatio = 1.0f;
+
     void Start()
     {
         rb = parent.GetComponent<Rigidbody2D>();
         gameObject.transform.SetParent(rb.transform);
         gameObject.AddComponent<BoxCollider2D>();
         gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
-        gameObject.GetComponent<BoxCollider2D>().size = parent.GetComponent<BoxCollider2D>().size * 5.0f;
+        gameObject.GetComponent<BoxCollider2D>().size = parent.GetComponent<BoxCollider2D>().size * hitboxRatio;
     }
 
     private void OnTriggerStay2D(Collider2D collision)

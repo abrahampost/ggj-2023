@@ -158,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   spawnRate: 1
+  enemyCapacity: 0
   maxEnemies: 1
   health: 10
   damage: 2
