@@ -63,19 +63,19 @@ public class PlayerStats: MonoBehaviour
         foreach (BuffBase.Modifier modifier in buff.modifiers) {
             switch (modifier.modifierType) {
                 case "AGILITY":
-                    agilityBuff += modifier.modifierValue;
+                    agilityBuff = Mathf.Max(-rawAttributes.agility + 1, agilityBuff + modifier.modifierValue);
                     break;
                 case "HEALTH":
-                    healthBuff += modifier.modifierValue;
+                    healthBuff = Mathf.Max(-rawAttributes.health + 1, healthBuff + modifier.modifierValue);
                     break;
                 case "STRENGTH":
-                    strengthBuff += modifier.modifierValue;
+                    strengthBuff = Mathf.Max(-rawAttributes.strength + 1, strengthBuff + modifier.modifierValue);
                     break;
                 case "CONSTITUTION":
-                    constitutionBuff += modifier.modifierValue;
+                    constitutionBuff = Mathf.Max(-rawAttributes.constitution + 1, constitutionBuff + modifier.modifierValue);
                     break;
                 case "SPEED:":
-                    speedBuff += modifier.modifierValue;
+                    speedBuff = Mathf.Max(-rawAttributes.speed + 1, speedBuff + modifier.modifierValue);
                     break;
                 default:
                     break;
