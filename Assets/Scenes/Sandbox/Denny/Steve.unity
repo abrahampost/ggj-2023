@@ -139,14 +139,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree
       objectReference: {fileID: 0}
-    - target: {fileID: 450327640594124133, guid: 0ef6bcfa967fabe41a71b49f9790d748, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 450327640594124133, guid: 0ef6bcfa967fabe41a71b49f9790d748, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1596741327
-      objectReference: {fileID: 0}
     - target: {fileID: 450327640594124138, guid: 0ef6bcfa967fabe41a71b49f9790d748, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1101,12 +1093,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8909260730028162831, guid: f1fcc9ed5e7e57bafb7fced391685c27, type: 3}
     - target: {fileID: 6350842941242645347, guid: 7c74b8c6cc8d77450b74bca585d3e8a5, type: 3}
+      propertyPath: color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6350842941242645347, guid: 7c74b8c6cc8d77450b74bca585d3e8a5, type: 3}
+      propertyPath: color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6350842941242645347, guid: 7c74b8c6cc8d77450b74bca585d3e8a5, type: 3}
+      propertyPath: color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6350842941242645347, guid: 7c74b8c6cc8d77450b74bca585d3e8a5, type: 3}
+      propertyPath: color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6350842941242645347, guid: 7c74b8c6cc8d77450b74bca585d3e8a5, type: 3}
       propertyPath: spawnRate
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6350842941242645347, guid: 7c74b8c6cc8d77450b74bca585d3e8a5, type: 3}
       propertyPath: maxEnemies
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6350842941242645347, guid: 7c74b8c6cc8d77450b74bca585d3e8a5, type: 3}
       propertyPath: spawn_rate
@@ -10597,12 +10605,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1295273684121254290, guid: 09b538bee7838bdbfabadfceff90ecd9, type: 3}
     - target: {fileID: 6350842941242645347, guid: 7c74b8c6cc8d77450b74bca585d3e8a5, type: 3}
+      propertyPath: color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6350842941242645347, guid: 7c74b8c6cc8d77450b74bca585d3e8a5, type: 3}
+      propertyPath: color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6350842941242645347, guid: 7c74b8c6cc8d77450b74bca585d3e8a5, type: 3}
+      propertyPath: color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6350842941242645347, guid: 7c74b8c6cc8d77450b74bca585d3e8a5, type: 3}
+      propertyPath: color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6350842941242645347, guid: 7c74b8c6cc8d77450b74bca585d3e8a5, type: 3}
       propertyPath: spawnRate
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6350842941242645347, guid: 7c74b8c6cc8d77450b74bca585d3e8a5, type: 3}
       propertyPath: maxEnemies
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6350842941242645347, guid: 7c74b8c6cc8d77450b74bca585d3e8a5, type: 3}
       propertyPath: spawn_rate

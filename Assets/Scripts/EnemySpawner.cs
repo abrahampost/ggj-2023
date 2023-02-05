@@ -17,6 +17,12 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator coroutine;
 
+    // Enemy stats
+    public float health = 10.0f;
+    public float damage = 2.0f;
+
+    public Color color;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -47,6 +53,9 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(spawnRate);
             if (spawnedEnemies.Count < maxEnemies) {
                 GameObject newEnemy = InstantiateObject(enemy);
+                newEnemy.GetComponent<EnemyController>().health = health;
+                newEnemy.GetComponent<EnemyController>().damage = damage;
+                newEnemy.GetComponentInChildren<SpriteRenderer>().color = color;
                 spawnedEnemies.Add(newEnemy);
             }
         }

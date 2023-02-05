@@ -41,6 +41,7 @@ public class EnemyAttack : MonoBehaviour
             var treeController = collision.gameObject.GetComponent<TreeController>();
             treeController.TakeDamage(damage);
             dealtDamage = true;
+            Debug.Log(damage);
         }
     }
 }

@@ -42,6 +42,15 @@ public class TreeController : MonoBehaviour
 
     void Start()
     {
+        TreeConfig treeConfig = new TreeConfig();
+        treeConfig.growthRate = 2;
+        treeConfig.health = 10;
+        treeConfig.targetHealth = 30;
+        treeConfig.growthInterval = 2;
+
+        InitializeTree(treeConfig);
+
+        beginGrowthLoop();
         soundController = GetComponent<TreeSoundController>();
     }
 
@@ -65,27 +74,10 @@ public class TreeController : MonoBehaviour
         StartCoroutine(GrowTree());
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown("i"))
-        {
-            TreeConfig treeConfig = new TreeConfig();
-            treeConfig.growthRate = 2;
-            treeConfig.health = 10;
-            treeConfig.targetHealth = 30;
-            treeConfig.growthInterval = 2;
+    // private void Update()
+    // {
 
-            InitializeTree(treeConfig);
-
-            beginGrowthLoop();
-        }
-
-        if (Input.GetKeyDown("u"))
-        {
-            TakeDamage(2);
-            Debug.Log(health);
-        }
-    }
+    // }
 
     public void TakeDamage(float value)
     {

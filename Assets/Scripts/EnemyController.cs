@@ -16,7 +16,8 @@ public class EnemyController : MonoBehaviour
     // stats
     private float baseSpeed = 3.5f;
     private float baseAcceleration;
-    private float health = 10;
+    public float health = 10.0f;
+    public float damage = 2.0f;
 
     // testing
     private bool speedModded = false;
@@ -145,6 +146,7 @@ public class EnemyController : MonoBehaviour
 
     private void SetAgentPosition()
     {
+        if (isAttacking) { return; }
         agent.SetDestination(new Vector2(target.x, target.y));
     }
 
@@ -180,7 +182,7 @@ public class EnemyController : MonoBehaviour
             agent.speed = 0;
             soundController.playDeathScream();
             animationController.DeathAnimation();
-            Destroy(gameObject, 1.0f);
+            Destroy(gameObject, .8f);
 
             return;
         }
@@ -231,7 +233,7 @@ public class EnemyController : MonoBehaviour
             yield return new WaitForSecondsRealtime(attackDelay);
             GameObject newAttack = Instantiate(attack, transform.position, transform.rotation);
             newAttack.GetComponent<EnemyAttack>().parent = gameObject;
-            newAttack.GetComponent<EnemyAttack>().damage = 10.0f;
+            newAttack.GetComponent<EnemyAttack>().damage = damage;
 
             Destroy(newAttack, attackTime);
 
