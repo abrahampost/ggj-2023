@@ -12,6 +12,7 @@ public class BossLevelController : MonoBehaviour
     // GameState gameState;
     public int healthBarNumber;
     private VisualElement health;
+    private VisualElement talkingHead;
 
     private void Awake() {
         Debug.Log("Starting");
@@ -21,6 +22,16 @@ public class BossLevelController : MonoBehaviour
         statsHealth = GameObject.FindObjectOfType<StatsController>();
 
         health = doc.rootVisualElement.Q<VisualElement>("Health");
+        talkingHead = doc.rootVisualElement.Q<VisualElement>("talkingHeadFrame");
+    }
+
+    void Start() {
+        StartCoroutine(HideTalkingHead());
+    }
+
+    IEnumerator HideTalkingHead() {
+        yield return new WaitForSeconds(3);
+        talkingHead.visible = false;
     }
 
     void Update() {
