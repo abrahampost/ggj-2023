@@ -19,7 +19,7 @@ public class GameWinController : MonoBehaviour
         gameState = GameObject.Find("GameState").GetComponent<GameState>();
 
         planted = doc.rootVisualElement.Q<Label>("planted");
-        planted.text = "Trees planted: " + gameState.levelsCompleted;
+        planted.text = "You Win! Trees planted: " + gameState.levelsCompleted;
 
         mainMenuButton = doc.rootVisualElement.Q<Button>("mainMenuButton");
         mainMenuButton.clicked += mainMenuButtonClicked;
