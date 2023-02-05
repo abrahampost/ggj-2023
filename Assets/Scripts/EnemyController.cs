@@ -30,9 +30,11 @@ public class EnemyController : MonoBehaviour
     private Color originColor;
 
     // Attack
-    // [SerializeField]
-    // private GameObject attack;
-    public GameObject attack;
+    [SerializeField]
+    private GameObject attack;
+    private float attackTime = 1.0f;
+    private bool isAttacking = false;
+    public float attackDelay = 0.2f;
 
 
     private void Start()
@@ -209,25 +211,33 @@ public class EnemyController : MonoBehaviour
 
     private void Attack() 
     {
+        if (isAttacking) { return; }
         // instantiate attack obj
         // wait and destroy
         // animation
         // GameObject attack = EnemyAttack.Init(gameObject);
         // EnemyAttack attack = new EnemyAttack(gameObject);
 
-        GameObject newAttack = Instantiate(attack, transform.position, transform.rotation);
-        newAttack.GetComponent<EnemyAttack>().parent = gameObject;
-        newAttack.GetComponent<EnemyAttack>().damage = 10.0f;
+        isAttacking = true;
+        StartCoroutine(DelayAttack());
+        IEnumerator DelayAttack()
+        {
+            yield return new WaitForSecondsRealtime(attackDelay);
+            GameObject newAttack = Instantiate(attack, transform.position, transform.rotation);
+            newAttack.GetComponent<EnemyAttack>().parent = gameObject;
+            newAttack.GetComponent<EnemyAttack>().damage = 10.0f;
 
-        Destroy(newAttack, 1.0f);
+            Destroy(newAttack, attackTime);
 
-        // StartCoroutine(ClearAttack());
-        // IEnumerator ClearAttack()
-        // {
-        //     yield return new WaitForSecondsRealtime(1.0f);
-        //     Destroy(attack, 1.0f);
-        // }
+            animationController.AttackAnimation(attackTime);
 
-        animationController.AttackAnimation(1.0f);
+            StartCoroutine(CoolDown());
+            IEnumerator CoolDown()
+            {
+                yield return new WaitForSecondsRealtime(attackTime);
+                isAttacking = false;
+            }
+        }
+
     }
 }
