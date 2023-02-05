@@ -2,12 +2,14 @@ using System;
 using System.Threading.Tasks;
 using System.Collections;
 using UnityEngine;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 
 public class WeaponsController : MonoBehaviour
 {
     public float globalCooldown = .5f;
     private bool isOnGlobalCooldown = false;
     private GameObject player;
+    private StatsController stats;
 
     [Header("Melee")]
     public GameObject melee;
@@ -66,6 +68,8 @@ public class WeaponsController : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        stats = FindObjectOfType<StatsController>();
+        globalCooldown = globalCooldown * (10 / stats.agility);
     }
 
     // Update is called once per frame
@@ -117,7 +121,7 @@ public class WeaponsController : MonoBehaviour
         }
 
         //meleeObject.GetComponent<MeleeController>().meleeSpeed = 1/meleeTime;
-        meleeObject.GetComponent<MeleeController>().damage = meleeDamage;
+        meleeObject.GetComponent<MeleeController>().damage = meleeDamage * (stats.strength / 10);
     }
 
     private void InstantiateFireball()
