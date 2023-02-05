@@ -191,6 +191,7 @@ MonoBehaviour:
   coneOfColdKeyBind: 324
   coneOfColdCooldown: 2
   coneOfColdSecondsAlive: 2
+  coneOfColdSize: 1.61
   coneOfColdStartingDistance: 1.2
   coneOfColdDamage: 2
   coneOfColdSpeedAffect: 0.2
@@ -206,8 +207,7 @@ MonoBehaviour:
   thornsKeyBind: 101
   thornsCooldown: 5
   thornsSecondsAlive: 8
-  thornsMinDistance: 0.4
-  thornsMaxDistance: 2
+  thornsDistance: 0
   thornsDamage: 5
   thornsSpeedAffect: 0.2
 --- !u!1 &1016048984
@@ -282,7 +282,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1365461599
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 1456058920, guid: 12f91880a0b34a44eab59bcfce728b76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -346,7 +346,7 @@ Transform:
   m_GameObject: {fileID: 4009303245177145199}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1016048986}

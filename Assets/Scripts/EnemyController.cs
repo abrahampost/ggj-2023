@@ -25,6 +25,8 @@ public class EnemyController : MonoBehaviour
 
     // Animations
     private AnimationController animationController;
+    private SpriteRenderer spriteRenderer;
+    private Color originColor;
 
     private void Start()
     {
@@ -37,6 +39,10 @@ public class EnemyController : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         baseAcceleration = agent.acceleration;
+
+        spriteRenderer = GetComponentsInChildren<SpriteRenderer>()[0];
+        originColor = spriteRenderer.color;
+
     }
 
     private void Update()
@@ -117,11 +123,24 @@ public class EnemyController : MonoBehaviour
     {
         health += value;
 
+        // Color on hit
+        if (value < 0) {
+            SetColor(new Color(100, 0, 0));
+
+            StartCoroutine(ResetColor());
+            IEnumerator ResetColor()
+            {
+                yield return new WaitForSecondsRealtime(0.2f);
+                SetColor(originColor);
+            }
+        }
+
         if (health <= 0)
         {
+            agent.speed = 0;
             soundController.playDeathScream();
             animationController.DeathAnimation();
-            Destroy(gameObject, 1);
+            Destroy(gameObject, 1.0f);
 
             return;
         }
@@ -145,5 +164,14 @@ public class EnemyController : MonoBehaviour
                 agent.speed = baseSpeed;
             }
         }
+    }
+
+    public string Bark()
+    {
+        return "woof";
+    }
+
+    private void SetColor(Color color) {
+        spriteRenderer.color = color;
     }
 }
