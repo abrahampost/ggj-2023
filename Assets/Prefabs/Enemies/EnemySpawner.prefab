@@ -158,3 +158,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   spawn_rate: 10
+  max_enemies: 5

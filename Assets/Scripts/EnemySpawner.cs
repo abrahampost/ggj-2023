@@ -10,6 +10,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float spawn_rate;
 
+    // private GameObject[] enemies;
+    public int max_enemies;
+    private int current_enemies = 0;
+
     private IEnumerator coroutine;
 
 
@@ -30,7 +34,13 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true) {
             yield return new WaitForSeconds(spawn_rate);
-            InstantiateObject(enemy);
+            if (current_enemies < max_enemies) {
+                GameObject newEnemy = InstantiateObject(enemy);
+                // newEnemy.OnDestroy(() => {
+                //     Debug.Log("dead");
+                // });
+                current_enemies += 1;
+            }
         }
     }
 }
