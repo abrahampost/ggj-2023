@@ -177,7 +177,7 @@ MonoBehaviour:
   meleeKeyBind: 323
   meleeCooldown: 0.5
   meleeTime: 1
-  meleeDamage: 0
+  meleeDamage: 7
   isMeleeing: 0
   fireball: {fileID: 8322506543688107386, guid: 3b43fc676e676f34a82d1c8c7bfaea1f, type: 3}
   fireballKeyBind: 113
@@ -191,24 +191,24 @@ MonoBehaviour:
   coneOfColdKeyBind: 324
   coneOfColdCooldown: 2
   coneOfColdSecondsAlive: 2
-  coneOfColdSize: 1.61
-  coneOfColdStartingDistance: 1.2
+  coneOfColdSize: 1.4
+  coneOfColdStartingDistance: 0.4
   coneOfColdDamage: 2
   coneOfColdSpeedAffect: 0.2
   dash: {fileID: 8322506543688107386, guid: ce89153746f5d76419cfbfd118e8f63f, type: 3}
   dashKeyBind: 304
   dashCooldown: 1
-  dashTime: 0.1
+  dashTime: 0.2
   dashSpeed: 10
   dashDamage: 3
   dashSpeedAffect: 0.8
   isDashing: 0
   thorns: {fileID: 8322506543688107386, guid: 7c574b78f37e5a544af18735e51ff3ab, type: 3}
   thornsKeyBind: 101
-  thornsCooldown: 5
+  thornsCooldown: 1
   thornsSecondsAlive: 8
-  thornsDistance: 0
-  thornsDamage: 5
+  thornsDistance: 3
+  thornsDamage: 1
   thornsSpeedAffect: 0.2
 --- !u!1 &1016048984
 GameObject:
@@ -282,7 +282,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1365461599
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 1456058920, guid: 12f91880a0b34a44eab59bcfce728b76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
