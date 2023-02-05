@@ -26,8 +26,17 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        ScaleLevel();
+
         coroutine = WaitAndSpawn(spawnRate);
         StartCoroutine(coroutine);
+    }
+
+    private void ScaleLevel()
+    {
+        GameObject gameState = GameObject.Find("GameState");
+        int levelsCompleted = gameState.GetComponent<GameState>().levelsCompleted;
+        maxEnemies = levelsCompleted / 2 + 1;
     }
 
     private void Update()
