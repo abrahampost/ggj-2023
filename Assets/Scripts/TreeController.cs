@@ -60,6 +60,7 @@ public class TreeController : MonoBehaviour
         {
             yield return new WaitForSeconds(growthRate);
             //soundController.DecreaseAmbientSoundPitch(pitchInterval);
+            soundController.PlayTreeGrowth();
             gameObject.transform.localScale += new Vector3(scaleInterval, scaleInterval, 0);
             health += growthInterval;
 
