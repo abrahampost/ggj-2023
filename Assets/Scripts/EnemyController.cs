@@ -95,8 +95,12 @@ public class EnemyController : MonoBehaviour
             speedModded = !speedModded;
         }
 
-        
-        
+        // Audio
+        if (!gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped)
+        {
+            soundController.PlayFootStepsIfMoving(new Vector2(1, 1));
+        }
+
     }
 
     // private void FixedUpdate()
@@ -109,7 +113,7 @@ public class EnemyController : MonoBehaviour
     //     // Animation
     //     animationController.MovementAnimation(movement);
 
- 	// 	// Audio
+    // 	// Audio
     //     soundController.PlayFootStepsIfMoving(movement);
     // }
 

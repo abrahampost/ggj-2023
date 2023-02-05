@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 8909260729932801398}
   - component: {fileID: 8909260729932801393}
   m_Layer: 0
-  m_Name: footsteps.audio
+  m_Name: skeleton.audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,7 +151,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
