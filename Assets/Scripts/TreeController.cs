@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public struct TreeConfig
 {
@@ -56,7 +57,7 @@ public class TreeController : MonoBehaviour
         }
 
         Debug.Log("LEVEL COMPLETE");
-        // end game stuff
+        SceneManager.LoadScene("SelectUpgrade");
     }
 
     public void beginGrowthLoop()
@@ -115,7 +116,7 @@ public class TreeController : MonoBehaviour
             //soundController.playDeathScream();
             //animationController.DeathAnimation();
             Destroy(gameObject);
-
+            SceneManager.LoadScene("ForestSelection");
             return;
         }
 

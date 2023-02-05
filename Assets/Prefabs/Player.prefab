@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 703861936}
   - component: {fileID: 703861935}
   m_Layer: 0
-  m_Name: footsteps.audio
+  m_Name: player.audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -427,10 +427,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 253305b68f8ce0c48ac7c7ffa800f34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footstep: {fileID: 8300000, guid: 2f4aa043a56231043a5a3242ff71258a, type: 3}
+  footstep: {fileID: 8300000, guid: 85434ad7f9edfb24e817194f95108afa, type: 3}
   audioSource: {fileID: 703861935}
-  deathScream: {fileID: 0}
-  onHitSound: {fileID: 0}
+  deathScream: {fileID: 8300000, guid: 7cac0007fd606b54bb2dc653909809a4, type: 3}
+  onHitSound: {fileID: 8300000, guid: 7dcb81f419ab51144840661ea4cb8a82, type: 3}
 --- !u!114 &274512421
 MonoBehaviour:
   m_ObjectHideFlags: 0
