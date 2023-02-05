@@ -4,18 +4,14 @@ using UnityEngine.SceneManagement;
 public class BossController : MonoBehaviour
 {
     // Start is called before the first frame update
+    TreeController treeController;
     void Start()
     {
-        OnDeath();
+        treeController = GameObject.Find("Tree").GetComponent<TreeController>();
+        treeController.RegisterWinCallback(OnDeath);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void OnDeath() {
-        SceneManager.LoadScene("EndGame");
+    void OnDeath () {
+        SceneManager.LoadScene("EndGameWin");
     }
 }
