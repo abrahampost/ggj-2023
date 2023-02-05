@@ -75,10 +75,12 @@ public class EnemyController : MonoBehaviour
         }
 
         // player method tests
+        #if UNITY_EDITOR
         if (Input.GetKeyDown("space"))
         {
             TakeDamage(2);
         }
+        #endif
 
         if (Input.GetKeyDown("p"))
         {

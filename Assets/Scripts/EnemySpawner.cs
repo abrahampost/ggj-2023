@@ -9,6 +9,8 @@ public class EnemySpawner : MonoBehaviour
     public float spawnRate;
 
     // Track enemies spawned
+    public int enemyCapacity;
+    private int spawnedCount = 0;
     public int maxEnemies;
     private List<GameObject> spawnedEnemies = new List<GameObject>();
 
@@ -47,12 +49,15 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true) {
             yield return new WaitForSeconds(spawnRate);
-            if (spawnedEnemies.Count < maxEnemies) {
+            if ((enemyCapacity == 0 || spawnedCount < enemyCapacity)
+                && spawnedEnemies.Count < maxEnemies) {
+
                 GameObject newEnemy = InstantiateObject(enemy);
                 newEnemy.GetComponent<EnemyController>().health = health;
                 newEnemy.GetComponent<EnemyController>().damage = damage;
                 newEnemy.GetComponentInChildren<SpriteRenderer>().color = color;
                 spawnedEnemies.Add(newEnemy);
+                spawnedCount++;
             }
         }
     }
