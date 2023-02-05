@@ -25,6 +25,7 @@ public class GameState : MonoBehaviour
     public SelectedLevel selectedLevel;
     public Vector2 playerPosition;
     public Vector2 goalPosition;
+    public int levelsCompleted = 0;
 
     void Awake() {
         if (instantiated) {
