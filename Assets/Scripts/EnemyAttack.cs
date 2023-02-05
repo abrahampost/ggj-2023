@@ -32,18 +32,15 @@ public class EnemyAttack : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && !dealtDamage)
         {
-            // Debug.Log("Boom boom pow");
-            // var playerController = collision.gameObject.GetComponent<MovementController>();
-            // var playerController = collision.gameObject.GetComponent<StatsController>();
-            // var playerController = collision.gameObject.GetComponent<StatsController>();
             var statsController = collision.gameObject.GetComponentInChildren<StatsController>();
-            // if (!enemiesDamaged.Contains(collision.gameObject.GetInstanceID()))
-            // {
-                // enemiesDamaged.Add(collision.gameObject.GetInstanceID());
-                statsController.TakeDamage(damage);
-                dealtDamage = true;
-            // }
-            // enemyController.ModifySpeedByPercentage(speedAffect);
+            statsController.TakeDamage(damage);
+            dealtDamage = true;
+        }
+        if (collision.gameObject.tag == "Tree" && !dealtDamage)
+        {
+            var treeController = collision.gameObject.GetComponent<TreeController>();
+            treeController.TakeDamage(damage);
+            dealtDamage = true;
         }
     }
 }

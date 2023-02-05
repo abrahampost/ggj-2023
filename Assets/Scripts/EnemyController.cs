@@ -122,8 +122,10 @@ public class EnemyController : MonoBehaviour
             // target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             // Debug.Log(target);
         // }
+        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+        float distanceToTree = Vector2.Distance(transform.position, tree.transform.position);
         
-        target = player.transform.position;
+        target = distanceToPlayer < distanceToTree ? player.transform.position : tree.transform.position;
 
         if (target.x - transform.position.x > 0) {
             transform.eulerAngles = new Vector3(0, 0, 0); // Flipped
