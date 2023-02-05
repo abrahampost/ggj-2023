@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
 
     // stats
     private float baseSpeed = 3.5f;
+    private float baseAcceleration;
     private float health = 10;
 
     // testing
@@ -35,6 +36,7 @@ public class EnemyController : MonoBehaviour
         agent.speed = baseSpeed;
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        baseAcceleration = agent.acceleration;
     }
 
     private void Update()
@@ -63,6 +65,9 @@ public class EnemyController : MonoBehaviour
 
             speedModded = !speedModded;
         }
+
+        
+        
     }
 
     // private void FixedUpdate()
@@ -125,14 +130,20 @@ public class EnemyController : MonoBehaviour
         animationController.HitAnimation();
     }
 
-    public void ModifySpeedByPercentage(float percentage)
+    public void ModifySpeedByPercentage(float percentage, float time = .1f)
     {
-        agent.speed = baseSpeed * percentage;
-    }
+        if (baseSpeed * percentage < agent.speed)
+        {
+            agent.acceleration = 60;
+            agent.speed = baseSpeed * percentage;
+            StartCoroutine(WaitForTime());
 
-    public void ModifySpeedByPercentageForTime(float percentage, float time = 1.0f)
-    {
-        agent.speed = baseSpeed * percentage;
-        Task.Delay(TimeSpan.FromSeconds(time)).ContinueWith((task) => ModifySpeedByPercentage(1));
+            IEnumerator WaitForTime()
+            {
+                yield return new WaitForSecondsRealtime(time);
+                agent.acceleration = baseAcceleration;
+                agent.speed = baseSpeed;
+            }
+        }
     }
 }

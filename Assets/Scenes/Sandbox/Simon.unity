@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42891856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -20.62}
+  m_LocalPosition: {x: 0, y: 0, z: -33.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -295,6 +295,10 @@ PrefabInstance:
     - target: {fileID: 1295273684121254300, guid: 09b538bee7838bdbfabadfceff90ecd9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1295273684121254301, guid: 09b538bee7838bdbfabadfceff90ecd9, type: 3}
+      propertyPath: m_Mass
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09b538bee7838bdbfabadfceff90ecd9, type: 3}
@@ -408,7 +412,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1125021997103558417, guid: 223123dc144a481459d84a6ed576a267, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1125021997103558417, guid: 223123dc144a481459d84a6ed576a267, type: 3}
       propertyPath: m_LocalPosition.x
@@ -618,7 +622,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5932210834342772204
 PrefabInstance:
@@ -628,8 +632,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 761267621, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
+      propertyPath: thornsDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 761267621, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
+      propertyPath: thornsSpeedAffect
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 761267621, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
+      propertyPath: thornsSecondsAlive
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 761267621, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
       propertyPath: fireballSpeedAffect
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1890681904795696202, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
+      propertyPath: m_Mass
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4009303245177145199, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
       propertyPath: m_Name

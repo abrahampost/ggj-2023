@@ -11,13 +11,11 @@ public class ConeOfColdController : MonoBehaviour
     [HideInInspector]
     public float speedAffect = .5f;
 
-    private Rigidbody2D rb;
     private Vector3 velocity;
+    private HashSet<int> enemiesDamaged = new HashSet<int>();
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Camera.main.nearClipPlane;
         var mousePosition = Camera.main.ScreenToWorldPoint(mousePos);
@@ -33,8 +31,12 @@ public class ConeOfColdController : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             var enemyController = collision.gameObject.GetComponent<EnemyController>();
-            //enemyController.TakeDamage(damage);
-            enemyController.ModifySpeedByPercentageForTime(speedAffect);
+            if (!enemiesDamaged.Contains(collision.gameObject.GetInstanceID()))
+            {
+                enemiesDamaged.Add(collision.gameObject.GetInstanceID());
+                enemyController.TakeDamage(damage);
+            }
+            enemyController.ModifySpeedByPercentage(speedAffect, 1);
         }
     }
 }
