@@ -15,6 +15,7 @@ public class TreeController : MonoBehaviour
 {
     // Audio
     private TreeSoundController soundController;
+    private System.Action winCallback;
 
     private float health;
     private float initialHealth;
@@ -68,7 +69,12 @@ public class TreeController : MonoBehaviour
         }
 
         Debug.Log("LEVEL COMPLETE");
-        SceneManager.LoadScene("SelectUpgrade");
+        if (winCallback != null) {
+            // this is for special battles like Boss fights
+            winCallback();
+        } else {
+            SceneManager.LoadScene("SelectUpgrade");
+        }
     }
 
     public void beginGrowthLoop()
@@ -109,12 +115,15 @@ public class TreeController : MonoBehaviour
         {
             //soundController.playDeathScream();
             //animationController.DeathAnimation();
-            Destroy(gameObject);
-            SceneManager.LoadScene("ForestSelection");
+            SceneManager.LoadScene("EndGameLose");
             return;
         }
 
         //soundController.playOnHit();
         //animationController.HitAnimation();
+    }
+
+    public void RegisterWinCallback(System.Action callback) {
+        this.winCallback = callback;
     }
 }
