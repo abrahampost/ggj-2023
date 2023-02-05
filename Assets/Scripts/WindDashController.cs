@@ -49,7 +49,7 @@ public class WindDashController : MonoBehaviour
         rb.velocity = dashDirection * dashSpeed;
     }
 
-    private void OnCollisionEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
