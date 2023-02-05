@@ -89,6 +89,75 @@
                 }
             ],
             "description": "Moderately speed (movement)"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "SPEED",
+                    "modifierValue": 3
+                }
+            ],
+            "description": "Greatly agility (lowers cooldowns)."
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "HEALTH",
+                    "modifierValue": 3
+                }
+            ],
+            "description": "Greatly speed (movement)"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "HEALTH",
+                    "modifierValue": 10
+                },
+                {
+                    "modifierType": "SPEED",
+                    "modifierValue": -3
+                },
+                {
+                    "modifierType": "AGILITY",
+                    "modifierValue": -3
+                }
+            ],
+            "description": "Unbelievable improvement to health, but greatly lowers speed and agility"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "STRENGTH",
+                    "modifierValue": 10
+                },
+                {
+                    "modifierType": "SPEED",
+                    "modifierValue": -3
+                },
+                {
+                    "modifierType": "AGILITY",
+                    "modifierValue": -3
+                }
+            ],
+            "description": "Unbelievable improvement to strength, but greatly lowers speed and agility"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "SPEED",
+                    "modifierValue": 5
+                },
+                {
+                    "modifierType": "AGILITY",
+                    "modifierValue": 5
+                },
+                {
+                    "modifierType": "AGILITY",
+                    "modifierValue": -3
+                }
+            ],
+            "description": "Insane improvements to speed and agility, but greatly decreases constitution"
         }
     ],
     "weaponBuffs": [
@@ -243,6 +312,65 @@
             "terrainType": "TUNDRA",
             "weaponModifier": 2,
             "description": "Moderately increases effectiveness of cone of cold ability, but slightly decreases agility"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "AGILITY",
+                    "modifierValue": -1
+                }
+            ],
+            "terrainType": "TUNDRA",
+            "weaponModifier": 2,
+            "description": "Moderately increases effectiveness of cone of cold ability, but slightly decreases agility"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "HEALTH",
+                    "modifierValue": -3
+                }
+            ],
+            "terrainType": "DESERT",
+            "weaponModifier": 4,
+            "description": "Massively increases effectiveness of fireball, but also greatly decreases health"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "SPEED",
+                    "modifierValue": -2
+                },
+                {
+                    "modifierType": "HEALTH",
+                    "modifierValue": -2
+                }
+            ],
+            "terrainType": "PLAIN",
+            "weaponModifier": 4,
+            "description": "Massively increases effectiveness of wind dash, but moderately decreases speed and health"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "CONSTITUTION",
+                    "modifierValue": -4
+                }
+            ],
+            "terrainType": "SWAMP",
+            "weaponModifier": 4,
+            "description": "Massively increases effectiveness of thorns, but also massively decreases constitution"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "HEALTH",
+                    "modifierValue": -2
+                }
+            ],
+            "terrainType": "TUNDRA",
+            "weaponModifier": 4,
+            "description": "Massively increases effectiveness of cone of cold, but also moderately decreases health"
         }
     ]
 }
