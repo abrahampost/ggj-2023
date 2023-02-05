@@ -22,9 +22,9 @@
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="Footer" style="flex-direction: row; width: 100%; height: 312px; position: relative; bottom: 0; background-color: rgba(42, 43, 42, 0.86); justify-content: center; align-items: center;">
+                <ui:VisualElement name="Footer" style="flex-direction: row; width: 100%; height: 312px; position: relative; bottom: 0; background-color: rgba(42, 43, 42, 0.86); justify-content: flex-start; align-items: center;">
                     <ui:IMGUIContainer style="height: 199px; width: 135px; background-image: url(&apos;project://database/Assets/sprites/characters/player.png?fileID=910901865&amp;guid=12f91880a0b34a44eab59bcfce728b76&amp;type=3#player_8&apos;); left: auto; position: relative; flex-shrink: 0; margin-left: 5%; margin-right: 5%; flex-grow: 0; margin-top: 0; margin-bottom: 0;" />
-                    <ui:Label text="Oh no! The forest has been destroyed! &#10;Replant trees to take back the forest and fight &#10;Gelvira&apos;s minions to give it time to take root.&#10;Make your way to the heart of the forest to defeat him." display-tooltip-when-elided="true" style="-unity-font-definition: url(&apos;project://database/Assets/UI/RockSalt-Regular%20SDF.asset?fileID=11400000&amp;guid=15b3635888661e547a16ee2aa1c14aee&amp;type=2#RockSalt-Regular SDF&apos;); -unity-font-style: bold; font-size: 20px; -unity-text-align: upper-center; flex-grow: 1; white-space: normal;" />
+                    <ui:Label text="Oh no! The forest has been destroyed! &#10;Replant trees to take back the forest and fight &#10;Gelvira&apos;s minions to give it time to take root.&#10;Make your way to the heart of the forest to defeat him." display-tooltip-when-elided="true" style="-unity-font-definition: url(&apos;project://database/Assets/UI/RockSalt-Regular%20SDF.asset?fileID=11400000&amp;guid=15b3635888661e547a16ee2aa1c14aee&amp;type=2#RockSalt-Regular SDF&apos;); -unity-font-style: bold; font-size: 15px; -unity-text-align: upper-center; flex-grow: 1; white-space: normal; width: 10%; height: 156px;" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
