@@ -32,11 +32,13 @@ public class EnemyAttack : MonoBehaviour
         {
             // Debug.Log("Boom boom pow");
             // var playerController = collision.gameObject.GetComponent<MovementController>();
-            var playerController = collision.gameObject.GetComponent<StatsController>();
+            // var playerController = collision.gameObject.GetComponent<StatsController>();
+            // var playerController = collision.gameObject.GetComponent<StatsController>();
+            var statsController = collision.gameObject.GetComponentInChildren<StatsController>();
             // if (!enemiesDamaged.Contains(collision.gameObject.GetInstanceID()))
             // {
                 // enemiesDamaged.Add(collision.gameObject.GetInstanceID());
-                playerController.TakeDamage(damage);
+                statsController.TakeDamage(damage);
             // }
             // enemyController.ModifySpeedByPercentage(speedAffect);
         }

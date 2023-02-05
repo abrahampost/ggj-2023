@@ -217,6 +217,7 @@ public class EnemyController : MonoBehaviour
 
         GameObject newAttack = Instantiate(attack, transform.position, transform.rotation);
         newAttack.GetComponent<EnemyAttack>().parent = gameObject;
+        newAttack.GetComponent<EnemyAttack>().damage = 10.0f;
 
         Destroy(newAttack, 1.0f);
 

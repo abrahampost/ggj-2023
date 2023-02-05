@@ -89,14 +89,6 @@ public class MovementController : MonoBehaviour
 
         // Color on hit
         if (value < 0) {
-            SetColor(new Color(100, 0, 0));
-
-            StartCoroutine(ResetColor());
-            IEnumerator ResetColor()
-            {
-                yield return new WaitForSecondsRealtime(0.2f);
-                SetColor(originColor);
-            }
         }
 
         if (health <= 0)
@@ -115,5 +107,17 @@ public class MovementController : MonoBehaviour
 
     private void SetColor(Color color) {
         spriteRenderer.color = color;
+    }
+
+    public void Blink() 
+    {
+        SetColor(new Color(100, 0, 0));
+
+        StartCoroutine(ResetColor());
+        IEnumerator ResetColor()
+        {
+            yield return new WaitForSecondsRealtime(0.2f);
+            SetColor(originColor);
+        }
     }
 }

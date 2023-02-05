@@ -30,7 +30,10 @@ public class StatsController : MonoBehaviour
     public void TakeDamage(float value)
     {
         currentHealth = currentHealth - value * (10 / constitution);
+        // Debug.Log(value);
         Debug.Log(currentHealth);
+
+        gameObject.transform.parent.GetComponent<MovementController>().Blink();
 
         // SetColor(new Color(100, 0, 0));
 
