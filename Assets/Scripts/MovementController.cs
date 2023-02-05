@@ -5,8 +5,6 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     private Rigidbody2D rb;
-
-    public float speed;
     private Vector2 movement;
 
     // audio
@@ -20,6 +18,7 @@ public class MovementController : MonoBehaviour
 
     // Health
     private float health = 100;
+    private StatsController stats;
 
     private void Start()
     {
@@ -29,13 +28,15 @@ public class MovementController : MonoBehaviour
 
         spriteRenderer = GetComponentsInChildren<SpriteRenderer>()[0];
         originColor = spriteRenderer.color;
+
+        stats = FindObjectOfType<StatsController>();
     }
 
     private void FixedUpdate()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        movement = new Vector2(horizontal, vertical).normalized * speed;
+        movement = new Vector2(horizontal, vertical).normalized * stats.speed / 2;
         rb.velocity = movement;
 
         // Animation
