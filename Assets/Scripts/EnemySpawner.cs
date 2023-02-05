@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
 
     // private GameObject[] enemies;
     public int max_enemies;
-    private int current_enemies;
+    private int current_enemies = 0;
 
     private IEnumerator coroutine;
 
