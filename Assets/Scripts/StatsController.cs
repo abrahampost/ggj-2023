@@ -6,11 +6,16 @@ public class StatsController : MonoBehaviour
 {
     private PlayerStats stats;
 
+    public int biomeStatsBase = 5;
     public int maxHealth;
     public int speed;
     public int strength;
     public int agility;
     public int constitution;
+    public int desertBoost;
+    public int tundraBoost;
+    public int swampBoost;
+    public int plainBoost;
 
     public float currentHealth;
 
@@ -24,7 +29,14 @@ public class StatsController : MonoBehaviour
         agility = stats.buffedAttributes.agility;
         constitution = stats.buffedAttributes.constitution;
 
-        currentHealth = stats.buffedAttributes.health;
+
+
+        desertBoost = stats.desertBoost + biomeStatsBase;
+        tundraBoost = stats.tundraBoost + biomeStatsBase;
+        swampBoost = stats.swampBoost + biomeStatsBase;
+        plainBoost = stats.plainBoost + biomeStatsBase;
+
+        currentHealth = maxHealth;
     }
 
     public void TakeDamage(float value)

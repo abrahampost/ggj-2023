@@ -20,7 +20,7 @@ public class WindDashController : MonoBehaviour
         gameObject.transform.SetParent(rb.transform);
         gameObject.AddComponent<BoxCollider2D>();
         gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
-        gameObject.GetComponent<BoxCollider2D>().size = GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider2D>().size;
+        gameObject.GetComponent<BoxCollider2D>().size = GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider2D>().size * 3;
         dashDirection = rb.velocity.normalized;
         var staticDashDirection = GameObject.FindGameObjectWithTag("Player").GetComponent<MovementController>().GetDirection();
         if (dashDirection.magnitude == 0)
