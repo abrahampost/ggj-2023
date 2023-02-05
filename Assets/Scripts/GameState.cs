@@ -48,7 +48,8 @@ public class GameState : MonoBehaviour
             seed = Random.Range(1, 10000),
             scale = 3
         };
-        GameObject.Find("PlayerStats").GetComponent<PlayerStats>().ResetPlayerStats();
+        GetComponentInChildren<AudioSource>().Play();
+        Debug.Log("Seed is " + settings.seed);
     }
 
     public void GenerateTerrain() {

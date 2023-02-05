@@ -33,7 +33,8 @@ public class EnemyController : MonoBehaviour
     // Attack
     [SerializeField]
     private GameObject attack;
-    private float attackTime = 1.0f;
+    private float attackAnimationTime = 1.0f;
+    private float attackTime = 0.1f;
     private bool isAttacking = false;
     public float attackDelay = 0.2f;
     [SerializeField]
@@ -220,6 +221,7 @@ public class EnemyController : MonoBehaviour
 
         isAttacking = true;
         StartCoroutine(DelayAttack());
+        animationController.AttackAnimation(attackAnimationTime);
         IEnumerator DelayAttack()
         {
             yield return new WaitForSecondsRealtime(attackDelay);
@@ -230,7 +232,6 @@ public class EnemyController : MonoBehaviour
 
             Destroy(newAttack, attackTime);
 
-            animationController.AttackAnimation(attackTime);
 
             StartCoroutine(CoolDown());
             IEnumerator CoolDown()
