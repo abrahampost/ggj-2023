@@ -1,0 +1,69 @@
+{
+    "baseBuffs": [
+        {
+            "modifiers": [
+                {
+                    "modifierType": "HEALTH",
+                    "modifierValue": "1"
+                }
+            ],
+            "description": "Slightly increases health (max hitpoints)"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "CONSTITUTION",
+                    "modifierValue": "1"
+                }
+            ],
+            "description": "Slightly increases constitution (reduces damage received)"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "STRENGTH",
+                    "modifierValue": "1"
+                }
+            ],
+            "description": "Slightly increases strength (damage done by player)"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "AGILITY",
+                    "modifierValue": "1"
+                }
+            ],
+            "description": "Slightly increases agility (lowers cooldowns)."
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "SPEED",
+                    "modifierValue": "1"
+                }
+            ],
+            "description": "Slightly increases speed (movement)"
+        }
+    ],
+    "weaponBuffs": [
+        {
+            "modifiers": [],
+            "terrainType": "PLAIN",
+            "weaponModifier": 1,
+            "description": "Slightly increases effectiveness of wind dash ability"
+        },
+        {
+            "modifiers": [],
+            "terrainType": "SWAMP",
+            "weaponModifier": 1,
+            "description": "Slightly increases effectiveness of thorns ability"
+        },
+        {
+            "modifiers": [],
+            "terrainType": "TUNDRA",
+            "weaponModifier": 1,
+            "description": "Slightly increases effectiveness of cone of cold"
+        }
+    ]
+}
