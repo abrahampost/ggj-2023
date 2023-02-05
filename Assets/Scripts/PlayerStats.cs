@@ -21,11 +21,11 @@ public class PlayerStats: MonoBehaviour
     }
 
     public Attributes rawAttributes = new Attributes {
-        agility = 10,
-        constitution = 10,
-        health = 10,
-        speed = 10,
-        strength = 10
+        agility = 5,
+        constitution = 5,
+        health = 5,
+        speed = 5,
+        strength = 5
     };
 
     public Attributes buffedAttributes {
