@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
     {
         GameObject gameState = GameObject.Find("GameState");
         int levelsCompleted = gameState.GetComponent<GameState>().levelsCompleted;
-        maxEnemies = levelsCompleted / 2 + 1;
+        maxEnemies = levelsCompleted / 3 + 1;
     }
 
     private void Update()
