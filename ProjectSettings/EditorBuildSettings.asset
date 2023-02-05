@@ -6,24 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Biomes/MainMenu.unity
     guid: 7181ba2a8e9b5da45865a2d2088c0f0b
   - enabled: 1
-    path: Assets/Scenes/ForestSelection.unity
+    path: Assets/Biomes/ForestSelection.unity
     guid: 1d6b094c607a15a4c9a1303188ffeabc
   - enabled: 1
-    path: Assets/Scenes/SettingsPage.unity
+    path: Assets/Biomes/SettingsPage.unity
     guid: 68972accf5fc898479267c192c674b9d
   - enabled: 1
-    path: Assets/Scenes/ForestLevel.unity
+    path: Assets/Biomes/ForestLevel.unity
     guid: 682efa23cbf268248b03c09ce02104e1
   - enabled: 1
-    path: Assets/Scenes/SelectUpgrade.unity
+    path: Assets/Biomes/SelectUpgrade.unity
     guid: c9065f5d69f0a2f46b0487977ae1f6d0
   - enabled: 1
-    path: Assets/Scenes/BossFight.unity
+    path: Assets/Biomes/BossFight.unity
     guid: a742c1efa74c6df4690c2cca833a88d3
   - enabled: 1
-    path: Assets/Scenes/EndGame.unity
+    path: Assets/Biomes/EndGame.unity
     guid: 4754b13fb2fb4c14393d05f561af89a3
   m_configObjects: {}
