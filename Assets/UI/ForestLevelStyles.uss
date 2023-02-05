@@ -1,5 +1,5 @@
 .health {
-    max-width: 96%;
+    max-width: 100%;
 }
 
 .agilityNumber {
