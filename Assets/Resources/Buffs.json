@@ -49,7 +49,7 @@
             "modifiers": [
                 {
                     "modifierType": "HEALTH",
-                    "modifierValue": "2"
+                    "modifierValue": 2
                 }
             ],
             "description": "Slightly increases health (max hitpoints)"
@@ -58,7 +58,7 @@
             "modifiers": [
                 {
                     "modifierType": "CONSTITUTION",
-                    "modifierValue": "2"
+                    "modifierValue": 2
                 }
             ],
             "description": "Slightly increases constitution (reduces damage received)"
@@ -67,7 +67,7 @@
             "modifiers": [
                 {
                     "modifierType": "STRENGTH",
-                    "modifierValue": "2"
+                    "modifierValue": 2
                 }
             ],
             "description": "Increases strength (damage done by player)"
@@ -76,7 +76,7 @@
             "modifiers": [
                 {
                     "modifierType": "AGILITY",
-                    "modifierValue": "2"
+                    "modifierValue": 2
                 }
             ],
             "description": "Increases agility (lowers cooldowns)."
@@ -85,7 +85,7 @@
             "modifiers": [
                 {
                     "modifierType": "SPEED",
-                    "modifierValue": "2"
+                    "modifierValue": 2
                 }
             ],
             "description": "Increases speed (movement)"
@@ -144,11 +144,11 @@
             "modifiers": [
                 {
                     "modifierType": "SPEED",
-                    "modifierValue": "3"
+                    "modifierValue": 3
                 },
                 {
                     "modifierType": "HEALTH",
-                    "modifierValue": "-2"
+                    "modifierValue": -2
                 }
             ],
             "terrainType": "PLAIN",
@@ -159,11 +159,11 @@
             "modifiers": [
                 {
                     "modifierType": "AGILITY",
-                    "modifierValue": "3"
+                    "modifierValue": 3
                 },
                 {
                     "modifierType": "CONSTITUTION",
-                    "modifierValue": "-2"
+                    "modifierValue": -2
                 }
             ],
             "terrainType": "DESERT",
@@ -174,11 +174,11 @@
             "modifiers": [
                 {
                     "modifierType": "STRENGTH",
-                    "modifierValue": "3"
+                    "modifierValue": 3
                 },
                 {
                     "modifierType": "AGILITY",
-                    "modifierValue": "-2"
+                    "modifierValue": -2
                 }
             ],
             "terrainType": "SWAMP",
@@ -189,11 +189,11 @@
             "modifiers": [
                 {
                     "modifierType": "CONSTITUTION",
-                    "modifierValue": "3"
+                    "modifierValue": 3
                 },
                 {
                     "modifierType": "AGILITY",
-                    "modifierValue": "-2"
+                    "modifierValue": -2
                 }
             ],
             "terrainType": "TUNDRA",
@@ -204,7 +204,7 @@
             "modifiers": [
                 {
                     "modifierType": "CONSTITUTION",
-                    "modifierValue": "-1"
+                    "modifierValue": -1
                 }
             ],
             "terrainType": "PLAIN",
@@ -215,7 +215,7 @@
             "modifiers": [
                 {
                     "modifierType": "STRENGTH",
-                    "modifierValue": "-1"
+                    "modifierValue": -1
                 }
             ],
             "terrainType": "DESERT",
@@ -226,7 +226,7 @@
             "modifiers": [
                 {
                     "modifierType": "SPEED",
-                    "modifierValue": "-1"
+                    "modifierValue": -1
                 }
             ],
             "terrainType": "SWAMP",
@@ -237,7 +237,7 @@
             "modifiers": [
                 {
                     "modifierType": "AGILITY",
-                    "modifierValue": "-1"
+                    "modifierValue": -1
                 }
             ],
             "terrainType": "TUNDRA",

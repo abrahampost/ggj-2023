@@ -96,7 +96,7 @@ public class PlayerStats: MonoBehaviour
                 tundraBoost += buff.weaponModifier;
                 break;
             case "DESERT":
-                tundraBoost += buff.weaponModifier;
+                desertBoost += buff.weaponModifier;
                 break;
             default:
                 throw new System.Exception("Unsupported Terrain Type Upgrade" + buff.terrainType.ToString());

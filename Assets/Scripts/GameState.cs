@@ -65,6 +65,8 @@ public class GameState : MonoBehaviour
                 } else if (noise < .6f) {
                     terrainType = ForestTile.TerrainType.PLAIN;
                 } else if (noise < .7f) {
+                    terrainType = ForestTile.TerrainType.DESERT;
+                } else if (noise < .8f) {
                     terrainType = ForestTile.TerrainType.TUNDRA;
                 } else {
                     terrainType = ForestTile.TerrainType.MOUNTAIN;

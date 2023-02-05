@@ -6,36 +6,27 @@ public class BuildForest : MonoBehaviour
 {
 
     GameState gameState;
+    PlayerStats playerStats;
 
     [SerializeField]
     private UIDocument doc;
 
     private VisualElement root;
-    private VisualElement main;
+    private VisualElement grid;
 
 
     void Start()
     {
-        GameObject go = GameObject.Find("GameState");
-        if (go == null) {
-            go = new GameObject("GameState");
-            go.AddComponent<GameState>();
-            gameState = go.GetComponent<GameState>();
-            gameState.settings = new GameState.Settings {
-                height = 16,
-                width = 24,
-                scale = 3,
-                seed = 3
-            };
-            gameState.GenerateTerrain();
-        } else {
-            gameState = go.GetComponent<GameState>();
-        }
+        gameState = GameObject.Find("GameState").GetComponent<GameState>();
+        playerStats = GameObject.Find("PlayerStats").GetComponent<PlayerStats>();
+
         root = doc.rootVisualElement;
 
-        main = root.Query("Grid");
+        grid = root.Query("Grid");
         DrawGrid();
+        UpdateStats();
     }
+
 
 
     private void DrawGrid() {
@@ -54,10 +45,13 @@ public class BuildForest : MonoBehaviour
                 } else if (terrainType == ForestTile.TerrainType.PLAIN) {
                     button.AddToClassList("plain");
                 } else if (terrainType == ForestTile.TerrainType.TUNDRA) {
-                    button.AddToClassList("tundra"); 
+                    button.AddToClassList("tundra");
+                } else if (terrainType == ForestTile.TerrainType.DESERT) {
+                    button.AddToClassList("desert");
                 } else {
                     button.AddToClassList("mountain"); 
                 }
+
                 if (gameState.playerPosition.x == x && gameState.playerPosition.y == y) {
                     VisualElement treePreview = new VisualElement();
                     treePreview.AddToClassList("player-start");
@@ -69,8 +63,8 @@ public class BuildForest : MonoBehaviour
                     if (Mathf.Abs(x - gameState.playerPosition.x) <= 1
                             && Mathf.Abs(y - gameState.playerPosition.y) <= 1) {
                         button.AddToClassList("clickable-tile");
+                        button.clicked += () => SceneManager.LoadScene("BossFight");
                     }
-                    button.clicked += () => SceneManager.LoadScene("BossFight");
                     button.Add(goalTile);
                 } else if (selectedTile.isCompleted) {
                     VisualElement treePreview = new VisualElement();
@@ -88,8 +82,29 @@ public class BuildForest : MonoBehaviour
                 }
                 row.Add(button);
             }
-            main.Add(row);
+            grid.Add(row);
         }
+    }
+    private void UpdateStats() {
+        Label healthStat = root.Q<Label>("HealthStat");
+        healthStat.text = string.Format("Health: {0}", playerStats.buffedAttributes.health);
+        Label strengthStat = root.Q<Label>("StrengthStat");
+        strengthStat.text = string.Format("Strength: {0}", playerStats.buffedAttributes.strength);
+        Label agilityStat = root.Q<Label>("AgilityStat");
+        agilityStat.text = string.Format("Agility: {0}", playerStats.buffedAttributes.agility);
+        Label constitutionStat = root.Q<Label>("ConstitutionStat");
+        constitutionStat.text = string.Format("Constitution: {0}", playerStats.buffedAttributes.constitution);
+        Label speedStat = root.Q<Label>("SpeedStat");
+        speedStat.text = string.Format("Speed: {0}", playerStats.buffedAttributes.speed);
+
+        Label tundraStat = root.Q<Label>("ConeOfColdStat");
+        tundraStat.text = string.Format("Cone of Cold: {0}", playerStats.tundraBoost);
+        Label plainStat = root.Q<Label>("WindDashStat");
+        plainStat.text = string.Format("Wind Dash: {0}", playerStats.plainBoost);
+        Label swampStat = root.Q<Label>("ThornsStat");
+        swampStat.text = string.Format("Thorn Stat: {0}", playerStats.swampBoost);
+        Label desertStat = root.Q<Label>("FireballStat");
+        desertStat.text = string.Format("Fireball: {0}", playerStats.desertBoost);
     }
 
     private System.Action LoadLevel(int x, int y) {
