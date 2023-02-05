@@ -115,6 +115,7 @@ MonoBehaviour:
   audioSource: {fileID: 1295273684699846488}
   deathScream: {fileID: 8300000, guid: dd57652f6a92e494f8c668469d6e6941, type: 3}
   onHitSound: {fileID: 8300000, guid: 18df7684c6b799b46ac61a79b8b3ed9d, type: 3}
+  volume: 0
 --- !u!114 &2341397680992251088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad25b1f710d0e44e08ceab37840354ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 10
+  damage: 2
   attack: {fileID: 8322506543688107386, guid: a745a113df207a82cb20e21567ac3d62, type: 3}
   attackDelay: 0.1
 --- !u!195 &467341293
@@ -138,7 +141,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1295273684121254290}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Speed: 3.5
   m_Acceleration: 1
   avoidancePriority: 50
