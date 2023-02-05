@@ -191,7 +191,7 @@ MonoBehaviour:
   coneOfCold: {fileID: 8322506543688107386, guid: 20027462ff14792448e9a09ff18ef589, type: 3}
   coneOfColdKeyBind: 324
   coneOfColdCooldown: 2
-  coneOfColdSecondsAlive: 1.5
+  coneOfColdSecondsAlive: 1
   coneOfColdSize: 1.4
   coneOfColdStartingDistance: 0.4
   coneOfColdDamage: 2
@@ -206,7 +206,7 @@ MonoBehaviour:
   isDashing: 0
   thorns: {fileID: 8322506543688107386, guid: 7c574b78f37e5a544af18735e51ff3ab, type: 3}
   thornsKeyBind: 101
-  thornsCooldown: 1
+  thornsCooldown: 5
   thornsSecondsAlive: 8
   thornsDistance: 3
   thornsDamage: 1
@@ -346,7 +346,6 @@ GameObject:
   - component: {fileID: 1953746417}
   - component: {fileID: 274512421}
   - component: {fileID: 433449524}
-  - component: {fileID: -8337564980686536031}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -476,14 +475,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileLaunch: {fileID: 8300000, guid: 8e28b097845bb1746b05f6fb9850bb4e, type: 3}
   audioSource: {fileID: 0}
---- !u!81 &-8337564980686536031
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4009303245177145199}
-  m_Enabled: 1
 --- !u!1 &8422377710994779358
 GameObject:
   m_ObjectHideFlags: 0
