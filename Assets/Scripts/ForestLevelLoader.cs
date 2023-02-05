@@ -22,6 +22,8 @@ public class ForestLevelLoader : MonoBehaviour
     }
 
     void CompleteLevel() {
+        gameState.playerPosition.x = gameState.selectedLevel.x;
+        gameState.playerPosition.y = gameState.selectedLevel.y;
         SceneManager.LoadScene("SelectUpgrade");
     }
     
