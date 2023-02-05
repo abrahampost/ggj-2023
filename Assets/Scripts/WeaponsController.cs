@@ -69,7 +69,6 @@ public class WeaponsController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         stats = FindObjectOfType<StatsController>();
-        globalCooldown = globalCooldown * (10 / stats.agility);
     }
 
     // Update is called once per frame
@@ -106,9 +105,10 @@ public class WeaponsController : MonoBehaviour
 
     private void InstantiateMelee()
     {
+        Debug.Log(meleeCooldown * (10f / stats.agility));
         var meleeObject = InstantiateObject(melee, meleeTime);
         isMeleeOnCooldown = true;
-        Task.Delay(TimeSpan.FromSeconds(meleeCooldown)).ContinueWith((task) => isMeleeOnCooldown = false);
+        Task.Delay(TimeSpan.FromSeconds(meleeCooldown * (10 / stats.agility))).ContinueWith((task) => isMeleeOnCooldown = false);
         Task.Delay(TimeSpan.FromSeconds(meleeTime)).ContinueWith((task) => Destroy(meleeObject));
 
         isMeleeing = true;
@@ -121,14 +121,14 @@ public class WeaponsController : MonoBehaviour
         }
 
         //meleeObject.GetComponent<MeleeController>().meleeSpeed = 1/meleeTime;
-        meleeObject.GetComponent<MeleeController>().damage = meleeDamage * (stats.strength / 10);
+        meleeObject.GetComponent<MeleeController>().damage = meleeDamage * (stats.strength / 10f);
     }
 
     private void InstantiateFireball()
     {
         var fireballObject = InstantiateObject(fireball, fireballSecondsAlive);
         isFireballOnCooldown = true;
-        Task.Delay(TimeSpan.FromSeconds(fireballCooldown)).ContinueWith((task) => isFireballOnCooldown = false);
+        Task.Delay(TimeSpan.FromSeconds(fireballCooldown * (10f / stats.agility))).ContinueWith((task) => isFireballOnCooldown = false);
         fireballObject.GetComponent<FireballController>().speed = fireballSpeed;
         fireballObject.GetComponent<FireballController>().startingDistance = fireballStartingDistance;
         fireballObject.GetComponent<FireballController>().damage = fireballDamage;
@@ -139,7 +139,7 @@ public class WeaponsController : MonoBehaviour
     {
         var coneOfColdObject = InstantiateObject(coneOfCold, coneOfColdSecondsAlive);
         isConeOfColdOnCooldown = true;
-        Task.Delay(TimeSpan.FromSeconds(coneOfColdCooldown)).ContinueWith((task) => isConeOfColdOnCooldown = false);
+        Task.Delay(TimeSpan.FromSeconds(coneOfColdCooldown * (10f / stats.agility))).ContinueWith((task) => isConeOfColdOnCooldown = false);
         coneOfColdObject.GetComponentInChildren<ConeOfColdController>().startingDistance = coneOfColdStartingDistance;
         coneOfColdObject.GetComponentInChildren<ConeOfColdController>().damage = coneOfColdDamage;
         coneOfColdObject.GetComponentInChildren<ConeOfColdController>().speedAffect = coneOfColdSpeedAffect;
@@ -150,7 +150,7 @@ public class WeaponsController : MonoBehaviour
     {
         var dashObject = InstantiateObject(dash, dashTime);
         isDashOnCooldown = true;
-        Task.Delay(TimeSpan.FromSeconds(dashCooldown)).ContinueWith((task) => isDashOnCooldown = false);
+        Task.Delay(TimeSpan.FromSeconds(dashCooldown * (10f / stats.agility))).ContinueWith((task) => isDashOnCooldown = false);
         dashObject.GetComponent<WindDashController>().dashSpeed = dashSpeed;
         dashObject.GetComponent<WindDashController>().damage = dashDamage;
         dashObject.GetComponent<WindDashController>().speedAffect = dashSpeedAffect;
@@ -171,7 +171,7 @@ public class WeaponsController : MonoBehaviour
     {
         var thornsObject = InstantiateObject(thorns, thornsSecondsAlive);
         isThornsOnCooldown = true;
-        Task.Delay(TimeSpan.FromSeconds(thornsCooldown)).ContinueWith((task) => isThornsOnCooldown = false);
+        Task.Delay(TimeSpan.FromSeconds(thornsCooldown * (10f / stats.agility))).ContinueWith((task) => isThornsOnCooldown = false);
         thornsObject.GetComponentInChildren<ThornsController>().secondsAlive = thornsSecondsAlive;
         thornsObject.GetComponentInChildren<ThornsController>().distance = thornsDistance;
         thornsObject.GetComponentInChildren<ThornsController>().damage = thornsDamage;
@@ -186,7 +186,7 @@ public class WeaponsController : MonoBehaviour
         StartCoroutine(OffGlobalCooldown());
         IEnumerator OffGlobalCooldown()
         {
-            yield return new WaitForSecondsRealtime(globalCooldown);
+            yield return new WaitForSecondsRealtime(globalCooldown * (10f / stats.agility));
             isOnGlobalCooldown = false;
         }
 
