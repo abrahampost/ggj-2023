@@ -10,6 +10,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float spawn_rate;
 
+    private GameObject[] enemies;
+
     private IEnumerator coroutine;
 
 
@@ -23,6 +25,7 @@ public class EnemySpawner : MonoBehaviour
     private GameObject InstantiateObject(GameObject gameObject) 
     {
         GameObject newObject = Instantiate(gameObject, transform.position, transform.rotation);
+        
         return newObject;
     }
 
