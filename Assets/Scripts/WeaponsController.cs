@@ -116,7 +116,7 @@ public class WeaponsController : MonoBehaviour
             isMeleeing = false;
         }
 
-        meleeObject.GetComponent<MeleeController>().meleeSpeed = 1/meleeTime;
+        //meleeObject.GetComponent<MeleeController>().meleeSpeed = 1/meleeTime;
         meleeObject.GetComponent<MeleeController>().damage = meleeDamage;
     }
 

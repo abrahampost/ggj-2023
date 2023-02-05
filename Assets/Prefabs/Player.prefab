@@ -176,7 +176,7 @@ MonoBehaviour:
   melee: {fileID: 8322506543688107386, guid: 6abb8570810d1c1428318bbf8212e6e4, type: 3}
   meleeKeyBind: 323
   meleeCooldown: 0.5
-  meleeTime: 1
+  meleeTime: 0.5
   meleeDamage: 7
   isMeleeing: 0
   fireball: {fileID: 8322506543688107386, guid: 3b43fc676e676f34a82d1c8c7bfaea1f, type: 3}
@@ -190,7 +190,7 @@ MonoBehaviour:
   coneOfCold: {fileID: 8322506543688107386, guid: 20027462ff14792448e9a09ff18ef589, type: 3}
   coneOfColdKeyBind: 324
   coneOfColdCooldown: 2
-  coneOfColdSecondsAlive: 2
+  coneOfColdSecondsAlive: 1.5
   coneOfColdSize: 1.4
   coneOfColdStartingDistance: 0.4
   coneOfColdDamage: 2
