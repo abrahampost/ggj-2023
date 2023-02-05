@@ -114,8 +114,7 @@ public class TreeController : MonoBehaviour
         {
             //soundController.playDeathScream();
             //animationController.DeathAnimation();
-            Destroy(gameObject);
-            SceneManager.LoadScene("ForestSelection");
+            SceneManager.LoadScene("EndGameLose");
             return;
         }
 

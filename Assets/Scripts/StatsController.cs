@@ -52,8 +52,12 @@ public class StatsController : MonoBehaviour
         {
             gameObject.transform.parent.GetComponent<PlayerSoundController>().playDeathScream();
             gameObject.transform.parent.GetComponent<AnimationController>().DeathAnimation();
-            Destroy(gameObject, .8f);
-            SceneManager.LoadScene("ForestSelection");
+            StartCoroutine(WaitForDeath());
         }
+    }
+
+    private IEnumerator WaitForDeath() {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("EndGameLose");
     }
 }
