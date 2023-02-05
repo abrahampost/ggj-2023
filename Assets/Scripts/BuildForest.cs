@@ -65,12 +65,11 @@ public class BuildForest : MonoBehaviour
                 } else {
                     button.AddToClassList("mountain"); 
                 }
-                // if (selectedTile.completed) {
+                if (selectedTile.isCompleted) {
                     VisualElement treePreview = new VisualElement();
                     treePreview.AddToClassList("tree-preview");
                     button.Add(treePreview);
-                // }
-                if (selectedTile.isPlayable) {
+                } else if (selectedTile.isPlayable) {
                     button.clicked += LoadLevel(j, i);
                 }
                 row.Add(button);

@@ -44,7 +44,9 @@ public class FireballController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyController>().TakeDamage(damage);
+            var enemyController = collision.gameObject.GetComponent<EnemyController>();
+            enemyController.TakeDamage(damage);
+            enemyController.ModifySpeedByPercentage(speedAffect, .1f);
             Destroy(gameObject);
         }
     }

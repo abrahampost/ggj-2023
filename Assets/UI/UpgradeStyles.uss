@@ -24,3 +24,13 @@
     background-color: rgb(57, 225, 238);
     font-size: 15px;
 }
+
+.upgrade-description {
+    color: rgb(255, 255, 255);
+    font-size: 36px;
+    -unity-text-align: middle-center;
+    width: 75%;
+    flex-shrink: 0;
+    max-width: initial;
+    white-space: wrap;
+}

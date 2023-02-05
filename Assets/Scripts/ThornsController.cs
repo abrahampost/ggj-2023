@@ -7,46 +7,43 @@ public class ThornsController : MonoBehaviour
     [HideInInspector]
     public float secondsAlive = 1.0f;
     [HideInInspector]
-    public float minDistance = .4f;
-    [HideInInspector]
-    public float maxDistance = 2f;
+    public float distance = 2f;
 
     [HideInInspector]
     public float damage = 10.0f;
     [HideInInspector]
     public float speedAffect = .5f;
 
-    private Rigidbody2D rb;
     private Vector3 velocity;
+    private HashSet<int> enemiesDamaged = new HashSet<int>();
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Camera.main.nearClipPlane;
         var mousePosition = Camera.main.ScreenToWorldPoint(mousePos);
         var angle = mousePosition - GameObject.FindGameObjectWithTag("Player").transform.position;
         velocity = new Vector2(angle.x, angle.y);
-        if (velocity.magnitude > minDistance && velocity.magnitude < maxDistance)
+        if (velocity.magnitude > distance)
         {
-            transform.position = transform.position + velocity;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg));
-            Destroy(gameObject, secondsAlive);
+            velocity = velocity.normalized * distance;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        transform.parent.position = transform.parent.position + velocity;
+        transform.parent.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg + 90));
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            //Debug.Log("Enemy Hit");
+            var enemyController = collision.gameObject.GetComponent<EnemyController>();
+            if (!enemiesDamaged.Contains(collision.gameObject.GetInstanceID()))
+            {
+                enemiesDamaged.Add(collision.gameObject.GetInstanceID());
+                enemyController.TakeDamage(damage);
+            }
+            enemyController.ModifySpeedByPercentage(speedAffect);
         }
     }
-
 }

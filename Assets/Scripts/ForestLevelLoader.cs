@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ForestLevelLoader : MonoBehaviour
 {
@@ -16,6 +17,12 @@ public class ForestLevelLoader : MonoBehaviour
         Debug.Log(string.Format("({0}, {1}) - {2}", x, y, terrainType.ToString()));
 
         // Load Tilemap, buffs, custom
+        
+        CompleteLevel();
+    }
+
+    void CompleteLevel() {
+        SceneManager.LoadScene("SelectUpgrade");
     }
     
 }
