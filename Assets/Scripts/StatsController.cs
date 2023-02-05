@@ -29,6 +29,6 @@ public class StatsController : MonoBehaviour
 
     public void TakeDamage(float value)
     {
-        currentHealth = currentHealth - value * (10 / constitution);
+        currentHealth = currentHealth - value * (10f / constitution);
     }
 }
