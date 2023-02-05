@@ -31,7 +31,8 @@ public class EnemyAttack : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             // Debug.Log("Boom boom pow");
-            var playerController = collision.gameObject.GetComponent<MovementController>();
+            // var playerController = collision.gameObject.GetComponent<MovementController>();
+            var playerController = collision.gameObject.GetComponent<StatsController>();
             // if (!enemiesDamaged.Contains(collision.gameObject.GetInstanceID()))
             // {
                 // enemiesDamaged.Add(collision.gameObject.GetInstanceID());
