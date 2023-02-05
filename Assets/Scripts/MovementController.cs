@@ -5,8 +5,6 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     private Rigidbody2D rb;
-
-    public float speed;
     private Vector2 movement;
 
     // audio
@@ -15,19 +13,21 @@ public class MovementController : MonoBehaviour
     // Animations
     private AnimationController animationController;
     private string direction = "down";
+    private StatsController stats;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         soundController = GetComponent<PlayerSoundController>();
         animationController = GetComponent<AnimationController>();
+        stats = FindObjectOfType<StatsController>();
     }
 
     private void FixedUpdate()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        movement = new Vector2(horizontal, vertical).normalized * speed;
+        movement = new Vector2(horizontal, vertical).normalized * stats.speed / 2;
         rb.velocity = movement;
 
         // Animation

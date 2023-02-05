@@ -10,15 +10,12 @@ public class BuildForest : MonoBehaviour
     [SerializeField]
     private UIDocument doc;
 
-    public Texture2D cursorTexture;
-
     private VisualElement root;
     private VisualElement main;
 
 
     void Start()
     {
-        UnityEngine.Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.ForceSoftware);
         GameObject go = GameObject.Find("GameState");
         if (go == null) {
             go = new GameObject("GameState");
@@ -38,10 +35,6 @@ public class BuildForest : MonoBehaviour
 
         main = root.Query("Grid");
         DrawGrid();
-    }
-
-    void OnMouseEnter() {
-        UnityEngine.Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.ForceSoftware);
     }
 
 
