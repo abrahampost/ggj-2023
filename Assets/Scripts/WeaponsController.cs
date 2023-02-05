@@ -35,6 +35,7 @@ public class WeaponsController : MonoBehaviour
     public KeyCode coneOfColdKeyBind;
     public float coneOfColdCooldown;
     public float coneOfColdSecondsAlive; 
+    public float coneOfColdSize;
     public float coneOfColdStartingDistance;
     public int coneOfColdDamage;
     public float coneOfColdSpeedAffect;
@@ -57,8 +58,7 @@ public class WeaponsController : MonoBehaviour
     public KeyCode thornsKeyBind;
     public float thornsCooldown;
     public float thornsSecondsAlive;
-    public float thornsMinDistance;
-    public float thornsMaxDistance;
+    public float thornsDistance;
     public int thornsDamage;
     public float thornsSpeedAffect;
     private bool isThornsOnCooldown = false;
@@ -136,9 +136,10 @@ public class WeaponsController : MonoBehaviour
         var coneOfColdObject = InstantiateObject(coneOfCold, coneOfColdSecondsAlive);
         isConeOfColdOnCooldown = true;
         Task.Delay(TimeSpan.FromSeconds(coneOfColdCooldown)).ContinueWith((task) => isConeOfColdOnCooldown = false);
-        coneOfColdObject.GetComponent<ConeOfColdController>().startingDistance = coneOfColdStartingDistance;
-        coneOfColdObject.GetComponent<ConeOfColdController>().damage = coneOfColdDamage;
-        coneOfColdObject.GetComponent<ConeOfColdController>().speedAffect = coneOfColdSpeedAffect;
+        coneOfColdObject.GetComponentInChildren<ConeOfColdController>().startingDistance = coneOfColdStartingDistance;
+        coneOfColdObject.GetComponentInChildren<ConeOfColdController>().damage = coneOfColdDamage;
+        coneOfColdObject.GetComponentInChildren<ConeOfColdController>().speedAffect = coneOfColdSpeedAffect;
+        coneOfColdObject.GetComponentInChildren<ConeOfColdController>().size = coneOfColdSize;
     }
 
     private void InstantiateDash()
@@ -167,11 +168,10 @@ public class WeaponsController : MonoBehaviour
         var thornsObject = InstantiateObject(thorns, thornsSecondsAlive);
         isThornsOnCooldown = true;
         Task.Delay(TimeSpan.FromSeconds(thornsCooldown)).ContinueWith((task) => isThornsOnCooldown = false);
-        thornsObject.GetComponent<ThornsController>().secondsAlive = thornsSecondsAlive;
-        thornsObject.GetComponent<ThornsController>().minDistance = thornsMinDistance;
-        thornsObject.GetComponent<ThornsController>().maxDistance = thornsMaxDistance;
-        thornsObject.GetComponent<ThornsController>().damage = thornsDamage;
-        thornsObject.GetComponent<ThornsController>().speedAffect = thornsSpeedAffect;
+        thornsObject.GetComponentInChildren<ThornsController>().secondsAlive = thornsSecondsAlive;
+        thornsObject.GetComponentInChildren<ThornsController>().distance = thornsDistance;
+        thornsObject.GetComponentInChildren<ThornsController>().damage = thornsDamage;
+        thornsObject.GetComponentInChildren<ThornsController>().speedAffect = thornsSpeedAffect;
     }
 
     private GameObject InstantiateObject(GameObject gameObject, float secondsAlive) 

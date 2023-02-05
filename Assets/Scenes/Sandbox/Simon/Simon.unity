@@ -631,26 +631,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 761267621, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
-      propertyPath: thornsDamage
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 761267621, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
-      propertyPath: thornsSpeedAffect
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 761267621, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
-      propertyPath: thornsSecondsAlive
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 761267621, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
-      propertyPath: fireballSpeedAffect
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1890681904795696202, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
-      propertyPath: m_Mass
-      value: 1000
-      objectReference: {fileID: 0}
     - target: {fileID: 4009303245177145199, guid: 8b06c0342bebb874fa888cb8e0f05040, type: 3}
       propertyPath: m_Name
       value: Player

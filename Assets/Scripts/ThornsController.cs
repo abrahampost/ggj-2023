@@ -7,9 +7,7 @@ public class ThornsController : MonoBehaviour
     [HideInInspector]
     public float secondsAlive = 1.0f;
     [HideInInspector]
-    public float minDistance = .4f;
-    [HideInInspector]
-    public float maxDistance = 2f;
+    public float distance = 2f;
 
     [HideInInspector]
     public float damage = 10.0f;
@@ -26,16 +24,13 @@ public class ThornsController : MonoBehaviour
         var mousePosition = Camera.main.ScreenToWorldPoint(mousePos);
         var angle = mousePosition - GameObject.FindGameObjectWithTag("Player").transform.position;
         velocity = new Vector2(angle.x, angle.y);
-        if (velocity.magnitude > minDistance && velocity.magnitude < maxDistance)
+        if (velocity.magnitude > distance)
         {
-            transform.position = transform.position + velocity;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg));
-            Destroy(gameObject, secondsAlive);
+            velocity = velocity.normalized * distance;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        transform.parent.position = transform.parent.position + velocity;
+        transform.parent.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg + 90));
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
