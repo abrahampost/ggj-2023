@@ -61,3 +61,11 @@
 .tundra {
     background-image: url('project://database/Assets/sprites/tilesets/map_tiles/tundra_tile_1.png?fileID=2800000&guid=30391d8aae4fd854db0421741454bce9&type=3#tundra_tile_1');
 }
+
+.imgui-container {
+}
+
+.imgui-container:hover {
+    scale: 1 1;
+    rotate: -10deg;
+}

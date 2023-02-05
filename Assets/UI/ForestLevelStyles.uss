@@ -1,0 +1,3 @@
+.health {
+    max-width: 96%;
+}

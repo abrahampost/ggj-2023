@@ -51,3 +51,12 @@ TagManager:
   - name: Player
     uniqueID: 1365461599
     locked: 0
+  - name: Obstacles
+    uniqueID: 2698225969
+    locked: 0
+  - name: Wall
+    uniqueID: 2887263711
+    locked: 0
+  - name: Projectile
+    uniqueID: 3420464205
+    locked: 0

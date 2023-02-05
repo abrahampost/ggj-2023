@@ -18,13 +18,14 @@ public class ForestTile
     }
 
     public TerrainType terrainType;
-    public bool completed;
+    public bool isCompleted;
 
     public bool isPlayable {
         get {
-            return terrainType == TerrainType.PLAIN
+            return (terrainType == TerrainType.PLAIN
                 || terrainType == TerrainType.SWAMP
-                || terrainType == TerrainType.TUNDRA;
+                || terrainType == TerrainType.TUNDRA)
+                && !isCompleted;
         }
     }
 }
