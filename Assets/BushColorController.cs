@@ -14,7 +14,7 @@ public class BushColorController : MonoBehaviour
 
         if (gameState.tiles == null)
         {
-            terrainType = ForestTile.TerrainType.DESERT;
+            terrainType = ForestTile.TerrainType.PLAIN;
         } else
         {
             x = gameState.selectedLevel.x;

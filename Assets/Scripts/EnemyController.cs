@@ -110,10 +110,20 @@ public class EnemyController : MonoBehaviour
 
     private void SetTargetPosition()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
-        float distanceToTree = Vector2.Distance(transform.position, tree.transform.position);
+        Vector2 playerPos = player.transform.position;
+        Vector2 treePos = tree.transform.position + new Vector3(0, -0.5f, 0);
+
+        float distanceToPlayer = Vector2.Distance(transform.position, playerPos);
+
+        // Let player pull monsters away
+        float playerGravityWell = 4;
+        if (distanceToPlayer < playerGravityWell) {
+            target = playerPos;
+        } else {
+            float distanceToTree = Vector2.Distance(transform.position, treePos);
+            target = distanceToPlayer < distanceToTree ? playerPos : treePos;
+        }
         
-        target = distanceToPlayer < distanceToTree ? player.transform.position : tree.transform.position;
 
         if (target.x - transform.position.x > 0) {
             transform.eulerAngles = new Vector3(0, 0, 0); // Flipped
