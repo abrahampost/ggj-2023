@@ -111,10 +111,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 253305b68f8ce0c48ac7c7ffa800f34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footstep: {fileID: 8300000, guid: 2f4aa043a56231043a5a3242ff71258a, type: 3}
+  footstep: {fileID: 8300000, guid: 6b7eafe8075ab5744b8a13873e1822f8, type: 3}
   audioSource: {fileID: 1295273684699846488}
-  deathScream: {fileID: 0}
-  onHitSound: {fileID: 0}
+  deathScream: {fileID: 8300000, guid: dd57652f6a92e494f8c668469d6e6941, type: 3}
+  onHitSound: {fileID: 8300000, guid: 18df7684c6b799b46ac61a79b8b3ed9d, type: 3}
 --- !u!114 &2341397680992251088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 1295273684699846471}
   - component: {fileID: 1295273684699846488}
   m_Layer: 0
-  m_Name: footsteps.audio
+  m_Name: slime.audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,7 +193,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
