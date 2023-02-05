@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -126,5 +128,11 @@ public class EnemyController : MonoBehaviour
     public void ModifySpeedByPercentage(float percentage)
     {
         agent.speed = baseSpeed * percentage;
+    }
+
+    public void ModifySpeedByPercentageForTime(float percentage, float time = 1.0f)
+    {
+        agent.speed = baseSpeed * percentage;
+        Task.Delay(TimeSpan.FromSeconds(time)).ContinueWith((task) => ModifySpeedByPercentage(1));
     }
 }
