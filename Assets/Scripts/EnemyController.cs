@@ -16,7 +16,8 @@ public class EnemyController : MonoBehaviour
     // stats
     private float baseSpeed = 3.5f;
     private float baseAcceleration;
-    private float health = 10;
+    public float health = 10.0f;
+    public float damage = 2.0f;
 
     // testing
     private bool speedModded = false;
@@ -30,9 +31,11 @@ public class EnemyController : MonoBehaviour
     private Color originColor;
 
     // Attack
-    // [SerializeField]
-    // private GameObject attack;
-    public GameObject attack;
+    [SerializeField]
+    private GameObject attack;
+    private float attackTime = 1.0f;
+    private bool isAttacking = false;
+    public float attackDelay = 0.2f;
 
 
     private void Start()
@@ -60,7 +63,6 @@ public class EnemyController : MonoBehaviour
 
         // Attack if close to target
         if (DistanceToTarget() < 2) {
-            // Debug.Log("ATTACK");
             gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
             StartCoroutine(ResetMotion());
             IEnumerator ResetMotion()
@@ -102,31 +104,16 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    // private void FixedUpdate()
-    // {
-    //     float horizontal = Input.GetAxisRaw("Horizontal");
-    //     float vertical = Input.GetAxisRaw("Vertical");
-    //     movement = new Vector2(horizontal, vertical).normalized * speed * Time.deltaTime;
-    //     rb.MovePosition(rb.position + movement);
-
-    //     // Animation
-    //     animationController.MovementAnimation(movement);
-
-    // 	// Audio
-    //     soundController.PlayFootStepsIfMoving(movement);
-    // }
 
     // AI
     //https://www.youtube.com/watch?v=DGBaEuZz-RA&t=102s
 
     private void SetTargetPosition()
     {
-        // if (Input.GetKey(KeyCode.Mouse0)) {
-            // target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            // Debug.Log(target);
-        // }
+        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+        float distanceToTree = Vector2.Distance(transform.position, tree.transform.position);
         
-        target = player.transform.position;
+        target = distanceToPlayer < distanceToTree ? player.transform.position : tree.transform.position;
 
         if (target.x - transform.position.x > 0) {
             transform.eulerAngles = new Vector3(0, 0, 0); // Flipped
@@ -142,6 +129,7 @@ public class EnemyController : MonoBehaviour
 
     private void SetAgentPosition()
     {
+        if (isAttacking) { return; }
         agent.SetDestination(new Vector2(target.x, target.y));
     }
 
@@ -177,7 +165,7 @@ public class EnemyController : MonoBehaviour
             agent.speed = 0;
             soundController.playDeathScream();
             animationController.DeathAnimation();
-            Destroy(gameObject, 1.0f);
+            Destroy(gameObject, .8f);
 
             return;
         }
@@ -214,25 +202,35 @@ public class EnemyController : MonoBehaviour
 
     private void Attack() 
     {
-        // instantiate attack obj
-        // wait and destroy
-        // animation
-        // GameObject attack = EnemyAttack.Init(gameObject);
-        // EnemyAttack attack = new EnemyAttack(gameObject);
+        if (isAttacking) { return; }
 
-        GameObject newAttack = Instantiate(attack, transform.position, transform.rotation);
-        newAttack.GetComponent<EnemyAttack>().parent = gameObject;
-        newAttack.GetComponent<EnemyAttack>().damage = 10.0f;
+        isAttacking = true;
+        StartCoroutine(DelayAttack());
+        IEnumerator DelayAttack()
+        {
+            yield return new WaitForSecondsRealtime(attackDelay);
+            GameObject newAttack = Instantiate(attack, transform.position, transform.rotation);
+            newAttack.GetComponent<EnemyAttack>().parent = gameObject;
+            newAttack.GetComponent<EnemyAttack>().damage = damage;
 
-        Destroy(newAttack, 1.0f);
+            Destroy(newAttack, attackTime);
 
-        // StartCoroutine(ClearAttack());
-        // IEnumerator ClearAttack()
-        // {
-        //     yield return new WaitForSecondsRealtime(1.0f);
-        //     Destroy(attack, 1.0f);
-        // }
+            animationController.AttackAnimation(attackTime);
 
-        animationController.AttackAnimation(1.0f);
+            StartCoroutine(CoolDown());
+            IEnumerator CoolDown()
+            {
+                yield return new WaitForSecondsRealtime(attackTime);
+                isAttacking = false;
+            }
+        }
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy") {
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+        }
     }
 }

@@ -91,12 +91,12 @@ public class MovementController : MonoBehaviour
         if (value < 0) {
         }
 
+        // death
         if (health <= 0)
         {
-            // agent.speed = 0;
             soundController.playDeathScream();
             animationController.DeathAnimation();
-            // Destroy(gameObject, 1.0f);
+            Destroy(gameObject, 1.0f);
 
             return;
         }

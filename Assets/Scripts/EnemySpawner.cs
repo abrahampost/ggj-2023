@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject enemy;
+    // Spawn settings
+    public GameObject enemy;
+    public float spawnRate;
 
-    [SerializeField]
-    private float spawnRate;
-
-    // private GameObject[] enemies;
+    // Track enemies spawned
     public int maxEnemies;
-    // private int current_enemies = 0;
     private List<GameObject> spawnedEnemies = new List<GameObject>();
 
     private IEnumerator coroutine;
+
+    // Enemy stats
+    public float health = 10.0f;
+    public float damage = 2.0f;
+
+    public Color color;
 
 
     // Start is called before the first frame update
@@ -28,7 +31,6 @@ public class EnemySpawner : MonoBehaviour
     private void Update()
     {
         for (int i=0; i < spawnedEnemies.Count; i++) {
-            // Debug.Log(spawnedEnemies[i].GetComponent<EnemyController>().Bark());
             if (spawnedEnemies[i] == null) {
                 spawnedEnemies.RemoveAt(i);
             }
@@ -47,6 +49,9 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(spawnRate);
             if (spawnedEnemies.Count < maxEnemies) {
                 GameObject newEnemy = InstantiateObject(enemy);
+                newEnemy.GetComponent<EnemyController>().health = health;
+                newEnemy.GetComponent<EnemyController>().damage = damage;
+                newEnemy.GetComponentInChildren<SpriteRenderer>().color = color;
                 spawnedEnemies.Add(newEnemy);
             }
         }

@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/ForestLevelStyles.uss?fileID=7433441132597879392&amp;guid=c6c24bf96f811be4896764b2d86f73e4&amp;type=3#ForestLevelStyles" />
     <ui:VisualElement name="root" style="width: 100%; height: 100%;">
-        <ui:VisualElement name="footer" style="flex-direction: row; width: 100%; height: 20%; position: absolute; bottom: 0; background-color: rgba(64, 66, 64, 0.86); justify-content: flex-start; align-items: center; border-top-color: rgb(0, 0, 0); border-left-width: 2px;">
+        <ui:VisualElement name="footer" style="flex-direction: row; width: 100%; height: 20%; position: absolute; bottom: 0; background-color: rgba(64, 66, 64, 0.86); justify-content: flex-start; align-items: center; border-top-color: rgb(0, 0, 0); border-left-width: 2px; border-top-width: 2px; border-bottom-color: rgb(0, 0, 0);">
             <ui:VisualElement name="healthContainer" style="flex-direction: row; align-items: center; width: 30%;">
                 <ui:IMGUIContainer name="sprite" style="height: 199px; width: 135px; background-image: url(&apos;project://database/Assets/sprites/characters/player.png?fileID=910901865&amp;guid=12f91880a0b34a44eab59bcfce728b76&amp;type=3#player_8&apos;); left: auto; position: relative;" />
                 <ui:VisualElement name="healthbarContainer" style="width: 50%; height: 50px; align-items: center; justify-content: center; color: rgb(255, 255, 255);">
@@ -32,6 +32,15 @@
                     <ui:Label text="Strength" display-tooltip-when-elided="true" name="strLabel" style="font-size: 20px; color: rgb(255, 255, 255);" />
                     <ui:Label text="0" display-tooltip-when-elided="true" name="strNumber" class="strNumber" style="font-size: 50px; color: rgb(255, 255, 255);" />
                 </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="MainUIContainer" style="height: 80%; flex-direction: row;">
+            <ui:VisualElement name="Game" style="flex-grow: 0; flex-shrink: 1; width: 80%;" />
+            <ui:VisualElement name="buffsContainer" style="flex-grow: 0; flex-shrink: 1; width: 20%; justify-content: space-around; background-color: rgba(64, 66, 64, 0.86); color: rgb(255, 255, 255); border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-bottom-width: 0; border-left-width: 2px;">
+                <ui:Label text="Current Upgrades" display-tooltip-when-elided="true" name="upgradeText" style="-unity-text-align: upper-center; -unity-font-style: bold; font-size: 20px; -unity-font-definition: url(&apos;project://database/Assets/UI/RockSalt-Regular%20SDF.asset?fileID=11400000&amp;guid=15b3635888661e547a16ee2aa1c14aee&amp;type=2#RockSalt-Regular SDF&apos;);" />
+                <ui:Label text="Upgrade One" display-tooltip-when-elided="true" name="upgradeOne" style="-unity-text-align: upper-center; -unity-font-style: bold; -unity-font-definition: url(&apos;project://database/Assets/UI/RockSalt-Regular%20SDF.asset?fileID=11400000&amp;guid=15b3635888661e547a16ee2aa1c14aee&amp;type=2#RockSalt-Regular SDF&apos;);" />
+                <ui:Label text="Upgrade Two" display-tooltip-when-elided="true" name="upgradeTwo" style="-unity-text-align: upper-center; -unity-font-style: bold; -unity-font-definition: url(&apos;project://database/Assets/UI/RockSalt-Regular%20SDF.asset?fileID=11400000&amp;guid=15b3635888661e547a16ee2aa1c14aee&amp;type=2#RockSalt-Regular SDF&apos;);" />
+                <ui:Label text="Upgrade Three" display-tooltip-when-elided="true" name="upgradeThree" style="-unity-text-align: upper-center; -unity-font-style: bold; -unity-font-definition: url(&apos;project://database/Assets/UI/RockSalt-Regular%20SDF.asset?fileID=11400000&amp;guid=15b3635888661e547a16ee2aa1c14aee&amp;type=2#RockSalt-Regular SDF&apos;);" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
