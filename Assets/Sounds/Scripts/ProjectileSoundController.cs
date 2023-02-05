@@ -10,15 +10,20 @@ public class ProjectileSoundController : MonoBehaviour
     private AudioClip projectileLaunch;
 
     [SerializeField]
-    private AudioSource audioSourceLaunch;
+    private AudioClip meleeAttack;
 
-    private void Start()
-    {
-        audioSourceLaunch.clip = projectileLaunch;
-    }
+    [SerializeField]
+    private AudioSource audioSourceLaunch;
 
     public void PlayProjectileLaunch()
     {
+        audioSourceLaunch.clip = projectileLaunch;
+        audioSourceLaunch.Play();
+    }
+
+    public void PlayMeleeAttack()
+    {
+        audioSourceLaunch.clip = meleeAttack;
         audioSourceLaunch.Play();
     }
 }

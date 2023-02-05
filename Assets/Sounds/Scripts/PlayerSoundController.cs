@@ -16,6 +16,9 @@ public class PlayerSoundController : MonoBehaviour
     [SerializeField]
     private AudioClip onHitSound;
 
+    [SerializeField]
+    private float volume;
+
     private bool isPlaying;
 
     private IEnumerator playInDelayedLoop(float delay)

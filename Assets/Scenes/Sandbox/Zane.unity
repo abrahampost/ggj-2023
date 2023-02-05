@@ -1004,6 +1004,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1125021997103558416, guid: 223123dc144a481459d84a6ed576a267, type: 3}
+      propertyPath: meleeAttack
+      value: 
+      objectReference: {fileID: 8300000, guid: d6dfa685d272ab640a5fd26610e2f523, type: 3}
     - target: {fileID: 1125021997103558417, guid: 223123dc144a481459d84a6ed576a267, type: 3}
       propertyPath: m_RootOrder
       value: 3
