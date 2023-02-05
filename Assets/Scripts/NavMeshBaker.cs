@@ -6,25 +6,8 @@ using UnityEngine.AI;
 // using NavMeshComponents;
 
 public class NavMeshBaker : MonoBehaviour {
-
-    // public NavMeshSurface[] surfaces;
-    // public Transform[] objectsToRotate;
-
-    // Use this for initialization
     void Start () 
     {
-
-        // for (int j = 0; j < objectsToRotate.Length; j++) 
-        // {
-        //     objectsToRotate [j].localRotation = Quaternion.Euler (new Vector3 (0, Random.Range (0, 360), 0));
-        // }
-
-        // for (int i = 0; i < surfaces.Length; i++) 
-        // {
-        //     surfaces[i].BuildNavMesh();    
-        // }    
-
-        // GetComponent<NavMeshSurface>().BuildNavMesh();
         GetComponent<NavMeshSurface>().BuildNavMesh();
     }
 
