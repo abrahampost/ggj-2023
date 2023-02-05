@@ -63,6 +63,10 @@
     background-image: url('project://database/Assets/sprites/tilesets/map_tiles/grass_tile_2.png?fileID=2800000&guid=96847f18c07d1654ca66b3034eeb304a&type=3#grass_tile_2');
 }
 
+.desert {
+    background-image: url('project://database/Assets/sprites/tilesets/map_tiles/desert_tile_1.png?fileID=2800000&guid=da9a45cfdfde9fe4bac6159696cc390c&type=3#desert_tile_1');
+}
+
 .row {
     height: auto;
     align-items: flex-start;
@@ -118,4 +122,14 @@
     width: 40px;
     height: 40px;
     background-image: url('project://database/Assets/sprites/tilesets/map_tiles/heart%20border%20sh.png?fileID=2800000&guid=49e118228d5c25d42b424a04eda12bec&type=3#heart border sh');
+}
+
+.stat {
+}
+
+#Stats Label {
+    flex-shrink: 0;
+    font-size: 24px;
+    -unity-font-definition: url('project://database/Assets/UI/RockSalt-Regular%20SDF.asset?fileID=11400000&guid=15b3635888661e547a16ee2aa1c14aee&type=2#RockSalt-Regular SDF');
+    -unity-font: url('project://database/Assets/UI/RockSalt-Regular.ttf?fileID=12800000&guid=a79387b5853d2d1488905375078b6d23&type=3#RockSalt-Regular');
 }

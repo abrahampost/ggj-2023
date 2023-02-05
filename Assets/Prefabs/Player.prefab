@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 703861936}
   - component: {fileID: 703861935}
   m_Layer: 0
-  m_Name: footsteps.audio
+  m_Name: player.audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,8 +43,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -138,6 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 761267620}
   - component: {fileID: 761267621}
+  - component: {fileID: 142783833}
   m_Layer: 0
   m_Name: Weapons
   m_TagString: Untagged
@@ -211,6 +212,20 @@ MonoBehaviour:
   thornsDamage: 1
   thornsSize: 1
   thornsSpeedAffect: 0.2
+--- !u!114 &142783833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761267619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9223fdbdc2b99b0458188912fe9a4dc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileLaunch: {fileID: 8300000, guid: 8e28b097845bb1746b05f6fb9850bb4e, type: 3}
+  audioSource: {fileID: 0}
 --- !u!1 &1016048984
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,6 +345,7 @@ GameObject:
   - component: {fileID: 6700237959414175789}
   - component: {fileID: 1953746417}
   - component: {fileID: 274512421}
+  - component: {fileID: 433449524}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -427,10 +443,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 253305b68f8ce0c48ac7c7ffa800f34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footstep: {fileID: 8300000, guid: 2f4aa043a56231043a5a3242ff71258a, type: 3}
+  footstep: {fileID: 8300000, guid: 85434ad7f9edfb24e817194f95108afa, type: 3}
   audioSource: {fileID: 703861935}
-  deathScream: {fileID: 0}
-  onHitSound: {fileID: 0}
+  deathScream: {fileID: 8300000, guid: 7cac0007fd606b54bb2dc653909809a4, type: 3}
+  onHitSound: {fileID: 8300000, guid: 7dcb81f419ab51144840661ea4cb8a82, type: 3}
 --- !u!114 &274512421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,6 +460,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObject: {fileID: 1016048984}
+--- !u!114 &433449524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4009303245177145199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9223fdbdc2b99b0458188912fe9a4dc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileLaunch: {fileID: 8300000, guid: 8e28b097845bb1746b05f6fb9850bb4e, type: 3}
+  audioSource: {fileID: 0}
 --- !u!1 &8422377710994779358
 GameObject:
   m_ObjectHideFlags: 0

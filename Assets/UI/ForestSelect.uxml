@@ -6,10 +6,20 @@
             <ui:VisualElement name="Sidebar" style="flex-shrink: 0; flex-grow: 1;">
                 <ui:VisualElement name="Stats" style="width: auto; align-items: center; flex-direction: column; height: initial; justify-content: center; background-color: rgba(64, 66, 64, 0.86); flex-shrink: 0; flex-grow: 1; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; max-width: none;">
                     <ui:Label text="Current &#10;Upgrades" display-tooltip-when-elided="true" name="currentUpgrades" style="-unity-text-align: middle-center; color: rgb(255, 255, 255); -unity-font-style: bold; font-size: 25px; background-color: rgba(64, 66, 64, 0); -unity-font-definition: url(&apos;project://database/Assets/UI/RockSalt-Regular%20SDF.asset?fileID=11400000&amp;guid=15b3635888661e547a16ee2aa1c14aee&amp;type=2#RockSalt-Regular SDF&apos;);" />
-                    <ui:VisualElement style="width: 80%; height: 80%; background-color: rgba(64, 66, 64, 0); align-items: center; justify-content: space-around; flex-direction: column; flex-grow: 1; flex-shrink: 0;">
-                        <ui:Label text="Upgrade One" display-tooltip-when-elided="true" name="upgradeOne" style="-unity-font-definition: url(&apos;project://database/Assets/UI/RockSalt-Regular%20SDF.asset?fileID=11400000&amp;guid=15b3635888661e547a16ee2aa1c14aee&amp;type=2#RockSalt-Regular SDF&apos;);" />
-                        <ui:Label text="Upgrade Two" display-tooltip-when-elided="true" name="upgradeTwo" style="-unity-font-definition: url(&apos;project://database/Assets/UI/RockSalt-Regular%20SDF.asset?fileID=11400000&amp;guid=15b3635888661e547a16ee2aa1c14aee&amp;type=2#RockSalt-Regular SDF&apos;);" />
-                        <ui:Label text="Upgrade Three" display-tooltip-when-elided="true" name="upgradeThree" style="-unity-font-definition: url(&apos;project://database/Assets/UI/RockSalt-Regular%20SDF.asset?fileID=11400000&amp;guid=15b3635888661e547a16ee2aa1c14aee&amp;type=2#RockSalt-Regular SDF&apos;);" />
+                    <ui:VisualElement style="width: 80%; height: 80%; background-color: rgba(64, 66, 64, 0); align-items: stretch; justify-content: space-around; flex-direction: row; flex-grow: 1; flex-shrink: 0;">
+                        <ui:VisualElement name="BaseStats" style="justify-content: space-around;">
+                            <ui:Label text="Strength" display-tooltip-when-elided="true" name="StrengthStat" style="-unity-font-definition: url(&apos;project://database/Assets/UI/RockSalt-Regular%20SDF.asset?fileID=11400000&amp;guid=15b3635888661e547a16ee2aa1c14aee&amp;type=2#RockSalt-Regular SDF&apos;);" />
+                            <ui:Label text="Agility Three" display-tooltip-when-elided="true" name="AgilityStat" style="-unity-font-definition: url(&apos;project://database/Assets/UI/RockSalt-Regular%20SDF.asset?fileID=11400000&amp;guid=15b3635888661e547a16ee2aa1c14aee&amp;type=2#RockSalt-Regular SDF&apos;); padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+                            <ui:Label text="Constitution" display-tooltip-when-elided="true" name="ConstitutionStat" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+                            <ui:Label text="Speed" display-tooltip-when-elided="true" name="SpeedStat" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+                            <ui:Label text="Health" display-tooltip-when-elided="true" name="HealthStat" style="-unity-font-definition: url(&apos;project://database/Assets/UI/RockSalt-Regular%20SDF.asset?fileID=11400000&amp;guid=15b3635888661e547a16ee2aa1c14aee&amp;type=2#RockSalt-Regular SDF&apos;); padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="WeaponStats" style="justify-content: space-around; flex-shrink: 0;">
+                            <ui:Label text="Label" display-tooltip-when-elided="true" name="ConeOfColdStat" />
+                            <ui:Label text="Label" display-tooltip-when-elided="true" name="WindDashStat" />
+                            <ui:Label text="Label" display-tooltip-when-elided="true" name="ThornsStat" />
+                            <ui:Label text="Label" display-tooltip-when-elided="true" name="FireballStat" />
+                        </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="Footer" style="flex-direction: row; width: 100%; height: 312px; position: relative; bottom: 0; background-color: rgba(42, 43, 42, 0.86); justify-content: center; align-items: center;">
