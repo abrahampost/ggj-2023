@@ -45,10 +45,13 @@ public class BuildForest : MonoBehaviour
                 } else if (terrainType == ForestTile.TerrainType.PLAIN) {
                     button.AddToClassList("plain");
                 } else if (terrainType == ForestTile.TerrainType.TUNDRA) {
-                    button.AddToClassList("tundra"); 
+                    button.AddToClassList("tundra");
+                } else if (terrainType == ForestTile.TerrainType.DESERT) {
+                    button.AddToClassList("desert");
                 } else {
                     button.AddToClassList("mountain"); 
                 }
+
                 if (gameState.playerPosition.x == x && gameState.playerPosition.y == y) {
                     VisualElement treePreview = new VisualElement();
                     treePreview.AddToClassList("player-start");
@@ -101,7 +104,7 @@ public class BuildForest : MonoBehaviour
         Label swampStat = root.Q<Label>("ThornsStat");
         swampStat.text = string.Format("Thorn Stat: {0}", playerStats.swampBoost);
         Label desertStat = root.Q<Label>("FireballStat");
-        desertStat.text = string.Format("Fireball: {0}", 0);
+        desertStat.text = string.Format("Fireball: {0}", playerStats.desertBoost);
     }
 
     private System.Action LoadLevel(int x, int y) {

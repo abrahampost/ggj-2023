@@ -63,6 +63,10 @@
     background-image: url('project://database/Assets/sprites/tilesets/map_tiles/grass_tile_2.png?fileID=2800000&guid=96847f18c07d1654ca66b3034eeb304a&type=3#grass_tile_2');
 }
 
+.desert {
+    background-image: url('project://database/Assets/sprites/tilesets/map_tiles/desert_tile_1.png?fileID=2800000&guid=da9a45cfdfde9fe4bac6159696cc390c&type=3#desert_tile_1');
+}
+
 .row {
     height: auto;
     align-items: flex-start;
