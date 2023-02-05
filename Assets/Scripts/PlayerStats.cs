@@ -104,4 +104,17 @@ public class PlayerStats: MonoBehaviour
         AddBaseBuff(buff);
     }
 
+    public void ResetPlayerStats() {
+        healthBuff = 0;
+        constitutionBuff = 0;
+        strengthBuff = 0;
+        speedBuff = 0;
+        agilityBuff = 0;
+
+        tundraBoost = 0;
+        plainBoost = 0;
+        swampBoost = 0;
+        desertBoost = 0;
+    }
+
 }
