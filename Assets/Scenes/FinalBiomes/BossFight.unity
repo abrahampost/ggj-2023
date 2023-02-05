@@ -1305,6 +1305,10 @@ PrefabInstance:
       propertyPath: health
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 6350842941242645347, guid: 7c74b8c6cc8d77450b74bca585d3e8a5, type: 3}
+      propertyPath: enemyCapacity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c74b8c6cc8d77450b74bca585d3e8a5, type: 3}
 --- !u!1001 &244297003
