@@ -24,6 +24,21 @@
     margin-bottom: 0;
 }
 
+.forest-button.clickable-tile {
+    border-left-width: 4px;
+    border-right-width: 4px;
+    border-top-width: 4px;
+    border-bottom-width: 4px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+}
+
+.forest-button.clickable-tile:hover {
+    -unity-background-image-tint-color: rgba(136, 136, 136, 0.7);
+}
+
 .mountain {
     -unity-background-image-tint-color: rgb(255, 255, 255);
     background-color: rgb(101, 101, 101);
@@ -56,10 +71,17 @@
     flex-shrink: 0;
 }
 
-.tree-preview {
+.tree {
     background-image: url('project://database/Assets/sprites/tilesets/map_tiles/tree-preview.png?fileID=2800000&guid=5b3fed482f310e649ae7fc8eceecb5b9&type=3#tree-preview');
+    width: 40px;
+    height: 40px;
+}
+
+.tree.tree-preview {
+    opacity: 0.5;
     width: 32px;
     height: 32px;
+    -unity-background-image-tint-color: rgba(80, 195, 221, 0.65);
 }
 
 .tundra {
@@ -72,4 +94,28 @@
 .imgui-container:hover {
     scale: 1 1;
     rotate: -10deg;
+}
+
+.player-start {
+    background-image: url('project://database/Assets/sprites/tilesets/map_tiles/player_tile_1.png?fileID=2800000&guid=ce0c70c9f265d4f4d8ae8ebbc8639adf&type=3#player_tile_1');
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.highlighted-cell {
+    border-left-width: 4px;
+    border-right-width: 4px;
+    border-top-width: 4px;
+    border-bottom-width: 4px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+}
+
+.goal-tile {
+    width: 40px;
+    height: 40px;
+    background-image: url('project://database/Assets/sprites/tilesets/map_tiles/heart%20border%20sh.png?fileID=2800000&guid=49e118228d5c25d42b424a04eda12bec&type=3#heart border sh');
 }

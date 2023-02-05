@@ -53,6 +53,7 @@ public class PlayerStats: MonoBehaviour
     public int tundraBoost = 0;
     public int plainBoost = 0;
     public int swampBoost = 0;
+    public int desertBoost = 0;
     private List<BuffWeapon> weaponBuffs = new List<BuffWeapon>();
 
     public void AddBaseBuff(BuffBase buff, bool save = true) {
@@ -92,6 +93,9 @@ public class PlayerStats: MonoBehaviour
                 swampBoost += buff.weaponModifier;
                 break;
             case "TUNDRA":
+                tundraBoost += buff.weaponModifier;
+                break;
+            case "DESERT":
                 tundraBoost += buff.weaponModifier;
                 break;
             default:

@@ -4,7 +4,7 @@
             "modifiers": [
                 {
                     "modifierType": "HEALTH",
-                    "modifierValue": "1"
+                    "modifierValue": 1
                 }
             ],
             "description": "Slightly increases health (max hitpoints)"
@@ -13,7 +13,7 @@
             "modifiers": [
                 {
                     "modifierType": "CONSTITUTION",
-                    "modifierValue": "1"
+                    "modifierValue": 1
                 }
             ],
             "description": "Slightly increases constitution (reduces damage received)"
@@ -22,7 +22,7 @@
             "modifiers": [
                 {
                     "modifierType": "STRENGTH",
-                    "modifierValue": "1"
+                    "modifierValue": 1
                 }
             ],
             "description": "Slightly increases strength (damage done by player)"
@@ -31,7 +31,7 @@
             "modifiers": [
                 {
                     "modifierType": "AGILITY",
-                    "modifierValue": "1"
+                    "modifierValue": 1
                 }
             ],
             "description": "Slightly increases agility (lowers cooldowns)."
@@ -40,10 +40,55 @@
             "modifiers": [
                 {
                     "modifierType": "SPEED",
-                    "modifierValue": "1"
+                    "modifierValue": 1
                 }
             ],
             "description": "Slightly increases speed (movement)"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "HEALTH",
+                    "modifierValue": "2"
+                }
+            ],
+            "description": "Slightly increases health (max hitpoints)"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "CONSTITUTION",
+                    "modifierValue": "2"
+                }
+            ],
+            "description": "Slightly increases constitution (reduces damage received)"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "STRENGTH",
+                    "modifierValue": "2"
+                }
+            ],
+            "description": "Increases strength (damage done by player)"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "AGILITY",
+                    "modifierValue": "2"
+                }
+            ],
+            "description": "Increases agility (lowers cooldowns)."
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "SPEED",
+                    "modifierValue": "2"
+                }
+            ],
+            "description": "Increases speed (movement)"
         }
     ],
     "weaponBuffs": [
@@ -64,6 +109,140 @@
             "terrainType": "TUNDRA",
             "weaponModifier": 1,
             "description": "Slightly increases effectiveness of cone of cold"
+        },
+        {
+            "modifiers": [],
+            "terrainType": "DESERT",
+            "weaponModifier": 1,
+            "description": "Slightly increases effectiveness of fireball"
+        },
+        {
+            "modifiers": [],
+            "terrainType": "PLAIN",
+            "weaponModifier": 2,
+            "description": "Increases effectiveness of wind dash ability"
+        },
+        {
+            "modifiers": [],
+            "terrainType": "TUNDRA",
+            "weaponModifier": 2,
+            "description": "Increases effectiveness of cone of cold"
+        },
+        {
+            "modifiers": [],
+            "terrainType": "SWAMP",
+            "weaponModifier": 2,
+            "description": "Increases effectiveness of thorns ability"
+        },
+        {
+            "modifiers": [],
+            "terrainType": "DESERT",
+            "weaponModifier": 2,
+            "description": "Increases effectiveness of fireball"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "SPEED",
+                    "modifierValue": "3"
+                },
+                {
+                    "modifierType": "HEALTH",
+                    "modifierValue": "-2"
+                }
+            ],
+            "terrainType": "PLAIN",
+            "weaponModifier": 3,
+            "description": "Greatly increases speed and effectiveness of wind dash ability, but decreases health"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "AGILITY",
+                    "modifierValue": "3"
+                },
+                {
+                    "modifierType": "CONSTITUTION",
+                    "modifierValue": "-2"
+                }
+            ],
+            "terrainType": "DESERT",
+            "weaponModifier": 3,
+            "description": "Greatly increases agility and effectiveness of fireball ability, but decreases constitution"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "STRENGTH",
+                    "modifierValue": "3"
+                },
+                {
+                    "modifierType": "AGILITY",
+                    "modifierValue": "-2"
+                }
+            ],
+            "terrainType": "SWAMP",
+            "weaponModifier": 3,
+            "description": "Greatly increases strength and effectiveness of thorns ability, but decreases agility"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "CONSTITUTION",
+                    "modifierValue": "3"
+                },
+                {
+                    "modifierType": "AGILITY",
+                    "modifierValue": "-2"
+                }
+            ],
+            "terrainType": "TUNDRA",
+            "weaponModifier": 3,
+            "description": "Greatly increases constitution and effectiveness of cone of cold ability, but decreases agility"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "CONSTITUTION",
+                    "modifierValue": "-1"
+                }
+            ],
+            "terrainType": "PLAIN",
+            "weaponModifier": 2,
+            "description": "Increases effectiveness of wind dash ability, but slightly decreases constitution"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "STRENGTH",
+                    "modifierValue": "-1"
+                }
+            ],
+            "terrainType": "DESERT",
+            "weaponModifier": 2,
+            "description": "Increases effectiveness of fireball ability, but slightly decreases strength"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "SPEED",
+                    "modifierValue": "-1"
+                }
+            ],
+            "terrainType": "SWAMP",
+            "weaponModifier": 2,
+            "description": "Increases effectiveness of thorns ability, but slightly decreases speed"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "AGILITY",
+                    "modifierValue": "-1"
+                }
+            ],
+            "terrainType": "TUNDRA",
+            "weaponModifier": 2,
+            "description": "Increases effectiveness of cone of cold ability, but slightly decreases agility"
         }
     ]
 }

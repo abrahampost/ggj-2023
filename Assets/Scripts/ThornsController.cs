@@ -5,14 +5,14 @@ using UnityEngine;
 public class ThornsController : MonoBehaviour
 {
     [HideInInspector]
-    public float secondsAlive = 1.0f;
-    [HideInInspector]
     public float distance = 2f;
 
     [HideInInspector]
     public float damage = 10.0f;
     [HideInInspector]
     public float speedAffect = .5f;
+    [HideInInspector]
+    public float size = 1f;
 
     private Vector3 velocity;
     private HashSet<int> enemiesDamaged = new HashSet<int>();
@@ -28,6 +28,7 @@ public class ThornsController : MonoBehaviour
         {
             velocity = velocity.normalized * distance;
         }
+        transform.parent.localScale = new Vector3(size, size, size);
         transform.parent.position = transform.parent.position + velocity;
         transform.parent.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg + 90));
 

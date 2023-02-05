@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameState : MonoBehaviour
@@ -5,6 +7,7 @@ public class GameState : MonoBehaviour
     private static bool instantiated;
     public ForestTile[][] tiles;
 
+    [System.Serializable]
     public struct Settings {
         public int seed;
         public int width;
@@ -20,6 +23,8 @@ public class GameState : MonoBehaviour
 
     public Settings settings;
     public SelectedLevel selectedLevel;
+    public Vector2 playerPosition;
+    public Vector2 goalPosition;
 
     void Awake() {
         if (instantiated) {
@@ -42,6 +47,9 @@ public class GameState : MonoBehaviour
     }
 
     public void GenerateTerrain() {
+        // This should make the below placement all repeatable based on seed
+        Random.InitState(settings.seed);
+
         tiles = new ForestTile[settings.height][];
         for (int i = 0; i < settings.height; i++) {
             tiles[i] = new ForestTile[settings.width];
@@ -64,6 +72,30 @@ public class GameState : MonoBehaviour
                 tiles[i][j] = new ForestTile(terrainType);
             }
         }
+        PlacePlayer();
+        PlaceGoal();
+    }
+
+    void PlacePlayer() {
+        ForestTile selectedTile;
+        // TODO: If it can't find a valid start tile, instead of looping forever change seed and try again
+        do {
+            int randomHeight = Random.Range(0, settings.height);
+            selectedTile = tiles[randomHeight][0];
+            playerPosition = new Vector2(0, randomHeight);
+        } while (selectedTile.terrainType == ForestTile.TerrainType.MOUNTAIN || selectedTile.terrainType == ForestTile.TerrainType.RIVER);
+        selectedTile.isCompleted = true;
+    }
+
+    void PlaceGoal() {
+        ForestTile selectedTile;
+        // TODO: If it can't find a valid goal tile, instead of looping forever change seed and try again
+        do {
+            int randomHeight = Random.Range(0, settings.height);
+            selectedTile = tiles[randomHeight][settings.width - 1];
+            goalPosition = new Vector2(0, randomHeight);
+        } while (selectedTile.terrainType == ForestTile.TerrainType.MOUNTAIN || selectedTile.terrainType == ForestTile.TerrainType.RIVER);
+        selectedTile.isGoal = true;
     }
 
 }

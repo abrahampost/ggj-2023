@@ -10,15 +10,12 @@ public class BuildForest : MonoBehaviour
     [SerializeField]
     private UIDocument doc;
 
-    public Texture2D cursorTexture;
-
     private VisualElement root;
     private VisualElement main;
 
 
     void Start()
     {
-        UnityEngine.Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.ForceSoftware);
         GameObject go = GameObject.Find("GameState");
         if (go == null) {
             go = new GameObject("GameState");
@@ -40,19 +37,15 @@ public class BuildForest : MonoBehaviour
         DrawGrid();
     }
 
-    void OnMouseEnter() {
-        UnityEngine.Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.ForceSoftware);
-    }
-
 
     private void DrawGrid() {
-        for (int i = 0; i < gameState.settings.height; i++) {
+        for (int y = 0; y < gameState.settings.height; y++) {
             VisualElement row = new VisualElement();
             row.AddToClassList("row");
-            for (int j = 0; j < gameState.settings.width; j++) {
+            for (int x = 0; x < gameState.settings.width; x++) {
                 Button button = new Button ();
                 button.AddToClassList("forest-button");
-                ForestTile selectedTile = gameState.tiles[i][j];
+                ForestTile selectedTile = gameState.tiles[y][x];
                 ForestTile.TerrainType terrainType = selectedTile.terrainType;
                 if (terrainType == ForestTile.TerrainType.RIVER) {
                     button.AddToClassList("river");
@@ -65,12 +58,33 @@ public class BuildForest : MonoBehaviour
                 } else {
                     button.AddToClassList("mountain"); 
                 }
-                if (selectedTile.isCompleted) {
+                if (gameState.playerPosition.x == x && gameState.playerPosition.y == y) {
                     VisualElement treePreview = new VisualElement();
+                    treePreview.AddToClassList("player-start");
+                    button.AddToClassList("highlighted-cell");
+                    button.Add(treePreview);
+                } else if (selectedTile.isGoal) {
+                    VisualElement goalTile = new VisualElement();
+                    goalTile.AddToClassList("goal-tile");
+                    if (Mathf.Abs(x - gameState.playerPosition.x) <= 1
+                            && Mathf.Abs(y - gameState.playerPosition.y) <= 1) {
+                        button.AddToClassList("clickable-tile");
+                    }
+                    button.clicked += () => SceneManager.LoadScene("BossFight");
+                    button.Add(goalTile);
+                } else if (selectedTile.isCompleted) {
+                    VisualElement treePreview = new VisualElement();
+                    treePreview.AddToClassList("tree");
+                    button.Add(treePreview);
+                } else if (selectedTile.isPlayable
+                            && Mathf.Abs(x - gameState.playerPosition.x) <= 1
+                            && Mathf.Abs(y - gameState.playerPosition.y) <= 1) {
+                    button.clicked += LoadLevel(x, y);
+                    button.AddToClassList("clickable-tile");
+                    VisualElement treePreview = new VisualElement();
+                    treePreview.AddToClassList("tree");
                     treePreview.AddToClassList("tree-preview");
                     button.Add(treePreview);
-                } else if (selectedTile.isPlayable) {
-                    button.clicked += LoadLevel(j, i);
                 }
                 row.Add(button);
             }
