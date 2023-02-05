@@ -24,6 +24,7 @@ public class GameState : MonoBehaviour
     public Settings settings;
     public SelectedLevel selectedLevel;
     public Vector2 playerPosition;
+    public Vector2 goalPosition;
 
     void Awake() {
         if (instantiated) {
@@ -46,6 +47,9 @@ public class GameState : MonoBehaviour
     }
 
     public void GenerateTerrain() {
+        // This should make the below placement all repeatable based on seed
+        Random.InitState(settings.seed);
+
         tiles = new ForestTile[settings.height][];
         for (int i = 0; i < settings.height; i++) {
             tiles[i] = new ForestTile[settings.width];
@@ -69,11 +73,10 @@ public class GameState : MonoBehaviour
             }
         }
         PlacePlayer();
-        PlaceBosses();
+        PlaceGoal();
     }
 
     void PlacePlayer() {
-        Random.InitState(settings.seed);
         ForestTile selectedTile;
         // TODO: If it can't find a valid start tile, instead of looping forever change seed and try again
         do {
@@ -84,8 +87,15 @@ public class GameState : MonoBehaviour
         selectedTile.isCompleted = true;
     }
 
-    void PlaceBosses() {
-
+    void PlaceGoal() {
+        ForestTile selectedTile;
+        // TODO: If it can't find a valid goal tile, instead of looping forever change seed and try again
+        do {
+            int randomHeight = Random.Range(0, settings.height);
+            selectedTile = tiles[randomHeight][settings.width - 1];
+            goalPosition = new Vector2(0, randomHeight);
+        } while (selectedTile.terrainType == ForestTile.TerrainType.MOUNTAIN || selectedTile.terrainType == ForestTile.TerrainType.RIVER);
+        selectedTile.isGoal = true;
     }
 
 }

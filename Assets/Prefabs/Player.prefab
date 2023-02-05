@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 703861936}
   - component: {fileID: 703861935}
   m_Layer: 0
-  m_Name: footsteps.audio
+  m_Name: player.audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09a2ba6d92e8be34f9a9a77664741017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  globalCooldown: 0.5
+  globalCooldown: 0.2
   melee: {fileID: 8322506543688107386, guid: 6abb8570810d1c1428318bbf8212e6e4, type: 3}
   meleeKeyBind: 323
   meleeCooldown: 0.5
@@ -209,6 +209,7 @@ MonoBehaviour:
   thornsSecondsAlive: 8
   thornsDistance: 3
   thornsDamage: 1
+  thornsSize: 1
   thornsSpeedAffect: 0.2
 --- !u!1 &1016048984
 GameObject:
@@ -426,10 +427,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 253305b68f8ce0c48ac7c7ffa800f34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footstep: {fileID: 8300000, guid: 2f4aa043a56231043a5a3242ff71258a, type: 3}
+  footstep: {fileID: 8300000, guid: 85434ad7f9edfb24e817194f95108afa, type: 3}
   audioSource: {fileID: 703861935}
-  deathScream: {fileID: 0}
-  onHitSound: {fileID: 0}
+  deathScream: {fileID: 8300000, guid: 7cac0007fd606b54bb2dc653909809a4, type: 3}
+  onHitSound: {fileID: 8300000, guid: 7dcb81f419ab51144840661ea4cb8a82, type: 3}
 --- !u!114 &274512421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,9 +488,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d365d7dec7f80184db9a77d6fc159b27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  biomeStatsBase: 5
   maxHealth: 0
   speed: 0
   strength: 0
   agility: 0
   constitution: 0
+  desertBoost: 0
+  tundraBoost: 0
+  swampBoost: 0
+  plainBoost: 0
   currentHealth: 0

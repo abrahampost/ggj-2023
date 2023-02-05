@@ -62,6 +62,7 @@ public class WeaponsController : MonoBehaviour
     public float thornsSecondsAlive;
     public float thornsDistance;
     public int thornsDamage;
+    public float thornsSize;
     public float thornsSpeedAffect;
     private bool isThornsOnCooldown = false;
 
@@ -128,32 +129,32 @@ public class WeaponsController : MonoBehaviour
     {
         var fireballObject = InstantiateObject(fireball, fireballSecondsAlive);
         isFireballOnCooldown = true;
-        Task.Delay(TimeSpan.FromSeconds(fireballCooldown * (10f / stats.agility))).ContinueWith((task) => isFireballOnCooldown = false);
-        fireballObject.GetComponent<FireballController>().speed = fireballSpeed;
+        Task.Delay(TimeSpan.FromSeconds(fireballCooldown * ((float)stats.biomeStatsBase / stats.desertBoost) * (10f / stats.agility))).ContinueWith((task) => isFireballOnCooldown = false);
+        fireballObject.GetComponent<FireballController>().speed = fireballSpeed * (stats.desertBoost / (float)stats.biomeStatsBase);
         fireballObject.GetComponent<FireballController>().startingDistance = fireballStartingDistance;
-        fireballObject.GetComponent<FireballController>().damage = fireballDamage;
-        fireballObject.GetComponent<FireballController>().speedAffect = fireballSpeedAffect;
+        fireballObject.GetComponent<FireballController>().damage = fireballDamage * (stats.desertBoost / (float)stats.biomeStatsBase);
+        fireballObject.GetComponent<FireballController>().speedAffect = fireballSpeedAffect * ((float)stats.biomeStatsBase / stats.desertBoost);
     }
 
     private void InstantiateConeOfCold()
     {
         var coneOfColdObject = InstantiateObject(coneOfCold, coneOfColdSecondsAlive);
         isConeOfColdOnCooldown = true;
-        Task.Delay(TimeSpan.FromSeconds(coneOfColdCooldown * (10f / stats.agility))).ContinueWith((task) => isConeOfColdOnCooldown = false);
+        Task.Delay(TimeSpan.FromSeconds(coneOfColdCooldown * ((float)stats.biomeStatsBase / stats.agility))).ContinueWith((task) => isConeOfColdOnCooldown = false);
         coneOfColdObject.GetComponentInChildren<ConeOfColdController>().startingDistance = coneOfColdStartingDistance;
-        coneOfColdObject.GetComponentInChildren<ConeOfColdController>().damage = coneOfColdDamage;
-        coneOfColdObject.GetComponentInChildren<ConeOfColdController>().speedAffect = coneOfColdSpeedAffect;
-        coneOfColdObject.GetComponentInChildren<ConeOfColdController>().size = coneOfColdSize;
+        coneOfColdObject.GetComponentInChildren<ConeOfColdController>().damage = coneOfColdDamage * (stats.tundraBoost / (float)stats.biomeStatsBase);
+        coneOfColdObject.GetComponentInChildren<ConeOfColdController>().speedAffect = coneOfColdSpeedAffect * ((float)stats.biomeStatsBase / stats.tundraBoost);
+        coneOfColdObject.GetComponentInChildren<ConeOfColdController>().size = coneOfColdSize * (stats.tundraBoost / (float)stats.biomeStatsBase);
     }
 
     private void InstantiateDash()
     {
         var dashObject = InstantiateObject(dash, dashTime);
         isDashOnCooldown = true;
-        Task.Delay(TimeSpan.FromSeconds(dashCooldown * (10f / stats.agility))).ContinueWith((task) => isDashOnCooldown = false);
-        dashObject.GetComponent<WindDashController>().dashSpeed = dashSpeed;
-        dashObject.GetComponent<WindDashController>().damage = dashDamage;
-        dashObject.GetComponent<WindDashController>().speedAffect = dashSpeedAffect;
+        Task.Delay(TimeSpan.FromSeconds(dashCooldown * ((float)stats.biomeStatsBase / stats.agility))).ContinueWith((task) => isDashOnCooldown = false);
+        dashObject.GetComponent<WindDashController>().dashSpeed = dashSpeed * (stats.plainBoost / (float)stats.biomeStatsBase);
+        dashObject.GetComponent<WindDashController>().damage = dashDamage * (stats.plainBoost / (float)stats.biomeStatsBase);
+        dashObject.GetComponent<WindDashController>().speedAffect = dashSpeedAffect * ((float)stats.biomeStatsBase / stats.plainBoost);
 
         isDashing = true;
         player.GetComponent<BoxCollider2D>().isTrigger = true;
@@ -172,10 +173,10 @@ public class WeaponsController : MonoBehaviour
         var thornsObject = InstantiateObject(thorns, thornsSecondsAlive);
         isThornsOnCooldown = true;
         Task.Delay(TimeSpan.FromSeconds(thornsCooldown * (10f / stats.agility))).ContinueWith((task) => isThornsOnCooldown = false);
-        thornsObject.GetComponentInChildren<ThornsController>().secondsAlive = thornsSecondsAlive;
-        thornsObject.GetComponentInChildren<ThornsController>().distance = thornsDistance;
-        thornsObject.GetComponentInChildren<ThornsController>().damage = thornsDamage;
-        thornsObject.GetComponentInChildren<ThornsController>().speedAffect = thornsSpeedAffect;
+        thornsObject.GetComponentInChildren<ThornsController>().distance = thornsDistance * (stats.swampBoost / (float)stats.biomeStatsBase);
+        thornsObject.GetComponentInChildren<ThornsController>().damage = thornsDamage * (stats.swampBoost / (float)stats.biomeStatsBase);
+        thornsObject.GetComponentInChildren<ThornsController>().speedAffect = thornsSpeedAffect * ((float)stats.biomeStatsBase / stats.swampBoost);
+        thornsObject.GetComponentInChildren<ThornsController>().size = thornsSize * (stats.swampBoost / (float)stats.biomeStatsBase);
     }
 
     private GameObject InstantiateObject(GameObject gameObject, float secondsAlive) 
