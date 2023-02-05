@@ -8,20 +8,31 @@ public class EnemySpawner : MonoBehaviour
     private GameObject enemy;
 
     [SerializeField]
-    private float spawn_rate;
+    private float spawnRate;
 
     // private GameObject[] enemies;
-    public int max_enemies;
-    private int current_enemies = 0;
+    public int maxEnemies;
+    // private int current_enemies = 0;
+    private List<GameObject> spawnedEnemies = new List<GameObject>();
 
     private IEnumerator coroutine;
 
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        coroutine = WaitAndSpawn(spawn_rate);
+        coroutine = WaitAndSpawn(spawnRate);
         StartCoroutine(coroutine);
+    }
+
+    private void Update()
+    {
+        for (int i=0; i < spawnedEnemies.Count; i++) {
+            // Debug.Log(spawnedEnemies[i].GetComponent<EnemyController>().Bark());
+            if (spawnedEnemies[i] == null) {
+                spawnedEnemies.RemoveAt(i);
+            }
+        }
     }
 
     private GameObject InstantiateObject(GameObject gameObject) 
@@ -30,16 +41,13 @@ public class EnemySpawner : MonoBehaviour
         return newObject;
     }
 
-    private IEnumerator WaitAndSpawn(float spawn_rate) 
+    private IEnumerator WaitAndSpawn(float spawnRate) 
     {
         while (true) {
-            yield return new WaitForSeconds(spawn_rate);
-            if (current_enemies < max_enemies) {
+            yield return new WaitForSeconds(spawnRate);
+            if (spawnedEnemies.Count < maxEnemies) {
                 GameObject newEnemy = InstantiateObject(enemy);
-                // newEnemy.OnDestroy(() => {
-                //     Debug.Log("dead");
-                // });
-                current_enemies += 1;
+                spawnedEnemies.Add(newEnemy);
             }
         }
     }
