@@ -38,6 +38,10 @@ public class GameState : MonoBehaviour
 
     void Start()
     {
+        InitializeGameState();
+    }
+
+    public void InitializeGameState() {
         settings = new Settings {
             height = 16,
             width = 16,

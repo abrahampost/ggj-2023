@@ -74,7 +74,7 @@ public class PlayerStats: MonoBehaviour
                 case "CONSTITUTION":
                     constitutionBuff = Mathf.Max(-rawAttributes.constitution + 1, constitutionBuff + modifier.modifierValue);
                     break;
-                case "SPEED:":
+                case "SPEED":
                     speedBuff = Mathf.Max(-rawAttributes.speed + 1, speedBuff + modifier.modifierValue);
                     break;
                 default:
@@ -102,6 +102,19 @@ public class PlayerStats: MonoBehaviour
                 throw new System.Exception("Unsupported Terrain Type Upgrade" + buff.terrainType.ToString());
         }
         AddBaseBuff(buff);
+    }
+
+    public void ResetPlayerStats() {
+        healthBuff = 0;
+        constitutionBuff = 0;
+        strengthBuff = 0;
+        speedBuff = 0;
+        agilityBuff = 0;
+
+        tundraBoost = 0;
+        plainBoost = 0;
+        swampBoost = 0;
+        desertBoost = 0;
     }
 
 }
