@@ -44,6 +44,7 @@ public class GameState : MonoBehaviour
             seed = Random.Range(1, 10000),
             scale = 3
         };
+        GetComponentInChildren<AudioSource>().Play();
         Debug.Log("Seed is " + settings.seed);
     }
 
