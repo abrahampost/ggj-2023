@@ -1,9 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="root" style="width: 100%; height: 100%; justify-content: flex-end;">
-        <ui:VisualElement name="footer" style="flex-direction: row; width: 100%; height: 20%; position: relative; bottom: auto; background-color: rgba(64, 66, 64, 0.86); justify-content: space-around; align-items: center; border-top-color: rgb(0, 0, 0); border-left-width: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">
-            <ui:IMGUIContainer name="sprite" style="height: 199px; width: 135px; background-image: url(&apos;project://database/Assets/sprites/characters/player.png?fileID=-1745322232&amp;guid=12f91880a0b34a44eab59bcfce728b76&amp;type=3#player_1&apos;); left: auto; position: relative; margin-left: 0; margin-right: 0;" />
-            <ui:Label text="Congratulations hero! You have saved the forest.&#10;Tales will be told about you for ages." display-tooltip-when-elided="true" name="endVictory" style="font-size: 30px; color: rgb(255, 255, 255); -unity-text-align: upper-center; padding-left: 0; padding-right: 0;" />
-            <ui:VisualElement name="invisibleBox" />
-        </ui:VisualElement>
-    </ui:VisualElement>
-</ui:UXML>

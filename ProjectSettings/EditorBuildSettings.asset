@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/BossFight.unity
     guid: a742c1efa74c6df4690c2cca833a88d3
   - enabled: 1
-    path: Assets/Scenes/EndGame.unity
+    path: Assets/Scenes/EndGameWin.unity
     guid: 4754b13fb2fb4c14393d05f561af89a3
   - enabled: 1
     path: Assets/Scenes/ForestSelection.unity
