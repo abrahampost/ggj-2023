@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject enemy;
+    // Spawn settings
+    public GameObject enemy;
+    public float spawnRate;
 
-    [SerializeField]
-    private float spawnRate;
-
-    // private GameObject[] enemies;
+    // Track enemies spawned
     public int maxEnemies;
-    // private int current_enemies = 0;
     private List<GameObject> spawnedEnemies = new List<GameObject>();
 
     private IEnumerator coroutine;
@@ -34,7 +31,6 @@ public class EnemySpawner : MonoBehaviour
     private void Update()
     {
         for (int i=0; i < spawnedEnemies.Count; i++) {
-            // Debug.Log(spawnedEnemies[i].GetComponent<EnemyController>().Bark());
             if (spawnedEnemies[i] == null) {
                 spawnedEnemies.RemoveAt(i);
             }

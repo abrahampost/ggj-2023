@@ -63,7 +63,6 @@ public class EnemyController : MonoBehaviour
 
         // Attack if close to target
         if (DistanceToTarget() < 2) {
-            // Debug.Log("ATTACK");
             gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
             StartCoroutine(ResetMotion());
             IEnumerator ResetMotion()
@@ -104,29 +103,12 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    // private void FixedUpdate()
-    // {
-    //     float horizontal = Input.GetAxisRaw("Horizontal");
-    //     float vertical = Input.GetAxisRaw("Vertical");
-    //     movement = new Vector2(horizontal, vertical).normalized * speed * Time.deltaTime;
-    //     rb.MovePosition(rb.position + movement);
-
-    //     // Animation
-    //     animationController.MovementAnimation(movement);
-
-    // 	// Audio
-    //     soundController.PlayFootStepsIfMoving(movement);
-    // }
 
     // AI
     //https://www.youtube.com/watch?v=DGBaEuZz-RA&t=102s
 
     private void SetTargetPosition()
     {
-        // if (Input.GetKey(KeyCode.Mouse0)) {
-            // target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            // Debug.Log(target);
-        // }
         float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
         float distanceToTree = Vector2.Distance(transform.position, tree.transform.position);
         
@@ -220,11 +202,6 @@ public class EnemyController : MonoBehaviour
     private void Attack() 
     {
         if (isAttacking) { return; }
-        // instantiate attack obj
-        // wait and destroy
-        // animation
-        // GameObject attack = EnemyAttack.Init(gameObject);
-        // EnemyAttack attack = new EnemyAttack(gameObject);
 
         isAttacking = true;
         StartCoroutine(DelayAttack());

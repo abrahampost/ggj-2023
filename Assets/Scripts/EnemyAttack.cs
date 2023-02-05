@@ -14,19 +14,12 @@ public class EnemyAttack : MonoBehaviour
 
     void Start()
     {
-        // Debug.Log("slashy washy");
         rb = parent.GetComponent<Rigidbody2D>();
         gameObject.transform.SetParent(rb.transform);
         gameObject.AddComponent<BoxCollider2D>();
         gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
         gameObject.GetComponent<BoxCollider2D>().size = parent.GetComponent<BoxCollider2D>().size * 5.0f;
     }
-
-    // private void FixedUpdate()
-    // {
-        // rb.velocity = dashDirection * dashSpeed;
-        // gameObject.GetComponent<BoxCollider2D>().size = parent.GetComponent<BoxCollider2D>().size;
-    // }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -41,7 +34,6 @@ public class EnemyAttack : MonoBehaviour
             var treeController = collision.gameObject.GetComponent<TreeController>();
             treeController.TakeDamage(damage);
             dealtDamage = true;
-            Debug.Log(damage);
         }
     }
 }

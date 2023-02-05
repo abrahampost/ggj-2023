@@ -94,8 +94,8 @@ public class TreeController : MonoBehaviour
         //soundController.IncreaseAmbientSoundPitch(soundController.GetPitch() - pitchValue);
         gameObject.transform.localScale = new Vector3(scaleValue, scaleValue, 0);
 
-        Debug.Log("SCALE");
-        Debug.Log(gameObject.transform.localScale.x);
+        // Debug.Log("SCALE");
+        // Debug.Log(gameObject.transform.localScale.x);
         
     }
 
