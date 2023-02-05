@@ -58,6 +58,7 @@ public class UpgradeController : MonoBehaviour
         upgradeThree.clicked += upgradeThreeClicked;
         upgradeThreeDescription.text = buffThree.description;
 
+        gameState.playerPosition = new Vector2(gameState.selectedLevel.x, gameState.selectedLevel.y);
         gameState.levelsCompleted += 1;
     }
 
