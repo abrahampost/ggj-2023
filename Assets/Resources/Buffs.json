@@ -133,11 +133,11 @@
                 },
                 {
                     "modifierType": "SPEED",
-                    "modifierValue": -3
+                    "modifierValue": -4
                 },
                 {
                     "modifierType": "AGILITY",
-                    "modifierValue": -3
+                    "modifierValue": -4
                 }
             ],
             "description": "Unbelievable improvement to strength, but greatly lowers speed and agility"
@@ -153,7 +153,7 @@
                     "modifierValue": 5
                 },
                 {
-                    "modifierType": "AGILITY",
+                    "modifierType": "CONSTITUTION",
                     "modifierValue": -3
                 }
             ],

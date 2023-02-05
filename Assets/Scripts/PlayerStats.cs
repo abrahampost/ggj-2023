@@ -74,7 +74,7 @@ public class PlayerStats: MonoBehaviour
                 case "CONSTITUTION":
                     constitutionBuff = Mathf.Max(-rawAttributes.constitution + 1, constitutionBuff + modifier.modifierValue);
                     break;
-                case "SPEED:":
+                case "SPEED":
                     speedBuff = Mathf.Max(-rawAttributes.speed + 1, speedBuff + modifier.modifierValue);
                     break;
                 default:

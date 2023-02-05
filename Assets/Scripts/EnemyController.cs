@@ -36,6 +36,8 @@ public class EnemyController : MonoBehaviour
     private float attackTime = 1.0f;
     private bool isAttacking = false;
     public float attackDelay = 0.2f;
+    [SerializeField]
+    private float hitboxRatio = 1.0f;
 
 
     private void Start()
@@ -75,10 +77,12 @@ public class EnemyController : MonoBehaviour
         }
 
         // player method tests
+        #if UNITY_EDITOR
         if (Input.GetKeyDown("space"))
         {
             TakeDamage(2);
         }
+        #endif
 
         if (Input.GetKeyDown("p"))
         {
@@ -111,7 +115,7 @@ public class EnemyController : MonoBehaviour
     private void SetTargetPosition()
     {
         Vector2 playerPos = player.transform.position;
-        Vector2 treePos = tree.transform.position + new Vector3(0, -0.5f, 0);
+        Vector2 treePos = tree.transform.position + new Vector3(0, -1.0f, 0);
 
         float distanceToPlayer = Vector2.Distance(transform.position, playerPos);
 
@@ -222,6 +226,7 @@ public class EnemyController : MonoBehaviour
             GameObject newAttack = Instantiate(attack, transform.position, transform.rotation);
             newAttack.GetComponent<EnemyAttack>().parent = gameObject;
             newAttack.GetComponent<EnemyAttack>().damage = damage;
+            newAttack.GetComponent<EnemyAttack>().hitboxRatio = hitboxRatio;
 
             Destroy(newAttack, attackTime);
 
