@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     private Vector2 target;
     private UnityEngine.AI.NavMeshAgent agent;
     private GameObject player;
+    private GameObject tree;
 
     // stats
     private float baseSpeed = 3.5f;
@@ -31,6 +32,8 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
+        tree = GameObject.FindWithTag("Tree");
+
         soundController = GetComponent<PlayerSoundController>();
         animationController = GetComponent<AnimationController>();
 
@@ -42,13 +45,25 @@ public class EnemyController : MonoBehaviour
 
         spriteRenderer = GetComponentsInChildren<SpriteRenderer>()[0];
         originColor = spriteRenderer.color;
-
     }
 
     private void Update()
     {
         SetTargetPosition();
         SetAgentPosition();
+
+        // Attack if close to target
+        if (DistanceToTarget() < 2) {
+            Debug.Log("ATTACK");
+            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
+            StartCoroutine(ResetMotion());
+            IEnumerator ResetMotion()
+            {
+                yield return new WaitForSecondsRealtime(1.0f);
+                gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = false;
+            }
+            Attack();
+        }
 
         // player method tests
         if (Input.GetKeyDown("space"))
@@ -101,6 +116,17 @@ public class EnemyController : MonoBehaviour
         // }
         
         target = player.transform.position;
+
+        if (target.x - transform.position.x > 0) {
+            transform.eulerAngles = new Vector3(0, 0, 0); // Flipped
+        } else {
+            transform.eulerAngles = new Vector3(0, 180, 0); // normal
+        }
+    }
+
+    private float DistanceToTarget() 
+    {
+        return Vector2.Distance(transform.position, target);
     }
 
     private void SetAgentPosition()
@@ -173,5 +199,13 @@ public class EnemyController : MonoBehaviour
 
     private void SetColor(Color color) {
         spriteRenderer.color = color;
+    }
+
+    private void Attack() 
+    {
+        // instantiate attack obj
+        // wait and destroy
+        // animation
+        animationController.AttackAnimation(1.0f);
     }
 }
