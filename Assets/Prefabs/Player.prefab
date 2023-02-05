@@ -176,7 +176,8 @@ MonoBehaviour:
   melee: {fileID: 8322506543688107386, guid: 6abb8570810d1c1428318bbf8212e6e4, type: 3}
   meleeKeyBind: 323
   meleeCooldown: 0.5
-  meleeTime: 0.5
+  meleeTime: 1
+  meleeDamage: 0
   isMeleeing: 0
   fireball: {fileID: 8322506543688107386, guid: 3b43fc676e676f34a82d1c8c7bfaea1f, type: 3}
   fireballKeyBind: 113
@@ -184,23 +185,31 @@ MonoBehaviour:
   fireballSpeed: 5
   fireballSecondsAlive: 2
   fireballStartingDistance: 0.65
+  fireballDamage: 5
+  fireballSpeedAffect: 0.7
   coneOfCold: {fileID: 8322506543688107386, guid: 20027462ff14792448e9a09ff18ef589, type: 3}
   coneOfColdKeyBind: 324
   coneOfColdCooldown: 2
   coneOfColdSecondsAlive: 2
   coneOfColdStartingDistance: 1.2
+  coneOfColdDamage: 2
+  coneOfColdSpeedAffect: 0.2
   dash: {fileID: 8322506543688107386, guid: ce89153746f5d76419cfbfd118e8f63f, type: 3}
   dashKeyBind: 304
   dashCooldown: 1
   dashTime: 0.1
   dashSpeed: 10
+  dashDamage: 3
+  dashSpeedAffect: 0.8
   isDashing: 0
   thorns: {fileID: 8322506543688107386, guid: 7c574b78f37e5a544af18735e51ff3ab, type: 3}
   thornsKeyBind: 101
-  thornsCooldown: 2
+  thornsCooldown: 5
   thornsSecondsAlive: 2
   thornsMinDistance: 0.4
   thornsMaxDistance: 2
+  thornsDamage: 1
+  thornsSpeedAffect: 0.3
 --- !u!1 &1016048984
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,8 +281,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1365461599
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 1456058920, guid: 12f91880a0b34a44eab59bcfce728b76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -420,6 +429,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footstep: {fileID: 8300000, guid: 2f4aa043a56231043a5a3242ff71258a, type: 3}
   audioSource: {fileID: 703861935}
+  deathScream: {fileID: 0}
+  onHitSound: {fileID: 0}
 --- !u!114 &274512421
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public class WeaponsController : MonoBehaviour
     public KeyCode meleeKeyBind;
     public float meleeCooldown;
     public float meleeTime;
+    public int meleeDamage;
     private bool isMeleeOnCooldown = false;
     [HideInInspector]
     public bool isMeleeing = false;
@@ -24,6 +25,8 @@ public class WeaponsController : MonoBehaviour
     public float fireballSpeed;
     public float fireballSecondsAlive;
     public float fireballStartingDistance;
+    public int fireballDamage;
+    public float fireballSpeedAffect;
     private bool isFireballOnCooldown = false;
 
     [Header("Cone of Cold")]
@@ -32,6 +35,8 @@ public class WeaponsController : MonoBehaviour
     public float coneOfColdCooldown;
     public float coneOfColdSecondsAlive; 
     public float coneOfColdStartingDistance;
+    public int coneOfColdDamage;
+    public float coneOfColdSpeedAffect;
     private bool isConeOfColdOnCooldown = false;
 
     [Header("Dash")]
@@ -41,6 +46,8 @@ public class WeaponsController : MonoBehaviour
     public float dashTime;
     public float dashSpeed;
     private bool isDashOnCooldown = false;
+    public int dashDamage;
+    public float dashSpeedAffect;
     [HideInInspector]
     public bool isDashing = false;
 
@@ -51,6 +58,8 @@ public class WeaponsController : MonoBehaviour
     public float thornsSecondsAlive;
     public float thornsMinDistance;
     public float thornsMaxDistance;
+    public int thornsDamage;
+    public float thornsSpeedAffect;
     private bool isThornsOnCooldown = false;
 
     private void Start()
@@ -105,6 +114,7 @@ public class WeaponsController : MonoBehaviour
         });
 
         meleeObject.GetComponent<MeleeController>().meleeSpeed = 1/meleeTime;
+        meleeObject.GetComponent<MeleeController>().damage = meleeDamage;
     }
 
     private void InstantiateFireball()
@@ -114,6 +124,8 @@ public class WeaponsController : MonoBehaviour
         Task.Delay(TimeSpan.FromSeconds(fireballCooldown)).ContinueWith((task) => isFireballOnCooldown = false);
         fireballObject.GetComponent<FireballController>().speed = fireballSpeed;
         fireballObject.GetComponent<FireballController>().startingDistance = fireballStartingDistance;
+        fireballObject.GetComponent<FireballController>().damage = fireballDamage;
+        fireballObject.GetComponent<FireballController>().speedAffect = fireballSpeedAffect;
     }
 
     private void InstantiateConeOfCold()
@@ -122,6 +134,8 @@ public class WeaponsController : MonoBehaviour
         isConeOfColdOnCooldown = true;
         Task.Delay(TimeSpan.FromSeconds(coneOfColdCooldown)).ContinueWith((task) => isConeOfColdOnCooldown = false);
         coneOfColdObject.GetComponent<ConeOfColdController>().startingDistance = coneOfColdStartingDistance;
+        coneOfColdObject.GetComponent<ConeOfColdController>().damage = coneOfColdDamage;
+        coneOfColdObject.GetComponent<ConeOfColdController>().speedAffect = coneOfColdSpeedAffect;
     }
 
     private void InstantiateDash()
@@ -130,6 +144,8 @@ public class WeaponsController : MonoBehaviour
         isDashOnCooldown = true;
         Task.Delay(TimeSpan.FromSeconds(dashCooldown)).ContinueWith((task) => isDashOnCooldown = false);
         dashObject.GetComponent<WindDashController>().dashSpeed = dashSpeed;
+        dashObject.GetComponent<WindDashController>().damage = dashDamage;
+        dashObject.GetComponent<WindDashController>().speedAffect = dashSpeedAffect;
 
         isDashing = true;
         player.GetComponent<BoxCollider2D>().isTrigger = true;
@@ -147,6 +163,8 @@ public class WeaponsController : MonoBehaviour
         thornsObject.GetComponent<ThornsController>().secondsAlive = thornsSecondsAlive;
         thornsObject.GetComponent<ThornsController>().minDistance = thornsMinDistance;
         thornsObject.GetComponent<ThornsController>().maxDistance = thornsMaxDistance;
+        thornsObject.GetComponent<ThornsController>().damage = thornsDamage;
+        thornsObject.GetComponent<ThornsController>().speedAffect = thornsSpeedAffect;
     }
 
     private GameObject InstantiateObject(GameObject gameObject, float secondsAlive) 

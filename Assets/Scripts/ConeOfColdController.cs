@@ -6,6 +6,10 @@ public class ConeOfColdController : MonoBehaviour
 {
     [HideInInspector]
     public float startingDistance = .2f;
+    [HideInInspector]
+    public float damage = 10.0f;
+    [HideInInspector]
+    public float speedAffect = .5f;
 
     private Rigidbody2D rb;
     private Vector3 velocity;
@@ -20,17 +24,17 @@ public class ConeOfColdController : MonoBehaviour
         var angle = mousePosition - GameObject.FindGameObjectWithTag("Player").transform.position;
         velocity = new Vector2(angle.x, angle.y).normalized;
 
-        Debug.Log(velocity);
-        Debug.Log(startingDistance);
         transform.position = transform.position + velocity * startingDistance;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg - 90));
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("Hit Enemy");
+            var enemyController = collision.gameObject.GetComponent<EnemyController>();
+            //enemyController.TakeDamage(damage);
+            enemyController.ModifySpeedByPercentageForTime(speedAffect);
         }
     }
 }

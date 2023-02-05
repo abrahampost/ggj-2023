@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -557373957
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: -1756426347, guid: 8ea5d5e924b0a3a428c14a13a7a2269a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -331,7 +331,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad25b1f710d0e44e08ceab37840354ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
 --- !u!114 &8909260730028162829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +358,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footstep: {fileID: 8300000, guid: 2f4aa043a56231043a5a3242ff71258a, type: 3}
   audioSource: {fileID: 8909260729932801393}
+  deathScream: {fileID: 0}
+  onHitSound: {fileID: 0}
 --- !u!195 &2056007116
 NavMeshAgent:
   m_ObjectHideFlags: 0

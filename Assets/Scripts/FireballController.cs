@@ -8,6 +8,10 @@ public class FireballController : MonoBehaviour
     public float speed = 5.0f;
     [HideInInspector]
     public float startingDistance = .2f;
+    [HideInInspector]
+    public float damage = 10.0f;
+    [HideInInspector]
+    public float speedAffect = .5f;
 
     private Rigidbody2D rb;
     private Vector3 velocity;
@@ -40,6 +44,9 @@ public class FireballController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            var enemyController = collision.gameObject.GetComponent<EnemyController>();
+            enemyController.TakeDamage(damage);
+            enemyController.ModifySpeedByPercentageForTime(speedAffect, 1);
             Destroy(gameObject);
         }
     }

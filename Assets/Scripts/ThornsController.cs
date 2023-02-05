@@ -11,6 +11,11 @@ public class ThornsController : MonoBehaviour
     [HideInInspector]
     public float maxDistance = 2f;
 
+    [HideInInspector]
+    public float damage = 10.0f;
+    [HideInInspector]
+    public float speedAffect = .5f;
+
     private Rigidbody2D rb;
     private Vector3 velocity;
 
@@ -40,8 +45,19 @@ public class ThornsController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            //Debug.Log("Enemy Hit");
+            var enemyController = collision.gameObject.GetComponent<EnemyController>();
+            enemyController.TakeDamage(damage);
+            enemyController.ModifySpeedByPercentageForTime(speedAffect, 3);
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Debug.Log("give speed back");
+            var enemyController = collision.gameObject.GetComponent<EnemyController>();
+            enemyController.ModifySpeedByPercentageForTime(1);
+        }
+    }
 }
