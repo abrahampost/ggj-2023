@@ -57,6 +57,8 @@ public class UpgradeController : MonoBehaviour
         upgradeTwoDescription.text = buffTwo.description;
         upgradeThree.clicked += upgradeThreeClicked;
         upgradeThreeDescription.text = buffThree.description;
+
+        gameState.levelsCompleted += 1;
     }
 
     private void upgradeOneClicked() {
