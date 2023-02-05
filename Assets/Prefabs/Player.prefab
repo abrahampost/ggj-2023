@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09a2ba6d92e8be34f9a9a77664741017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  globalCooldown: 0.5
+  globalCooldown: 0.2
   melee: {fileID: 8322506543688107386, guid: 6abb8570810d1c1428318bbf8212e6e4, type: 3}
   meleeKeyBind: 323
   meleeCooldown: 0.5
@@ -209,6 +209,7 @@ MonoBehaviour:
   thornsSecondsAlive: 8
   thornsDistance: 3
   thornsDamage: 1
+  thornsSize: 1
   thornsSpeedAffect: 0.2
 --- !u!1 &1016048984
 GameObject:
@@ -487,9 +488,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d365d7dec7f80184db9a77d6fc159b27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  biomeStatsBase: 5
   maxHealth: 0
   speed: 0
   strength: 0
   agility: 0
   constitution: 0
+  desertBoost: 0
+  tundraBoost: 0
+  swampBoost: 0
+  plainBoost: 0
   currentHealth: 0
