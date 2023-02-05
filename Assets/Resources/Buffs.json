@@ -70,7 +70,7 @@
                     "modifierValue": 2
                 }
             ],
-            "description": "Moderately strength (damage done by player)"
+            "description": "Moderately increases strength (damage done by player)"
         },
         {
             "modifiers": [
@@ -79,7 +79,7 @@
                     "modifierValue": 2
                 }
             ],
-            "description": "Moderately agility (lowers cooldowns)."
+            "description": "Moderately increases agility (lowers cooldowns)."
         },
         {
             "modifiers": [
@@ -88,7 +88,16 @@
                     "modifierValue": 2
                 }
             ],
-            "description": "Moderately speed (movement)"
+            "description": "Moderately increases speed (movement)"
+        },
+        {
+            "modifiers": [
+                {
+                    "modifierType": "AGILITY",
+                    "modifierValue": 3
+                }
+            ],
+            "description": "Greatly increases agility (lowers cooldowns)."
         },
         {
             "modifiers": [
@@ -97,16 +106,7 @@
                     "modifierValue": 3
                 }
             ],
-            "description": "Greatly agility (lowers cooldowns)."
-        },
-        {
-            "modifiers": [
-                {
-                    "modifierType": "HEALTH",
-                    "modifierValue": 3
-                }
-            ],
-            "description": "Greatly speed (movement)"
+            "description": "Greatly increases speed (movement)"
         },
         {
             "modifiers": [
