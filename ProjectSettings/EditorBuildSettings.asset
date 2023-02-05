@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SelectUpgrade.unity
     guid: c9065f5d69f0a2f46b0487977ae1f6d0
   - enabled: 1
-    path: Assets/Scenes/BossFight.unity
+    path: Assets/Scenes/Old_boss.unity
     guid: a742c1efa74c6df4690c2cca833a88d3
   - enabled: 1
     path: Assets/Scenes/EndGameWin.unity
