@@ -111,7 +111,23 @@ public class BuildForest : MonoBehaviour
         return () => {
             gameState.selectedLevel.x = x;
             gameState.selectedLevel.y = y;
-            SceneManager.LoadScene("ForestLevel");
+            ForestTile.TerrainType terrainType = gameState.tiles[y][x].terrainType;
+            switch (terrainType) {
+                case ForestTile.TerrainType.PLAIN:
+                    SceneManager.LoadScene("Grassland");
+                    break;
+                case ForestTile.TerrainType.DESERT:
+                    SceneManager.LoadScene("Desert");
+                    break;
+                case ForestTile.TerrainType.SWAMP:
+                    SceneManager.LoadScene("Swamp");
+                    break;
+                case ForestTile.TerrainType.TUNDRA:
+                    SceneManager.LoadScene("Tundra");
+                    break;
+                default:
+                    throw new System.Exception("Cannot load terrain type: " + terrainType.ToString());
+            }
         };
     }
 
