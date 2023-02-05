@@ -335,6 +335,7 @@ MonoBehaviour:
   damage: 2
   attack: {fileID: 8322506543688107386, guid: a745a113df207a82cb20e21567ac3d62, type: 3}
   attackDelay: 1
+  hitboxRatio: 5
 --- !u!114 &8909260730028162829
 MonoBehaviour:
   m_ObjectHideFlags: 0

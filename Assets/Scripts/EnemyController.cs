@@ -36,6 +36,8 @@ public class EnemyController : MonoBehaviour
     private float attackTime = 1.0f;
     private bool isAttacking = false;
     public float attackDelay = 0.2f;
+    [SerializeField]
+    private float hitboxRatio = 1.0f;
 
 
     private void Start()
@@ -224,6 +226,7 @@ public class EnemyController : MonoBehaviour
             GameObject newAttack = Instantiate(attack, transform.position, transform.rotation);
             newAttack.GetComponent<EnemyAttack>().parent = gameObject;
             newAttack.GetComponent<EnemyAttack>().damage = damage;
+            newAttack.GetComponent<EnemyAttack>().hitboxRatio = hitboxRatio;
 
             Destroy(newAttack, attackTime);
 

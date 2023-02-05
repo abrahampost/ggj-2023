@@ -132,6 +132,7 @@ MonoBehaviour:
   damage: 2
   attack: {fileID: 8322506543688107386, guid: a745a113df207a82cb20e21567ac3d62, type: 3}
   attackDelay: 1
+  hitboxRatio: 2
 --- !u!195 &467341293
 NavMeshAgent:
   m_ObjectHideFlags: 0
