@@ -116,7 +116,8 @@ public class EnemyController : MonoBehaviour
         float distanceToPlayer = Vector2.Distance(transform.position, playerPos);
 
         // Let player pull monsters away
-        if (distanceToPlayer < 3) {
+        float playerGravityWell = 4;
+        if (distanceToPlayer < playerGravityWell) {
             target = playerPos;
         } else {
             float distanceToTree = Vector2.Distance(transform.position, treePos);
