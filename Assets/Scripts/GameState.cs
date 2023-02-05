@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameState : MonoBehaviour
@@ -5,6 +7,7 @@ public class GameState : MonoBehaviour
     private static bool instantiated;
     public ForestTile[][] tiles;
 
+    [System.Serializable]
     public struct Settings {
         public int seed;
         public int width;
@@ -20,6 +23,7 @@ public class GameState : MonoBehaviour
 
     public Settings settings;
     public SelectedLevel selectedLevel;
+    public Vector2 playerPosition;
 
     void Awake() {
         if (instantiated) {
@@ -64,6 +68,24 @@ public class GameState : MonoBehaviour
                 tiles[i][j] = new ForestTile(terrainType);
             }
         }
+        PlacePlayer();
+        PlaceBosses();
+    }
+
+    void PlacePlayer() {
+        Random.InitState(settings.seed);
+        ForestTile selectedTile;
+        // TODO: If it can't find a valid start tile, instead of looping forever change seed and try again
+        do {
+            int randomHeight = Random.Range(0, settings.height);
+            selectedTile = tiles[randomHeight][0];
+            playerPosition = new Vector2(0, randomHeight);
+        } while (selectedTile.terrainType == ForestTile.TerrainType.MOUNTAIN || selectedTile.terrainType == ForestTile.TerrainType.RIVER);
+        selectedTile.isCompleted = true;
+    }
+
+    void PlaceBosses() {
+
     }
 
 }

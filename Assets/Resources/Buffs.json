@@ -4,7 +4,7 @@
             "modifiers": [
                 {
                     "modifierType": "HEALTH",
-                    "modifierValue": "1"
+                    "modifierValue": 1
                 }
             ],
             "description": "Slightly increases health (max hitpoints)"
@@ -13,7 +13,7 @@
             "modifiers": [
                 {
                     "modifierType": "CONSTITUTION",
-                    "modifierValue": "1"
+                    "modifierValue": 1
                 }
             ],
             "description": "Slightly increases constitution (reduces damage received)"
@@ -22,7 +22,7 @@
             "modifiers": [
                 {
                     "modifierType": "STRENGTH",
-                    "modifierValue": "1"
+                    "modifierValue": 1
                 }
             ],
             "description": "Slightly increases strength (damage done by player)"
@@ -31,7 +31,7 @@
             "modifiers": [
                 {
                     "modifierType": "AGILITY",
-                    "modifierValue": "1"
+                    "modifierValue": 1
                 }
             ],
             "description": "Slightly increases agility (lowers cooldowns)."
@@ -40,7 +40,7 @@
             "modifiers": [
                 {
                     "modifierType": "SPEED",
-                    "modifierValue": "1"
+                    "modifierValue": 1
                 }
             ],
             "description": "Slightly increases speed (movement)"
