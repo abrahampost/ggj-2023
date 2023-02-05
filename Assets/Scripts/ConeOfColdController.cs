@@ -29,6 +29,7 @@ public class ConeOfColdController : MonoBehaviour
         transform.parent.localScale = new Vector3(size, size, size);
         transform.parent.position = rb.transform.position + velocity * startingDistance;
         transform.parent.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg - 90));
+        FindFirstObjectByType<AttackSoundController>().ConeOfColdAttack();
     }
 
     private void Update()

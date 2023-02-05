@@ -31,7 +31,7 @@ public class ThornsController : MonoBehaviour
         transform.parent.localScale = new Vector3(size, size, size);
         transform.parent.position = transform.parent.position + velocity;
         transform.parent.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg + 90));
-
+        FindFirstObjectByType<AttackSoundController>().PlaceThorns();
     }
 
     private void OnTriggerStay2D(Collider2D collision)

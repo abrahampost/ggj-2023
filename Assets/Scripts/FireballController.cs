@@ -16,12 +16,10 @@ public class FireballController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 velocity;
 
-    private ProjectileSoundController soundController;
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        FindFirstObjectByType<ProjectileSoundController>().PlayProjectileLaunch();
+        FindFirstObjectByType<AttackSoundController>().FireballLaunch();
 
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Camera.main.nearClipPlane;

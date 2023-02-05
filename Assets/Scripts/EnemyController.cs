@@ -68,6 +68,7 @@ public class EnemyController : MonoBehaviour
                 yield return new WaitForSecondsRealtime(1.0f);
                 gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = false;
             }
+            FindFirstObjectByType<AttackSoundController>().SkellyMeleeAttack();
             Attack();
         }
 

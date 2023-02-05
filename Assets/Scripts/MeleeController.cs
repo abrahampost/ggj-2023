@@ -22,6 +22,7 @@ public class MeleeController : MonoBehaviour
         gameObject.GetComponent<BoxCollider2D>().size = GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider2D>().size * 3;
 
         animationController.AttackAnimation(meleeSpeed);
+        FindFirstObjectByType<AttackSoundController>().PlayerMeleeAttack();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
