@@ -191,7 +191,7 @@ MonoBehaviour:
   coneOfCold: {fileID: 8322506543688107386, guid: 20027462ff14792448e9a09ff18ef589, type: 3}
   coneOfColdKeyBind: 324
   coneOfColdCooldown: 2
-  coneOfColdSecondsAlive: 1.5
+  coneOfColdSecondsAlive: 1
   coneOfColdSize: 1.4
   coneOfColdStartingDistance: 0.4
   coneOfColdDamage: 2
@@ -206,7 +206,7 @@ MonoBehaviour:
   isDashing: 0
   thorns: {fileID: 8322506543688107386, guid: 7c574b78f37e5a544af18735e51ff3ab, type: 3}
   thornsKeyBind: 101
-  thornsCooldown: 1
+  thornsCooldown: 5
   thornsSecondsAlive: 8
   thornsDistance: 3
   thornsDamage: 1
