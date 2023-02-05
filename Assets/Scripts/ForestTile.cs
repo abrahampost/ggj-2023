@@ -19,6 +19,7 @@ public class ForestTile
 
     public TerrainType terrainType;
     public bool isCompleted;
+    public bool isGoal;
 
     public bool isPlayable {
         get {
