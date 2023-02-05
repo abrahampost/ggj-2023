@@ -25,8 +25,6 @@ public class GameLoseController : MonoBehaviour
         gameState = GameObject.Find("GameState").GetComponent<GameState>();
 
         planted = gameState.levelsCompleted;
-        endVictory.text = endVictory.text + "You saved " + planted + "trees";
-
         backButton = doc.rootVisualElement.Q<Button>("backButton");
         tryAgainButton = doc.rootVisualElement.Q<Button>("againButton");
         mainMenuButton = doc.rootVisualElement.Q<Button>("mainMenuButton");
@@ -43,7 +41,23 @@ public class GameLoseController : MonoBehaviour
 
     private void tryAgainButtonClicked() {
         // load last scene?
-        // SceneManager.LoadScene("")
+        ForestTile.TerrainType terrainType = gameState.tiles[gameState.selectedLevel.y][gameState.selectedLevel.x].terrainType;
+        switch (terrainType) {
+            case ForestTile.TerrainType.PLAIN:
+                SceneManager.LoadScene("Grassland");
+                break;
+            case ForestTile.TerrainType.DESERT:
+                SceneManager.LoadScene("Desert");
+                break;
+            case ForestTile.TerrainType.SWAMP:
+                SceneManager.LoadScene("Swamp");
+                break;
+            case ForestTile.TerrainType.TUNDRA:
+                SceneManager.LoadScene("Tundra");
+                break;
+            default:
+                throw new System.Exception("Cannot load terrain type: " + terrainType.ToString());
+        }
     }
 
     private void mainMenuButtonClicked() {
