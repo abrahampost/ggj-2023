@@ -34,7 +34,7 @@ public class GameState : MonoBehaviour
     {
         settings = new Settings {
             height = 16,
-            width = 24,
+            width = 16,
             seed = Random.Range(1, 10000),
             scale = 3
         };
