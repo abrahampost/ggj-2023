@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using System.Collections;
 using UnityEngine;
 
 public class WeaponsController : MonoBehaviour
@@ -107,11 +108,13 @@ public class WeaponsController : MonoBehaviour
         Task.Delay(TimeSpan.FromSeconds(meleeTime)).ContinueWith((task) => Destroy(meleeObject));
 
         isMeleeing = true;
-        player.GetComponent<BoxCollider2D>().isTrigger = true;
-        Task.Delay(TimeSpan.FromSeconds(meleeTime)).ContinueWith((task) => {
+        StartCoroutine(MakePlayerNotTrigger());
+
+        IEnumerator MakePlayerNotTrigger()
+        {
+            yield return new WaitForSecondsRealtime(meleeTime);
             isMeleeing = false;
-            player.GetComponent<BoxCollider2D>().isTrigger = false;
-        });
+        }
 
         meleeObject.GetComponent<MeleeController>().meleeSpeed = 1/meleeTime;
         meleeObject.GetComponent<MeleeController>().damage = meleeDamage;
@@ -149,10 +152,14 @@ public class WeaponsController : MonoBehaviour
 
         isDashing = true;
         player.GetComponent<BoxCollider2D>().isTrigger = true;
-        Task.Delay(TimeSpan.FromSeconds(dashTime)).ContinueWith((task) => {
+        StartCoroutine(MakePlayerNotTrigger());
+
+        IEnumerator MakePlayerNotTrigger()
+        {
+            yield return new WaitForSecondsRealtime(dashTime);
             isDashing = false;
             player.GetComponent<BoxCollider2D>().isTrigger = false;
-        });
+        }
     }
 
     private void InstantiateThorns()
@@ -170,8 +177,15 @@ public class WeaponsController : MonoBehaviour
     private GameObject InstantiateObject(GameObject gameObject, float secondsAlive) 
     {
         GameObject newObject = Instantiate(gameObject, transform.position, transform.rotation);
+
         isOnGlobalCooldown = true;
-        Task.Delay(TimeSpan.FromSeconds(globalCooldown)).ContinueWith((task) => isOnGlobalCooldown = false);
+        StartCoroutine(OffGlobalCooldown());
+        IEnumerator OffGlobalCooldown()
+        {
+            yield return new WaitForSecondsRealtime(globalCooldown);
+            isOnGlobalCooldown = false;
+        }
+
         Destroy(newObject, secondsAlive);
         return newObject;
     }

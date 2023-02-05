@@ -186,7 +186,7 @@ MonoBehaviour:
   fireballSecondsAlive: 2
   fireballStartingDistance: 0.65
   fireballDamage: 5
-  fireballSpeedAffect: 0.7
+  fireballSpeedAffect: 0.1
   coneOfCold: {fileID: 8322506543688107386, guid: 20027462ff14792448e9a09ff18ef589, type: 3}
   coneOfColdKeyBind: 324
   coneOfColdCooldown: 2
@@ -205,11 +205,11 @@ MonoBehaviour:
   thorns: {fileID: 8322506543688107386, guid: 7c574b78f37e5a544af18735e51ff3ab, type: 3}
   thornsKeyBind: 101
   thornsCooldown: 5
-  thornsSecondsAlive: 2
+  thornsSecondsAlive: 8
   thornsMinDistance: 0.4
   thornsMaxDistance: 2
-  thornsDamage: 1
-  thornsSpeedAffect: 0.3
+  thornsDamage: 5
+  thornsSpeedAffect: 0.2
 --- !u!1 &1016048984
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +380,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0

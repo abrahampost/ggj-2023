@@ -12,6 +12,7 @@ public class WindDashController : MonoBehaviour
     public float speedAffect = .5f;
     private Rigidbody2D rb;
     private Vector2 dashDirection;
+    private HashSet<int> enemiesDamaged = new HashSet<int>();
 
     void Start()
     {
@@ -48,12 +49,17 @@ public class WindDashController : MonoBehaviour
         rb.velocity = dashDirection * dashSpeed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
             var enemyController = collision.gameObject.GetComponent<EnemyController>();
-            enemyController.TakeDamage(damage);
+            if (!enemiesDamaged.Contains(collision.gameObject.GetInstanceID()))
+            {
+                enemiesDamaged.Add(collision.gameObject.GetInstanceID());
+                enemyController.TakeDamage(damage);
+            }
+            enemyController.ModifySpeedByPercentage(speedAffect);
         }
     }
 }
