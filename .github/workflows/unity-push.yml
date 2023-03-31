@@ -24,9 +24,9 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
 
       - name: Deploy to Docs branch
-            uses: s0/git-publish-subdir-action@develop
-            env:
-              REPO: self
-              BRANCH: docs
-              FOLDER: build
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: docs
+          FOLDER: build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
