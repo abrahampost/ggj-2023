@@ -13,45 +13,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Unity
-        uses: game-ci/unity-installation@v1.0.0
+      - name: Install and Build Unity project
+        uses: game-ci/unity-builder@v2.0.0
         with:
+          target: WebGL
           unityVersion: 2021.1.17f1
+          buildName: MyProject
+          projectPath: .
+          buildPath: ./Build
+          extraBuildOptions: -nographics -silent-crashes -batchmode -quit
           serial: ${{ secrets.UNITY_SERIAL }}
-          android: false
-          ios: false
-          webgl: true
-
-      - name: Build WebGL
-        run: |
-          # Set the project name and build target
-          PROJECT_NAME="Take Root"
-          BUILD_TARGET="WebGL"
-
-          # Download all necessary resources
-          echo "Downloading resources..."
-          # Add your resource download commands here
-
-          # Build the project
-          echo "Building project..."
-          /opt/Unity/Editor/Unity \
-            -batchmode \
-            -nographics \
-            -silent-crashes \
-            -logFile $(pwd)/unity.log \
-            -projectPath $(pwd) \
-            -buildTarget $BUILD_TARGET \
-            -executeMethod BuildCommand.PerformBuild \
-            -quit
-
-          # Check if the build was successful
-          if [ $? = 0 ] ; then
-            echo "Build completed successfully."
-            exit 0
-          else
-            echo "Build failed. Exited with $?."
-            exit 1
-          fi
 
       - name: Push to Docs Branch
         uses: ad-m/github-push-action@master
