@@ -1,0 +1,63 @@
+name: Build WebGL and Push to Docs Branch
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Unity
+        uses: game-ci/unity-installation@v1.0.0
+        with:
+          unityVersion: 2021.1.17f1
+          serial: ${{ secrets.UNITY_SERIAL }}
+          android: false
+          ios: false
+          webgl: true
+
+      - name: Build WebGL
+        run: |
+          # Set the project name and build target
+          PROJECT_NAME="Take Root"
+          BUILD_TARGET="WebGL"
+
+          # Download all necessary resources
+          echo "Downloading resources..."
+          # Add your resource download commands here
+
+          # Build the project
+          echo "Building project..."
+          /opt/Unity/Editor/Unity \
+            -batchmode \
+            -nographics \
+            -silent-crashes \
+            -logFile $(pwd)/unity.log \
+            -projectPath $(pwd) \
+            -buildTarget $BUILD_TARGET \
+            -executeMethod BuildCommand.PerformBuild \
+            -quit
+
+          # Check if the build was successful
+          if [ $? = 0 ] ; then
+            echo "Build completed successfully."
+            exit 0
+          else
+            echo "Build failed. Exited with $?."
+            exit 1
+          fi
+
+      - name: Push to Docs Branch
+        uses: ad-m/github-push-action@master
+        with:
+          branch: docs
+          directory: ./Build
+          force: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
