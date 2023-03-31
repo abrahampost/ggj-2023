@@ -16,19 +16,21 @@ jobs:
       - name: Install and Build Unity project
         uses: game-ci/unity-builder@v2.0.0
         with:
-          target: WebGL
+          targetPlatform: WebGL
           unityVersion: 2021.1.17f1
-          buildName: MyProject
           projectPath: .
-          buildPath: ./Build
-          extraBuildOptions: -nographics -silent-crashes -batchmode -quit
-          serial: ${{ secrets.UNITY_SERIAL }}
+          name: TakeRoot
+          path: Build
+        env:
+          UNITY_LICENSE: {{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: {{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: {{ secrets.UNITY_PASSWORD }}
 
       - name: Push to Docs Branch
         uses: ad-m/github-push-action@master
         with:
           branch: docs
-          directory: ./Build
+          directory: ./Build/TakeRoot
           force: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
