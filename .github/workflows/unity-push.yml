@@ -3,7 +3,7 @@ name: Build WebGL and Push to Docs Branch
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
